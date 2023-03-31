@@ -1,0 +1,26 @@
+@import "./src/Styles/mixins.scss";
+@import "./src/Styles/variables.scss";
+
+.notFound {
+  height: 100vh;
+  @include base-flex($justify-center, $align-center, $flex-directionC, auto);
+  background: #292929;
+  p {
+    color: $color-darkGrey;
+  }
+  &_image {
+    @include base-flex($justify-center, $align-center, auto, $gap-10);
+    line-height: 25px;
+    img {
+      width: 50%;
+    }
+    h2 {
+      color: $color-white;
+      max-width: 400px;
+    }
+    span {
+      color: #0a84de;
+      font-size: 50px;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+@import "../../Styles/mixins.scss";
+@import "../../Styles/variables.scss";
+
+.auth {
+  @include base-flex($justify-center, $align-center, auto, auto);
+  flex-wrap: wrap;
+
+  &_choose {
+    min-width: 200px;
+    @include base-flex($justify-center, $align-center, auto, $gap-15);
+    transition: $transition1s;
+
+    button {
+      &:active {
+        box-shadow: inset 0 0 5px black;
+      }
+
+      &:hover {
+        transform: scale(1.2);
+      }
+
+      box-shadow: 0 0 15px white;
+      cursor: $cursor-pointer;
+      border: $border-none;
+      border-radius: $border-radius50;
+      @include width-height(40px, 40px);
+    }
+  }
+}

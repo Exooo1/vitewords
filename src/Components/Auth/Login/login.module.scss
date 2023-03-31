@@ -1,0 +1,67 @@
+@import "src/Styles/mixins.scss";
+@import "src/Styles/variables.scss";
+
+.login {
+  @include base-flex($justify-start, $align-center, $flex-directionC, $gap-20);
+  @include width-height(500px, 530px);
+  margin: 10px 0;
+
+  button {
+    &:active {
+      box-shadow: 0 0 6px #06fbde;
+    }
+
+    @include back-shadow-radius(white, $box-shadow-black, 20px);
+    @include width-height(345px, 70px);
+    @include size-weight-line(25px, $weight-900, auto);
+    cursor: $cursor-pointer;
+    border: $border-none;
+    color: #464444;
+  }
+
+  &_description {
+    @include base-flex($justify-center, $align-center, auto, auto);
+
+    p {
+      color: $color-darkGrey;
+      line-height: 15px;
+      width: 200px;
+    }
+
+    section {
+      @include base-flex(auto, auto, $flex-directionC, $gap-15);
+      width: 140px;
+      line-height: 5px;
+
+      a {
+        color: #41ea6e;
+        font-family: $font-lightCalibri;
+        text-decoration: none;
+        @include size-weight-line(16px, $weight-700, auto);
+      }
+    }
+  }
+
+  header {
+    line-height: 0px;
+    width: 100%;
+    color: $color-darkGrey;
+    align-items: flex-start;
+    margin-bottom: 30px;
+
+    b {
+      font-family: $font-lightCalibri;
+      font-weight: $weight-600;
+    }
+
+    h1 {
+      @include size-weight-spacing(26px, $weight-900, 0.5px);
+      color: $color-white;
+
+      span {
+        font-size: 50px;
+        color: #0a84de;
+      }
+    }
+  }
+}

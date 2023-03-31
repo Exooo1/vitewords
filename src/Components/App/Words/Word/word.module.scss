@@ -1,0 +1,246 @@
+.word{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: white;
+  width: 100%;
+  height: 40px;
+  &_management{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 20%;
+    p{
+      font-family: "Calibri Light";
+      width: 100%;
+    }
+    img{
+      width: 35px;
+      height: 35px;
+      cursor: pointer;
+    }
+    button{
+      font-weight: 800;
+      color: white;
+      background-color: #751ee9;
+      box-shadow: inset 0 0 5px black;
+      cursor: pointer;
+      width: 35px;
+      height: 33px;
+      border-radius: 50%;
+      border: none;
+    }
+  }
+  &_description{
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    p{
+     &:first-child{
+       font-family: "Calibri Light";
+       text-shadow: 0 0 10px black;
+       font-weight: 900;
+       font-size: 17px;
+       font-style: italic;
+     }
+      width: 33.3%;
+    }
+    input{
+      height: 35px;
+      background: none;
+      border: none;
+      color: white;
+      width: 33.3%;
+    }
+  }
+}
+//.container_word {
+//  display: flex;
+//  justify-content: center;
+//  align-items: center;
+//  height: 41px;
+//
+//  img {
+//    cursor: pointer;
+//    margin: 0 5px;
+//    width: 30px;
+//    height: 30px;
+//  }
+//
+//  img:hover {
+//    scale: 1.2;
+//  }
+//
+//  input {
+//    font-family: "Calibri Light";
+//    height: 40px;
+//    width: 26.67%;
+//    background: none;
+//    border: none;
+//    color: white;
+//    font-size: 18px;
+//  }
+//
+//  .container_word_main {
+//    font-family: "Calibri Light";
+//    font-size: 18px;
+//    font-weight: 700;
+//    text-align: left;
+//    color: white;
+//    padding-left: 15px;
+//    width: 20%;
+//  }
+//
+//  .container_word_translate {
+//    text-shadow: 1px 1px 0 black;
+//    font-family: Roboto;
+//    text-align: start;
+//    color: #b562e6;
+//    letter-spacing: 0.8px;
+//    width: 25%;
+//    font-size: 20px;
+//  }
+//
+//  .container_word_description {
+//    color: #00f841;
+//    width: 35%;
+//    font-size: 17px;
+//    font-weight: 600;
+//  }
+//
+//  .description_active {
+//    font-family: "Cambria Math";
+//    color: rgba(118, 122, 123, 0.51);
+//  }
+//
+//  .container_word_added {
+//    color: white;
+//    width: 13%;
+//  }
+//
+//  button {
+//    transition: 0.5s;
+//
+//    &:hover {
+//      transform: rotate(180deg);
+//    }
+//
+//    font-weight: 900;
+//    border-radius: 60px;
+//    height: 30px;
+//    width: 30px;
+//    background: #0a84de;
+//    color: white;
+//    cursor: pointer;
+//    border: none;
+//    margin-right: 10px;
+//    box-shadow: 0 0 10px #5d5dec;
+//  }
+//
+//  button:active {
+//    box-shadow: inset 0 0 10px black;
+//  }
+//}
+//
+//$font-light: "Calibri Light";
+//$font-main: "Calibri Light";
+//$font-translate: Roboto;
+//$font-description: "Cambria Math";
+//$color-white: white;
+//$color-purple: #b562e6;
+//$color-green: #00f841;
+//$color-grey: rgba(118, 122, 123, 0.51);
+//$color-blue: #0a84de;
+//$color-black: black;
+//$shadow-main: 0 0 10px #5d5dec;
+//
+//.container {
+//  &__word {
+//    display: flex;
+//    justify-content: center;
+//    align-items: center;
+//    height: 41px;
+//
+//    img {
+//      cursor: pointer;
+//      margin: 0 5px;
+//      width: 30px;
+//      height: 30px;
+//    }
+//
+//    img:hover {
+//      transform: scale(1.2);
+//    }
+//
+//    input {
+//      font-family: $font-light;
+//      height: 40px;
+//      width: 26.67%;
+//      background: none;
+//      border: none;
+//      color: $color-white;
+//      font-size: 18px;
+//    }
+//
+//    &__main {
+//      font-family: $font-main;
+//      font-size: 18px;
+//      font-weight: 700;
+//      text-align: left;
+//      color: $color-white;
+//      padding-left: 15px;
+//      width: 20%;
+//    }
+//
+//    &__translate {
+//      text-shadow: 1px 1px 0 $color-black;
+//      font-family: $font-translate;
+//      text-align: start;
+//      color: $color-purple;
+//      letter-spacing: 0.8px;
+//      width: 25%;
+//      font-size: 20px;
+//    }
+//
+//    &__description {
+//      color: $color-green;
+//      width: 35%;
+//      font-size: 17px;
+//      font-weight: 600;
+//    }
+//
+//    &__description.active {
+//      font-family: $font-description;
+//      color: $color-grey;
+//    }
+//
+//    &__added {
+//      color: $color-white;
+//      width: 13%;
+//    }
+//
+//    transition: 0.5s;
+//
+//    &:hover {
+//      transform: rotate(180deg);
+//    }
+//
+//    font-weight: 900;
+//    border-radius: 60px;
+//    height: 30px;
+//    width: 30px;
+//    background: #0a84de;
+//    color: white;
+//    cursor: pointer;
+//    border: none;
+//    margin-right: 10px;
+//    box-shadow: 0 0 10px #5d5dec;
+//  }
+//
+//  button:active {
+//    box-shadow: inset 0 0 10px black;
+//  }
+//}

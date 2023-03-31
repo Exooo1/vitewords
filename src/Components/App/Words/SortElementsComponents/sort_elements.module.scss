@@ -1,0 +1,25 @@
+.sortElements{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
+  button{
+    width: 80px;
+    height: 30px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 700;
+    color: darkgrey;
+    &:hover{
+      box-shadow: 0 0 10px black;
+    }
+    &:active{
+      box-shadow: inset 0 0 5px black;
+    }
+  }
+  button:last-child{
+    width: 30px;
+  }
+}

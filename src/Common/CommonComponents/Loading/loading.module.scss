@@ -1,0 +1,17 @@
+@keyframes loadingAnimation {
+  from {
+    transform: rotate(190deg);
+  }
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 625px;
+
+  img {
+    width: 500px;
+    animation: loadingAnimation 1s infinite alternate;
+  }
+}

@@ -1,0 +1,54 @@
+@import "../../Styles/mixins.scss";
+@import "../../Styles/variables.scss";
+
+.footer {
+  font-family: "Calibri Light";
+  color: $color-darkGrey;
+  @include base-flex($justify-start, $align-center, $flex-directionC, $gap-5);
+  @include size-weight-line(17px, $weight-400, 20px);
+  @include width-minHeight(100%, 12vh);
+
+  &_description {
+    @include base-flex($justify-center, $align-center, $flex-directionC, auto);
+    &_cite {
+      margin-top: 15px;
+    }
+    &_links {
+      width: 335px;
+
+      ul {
+        margin: 0 0;
+        padding: 0 0;
+        @include base-flex($justify-spaceA, $align-center, auto, auto);
+
+        li {
+          list-style-type: none;
+
+          img {
+            transition: 200ms;
+
+            &:hover {
+              transform: scale(1.2);
+            }
+            cursor: $cursor-pointer;
+            width: 40px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .footer {
+    margin-top: 50px;
+  }
+}
+
+@media (max-height: 800px) {
+  .footer {
+    section {
+      display: none;
+    }
+  }
+}

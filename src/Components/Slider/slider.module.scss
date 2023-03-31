@@ -1,0 +1,77 @@
+@import "../../Styles/mixins.scss";
+@import "../../Styles/variables.scss";
+
+@keyframes sliderImg {
+  from {
+    transform: translate(0, -160px);
+  }
+  to {
+  }
+}
+
+.slider {
+  margin-top: 10px;
+  @include base-flex($justify-start, $align-center, $flex-directionC, auto);
+  @include maxWidth-height(500px, 530px);
+  color: $color-white;
+  border-radius: $border-radius20;
+
+  img {
+    border-radius: 20px 20px 0 0;
+    @include width-height(100%, 350px);
+  }
+
+  &_switchers {
+    margin-top: 7px;
+    @include base-flex($justify-center, $align-center, auto, $gap-15);
+
+    .switchers_isActive {
+      &:disabled {
+        cursor: initial;
+      }
+
+      transition: $transition2s;
+      background: #443e4a;
+      box-shadow: 0 0 20px #cf91fc;
+    }
+
+    button {
+      cursor: $cursor-pointer;
+      &:hover {
+        transform: scale(1.5);
+      }
+
+      transition: 0.5s;
+      border: $border-none;
+      background: $color-white;
+      border-radius: $border-radius10;
+      @include width-height(40px, 40px);
+    }
+  }
+
+  &_description {
+    border-bottom: 0.5px $color-white;
+
+    dl {
+      @include base-flex(
+        $justify-center,
+        $align-center,
+        $flex-directionC,
+        $gap-10
+      );
+      height: 125px;
+
+      dt {
+        color: $color-blue;
+        font-size: 25px;
+        font-weight: $weight-900;
+      }
+
+      dd {
+        width: 335px;
+        font-size: 15px;
+        font-weight: $weight-400;
+      }
+    }
+  }
+}
