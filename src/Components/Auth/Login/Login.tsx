@@ -1,10 +1,10 @@
 import React, { FC, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useForm } from "../../../Hooks/Form";
+import { useForm } from "../../../hooks/Form";
 import { FormPassword } from "../../../Common/CommonComponents/FormPassword/FormPassword";
 import { changeTitle } from "../../../Common/usefulFuncs";
-import { useAppSelector } from "../../../Redux/ReduxUtils";
-import { authReselect } from "../../../Redux/Reselect";
+import { useAppSelector } from "../../../redux/ReduxUtils";
+import { authReselect } from "../../../redux/Reselect";
 import styles from "./login.module.scss";
 
 export const Login: FC = () => {

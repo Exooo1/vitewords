@@ -1,5 +1,5 @@
-@import "src/Styles/mixins.scss";
-@import "src/Styles/variables.scss";
+@import "../../../styles/mixins.scss";
+@import "../../../styles/variables.scss";
 
 .login {
   @include base-flex($justify-start, $align-center, $flex-directionC, $gap-20);

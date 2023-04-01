@@ -1,5 +1,5 @@
 import axios, { AxiosPromise } from "axios";
-import { InputType } from "../Hooks/Form";
+import { InputType } from "../hooks/Form";
 import { ProjectTypeReturn } from "../Common/Types/CommonType";
 
 const instance = axios.create({

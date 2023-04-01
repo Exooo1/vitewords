@@ -1,4 +1,4 @@
-import { addHint, deleteHint, PayloadHintType } from "../Redux/ErrorsReducer";
+import { addHint, deleteHint, PayloadHintType } from "../redux/ErrorsReducer";
 
 type StatusTypeHint = "done" | "error";
 

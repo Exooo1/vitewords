@@ -1,11 +1,11 @@
 import React, { FC, useEffect } from "react";
 import { LinkMemo } from "../../../Common/CommonComponents/MemoLink/Link";
-import { fetchGetAuth } from "../../../Redux/AuthReducer";
-import { useAppDispatch, useAppSelector } from "../../../Redux/ReduxUtils";
-import { useForm } from "../../../Hooks/Form";
+import { fetchGetAuth } from "../../../redux/AuthReducer";
+import { useAppDispatch, useAppSelector } from "../../../redux/ReduxUtils";
+import { useForm } from "../../../hooks/Form";
 import { Navigate } from "react-router-dom";
 import { FormPassword } from "../../../Common/CommonComponents/FormPassword/FormPassword";
-import { authReselect, resultCodeReselect } from "../../../Redux/Reselect";
+import { authReselect, resultCodeReselect } from "../../../redux/Reselect";
 
 import styles from "./registration.module.scss";
 

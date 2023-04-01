@@ -2,10 +2,10 @@ import React, {useEffect, useState} from "react";
 import {HintModal} from "../../Common/ModalComponents/HintModal/HintModal";
 import {NAV} from "../../constants/constants";
 import {Link, Outlet, useNavigate} from "react-router-dom";
-import {useAppDispatch, useAppSelector} from "../../Redux/ReduxUtils";
-import {authReselect} from "../../Redux/Reselect";
-import {fetchGetProfile} from "../../Redux/ProfileReducer";
-import {fetchLogOut} from "../../Redux/AuthReducer";
+import {useAppDispatch, useAppSelector} from "../../redux/ReduxUtils";
+import {authReselect} from "../../redux/Reselect";
+import {fetchGetProfile} from "../../redux/ProfileReducer";
+import {fetchLogOut} from "../../redux/AuthReducer";
 
 import logo from "../../Assets/Images/logo.png";
 import logout from "../../Assets/Images/logout.png";

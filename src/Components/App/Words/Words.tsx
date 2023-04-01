@@ -6,16 +6,16 @@ import React, {
     useState
 } from "react";
 import {Word} from "./Word/Word";
-import {useAppDispatch, useAppSelector} from "../../../Redux/ReduxUtils";
+import {useAppDispatch, useAppSelector} from "../../../redux/ReduxUtils";
 import {
     fetchDeleteWord,
     fetchDownloadFile,
     fetchGetWords,
     fetchSortWords,
     fetchWordFind
-} from "../../../Redux/WordsReducer";
+} from "../../../redux/WordsReducer";
 import {WordModal} from "../../../Common/ModalComponents/WordModal/WordModal";
-import {profileReselect} from "../../../Redux/Reselect";
+import {profileReselect} from "../../../redux/Reselect";
 import {SortChoice, WordType} from "../../../api/wordAPI";
 import {changeTitle} from "../../../Common/usefulFuncs";
 import {Loading} from "../../../Common/CommonComponents/Loading/Loading";

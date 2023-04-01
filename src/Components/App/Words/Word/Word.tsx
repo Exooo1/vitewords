@@ -1,7 +1,7 @@
 import React, {ChangeEvent, useState} from "react";
 import "./word.module.scss";
-import {useAppDispatch} from "../../../../Redux/ReduxUtils";
-import {fetchChangeWord} from "../../../../Redux/WordsReducer";
+import {useAppDispatch} from "../../../../redux/ReduxUtils";
+import {fetchChangeWord} from "../../../../redux/WordsReducer";
 import styles from './word.module.scss'
 
 type WordType = {

@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useState } from "react";
-import { useAppDispatch } from "../../../Redux/ReduxUtils";
-import { fetchAddWord } from "../../../Redux/WordsReducer";
+import { useAppDispatch } from "../../../redux/ReduxUtils";
+import { fetchAddWord } from "../../../redux/WordsReducer";
 import "./wordModal.scss";
 
 type WordModalType = {

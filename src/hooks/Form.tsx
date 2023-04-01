@@ -1,6 +1,6 @@
 import { ChangeEvent, useCallback, useState } from "react";
-import { useAppDispatch } from "../Redux/ReduxUtils";
-import { fetchLogin, fetchRegistration } from "../Redux/AuthReducer";
+import { useAppDispatch } from "../redux/ReduxUtils";
+import { fetchLogin, fetchRegistration } from "../redux/AuthReducer";
 import { handlerDeleteHint } from "../Common/usefulFuncs";
 import info from "../Assets/Images/inform.png";
 

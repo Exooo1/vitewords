@@ -3,7 +3,7 @@ import {
   fetchRegistration,
   InitialStateAuth,
   slice
-} from "../Redux/AuthReducer";
+} from "../redux/AuthReducer";
 import info from "../Assets/Images/inform.png";
 import { ItemProfileType } from "./Form";
 

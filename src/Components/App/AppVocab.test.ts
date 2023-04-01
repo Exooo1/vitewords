@@ -2,7 +2,7 @@ import {
   fetchGetProfile,
   profileReducer,
   slice
-} from "../../Redux/ProfileReducer";
+} from "../../redux/ProfileReducer";
 import { FullNameType } from "../../api/profileAPI";
 
 it("NavBar", () => {

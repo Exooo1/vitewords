@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { changeTitle } from "../../../Common/usefulFuncs";
-import { fetchConfirmPassword } from "../../../Redux/AuthReducer";
-import { useAppDispatch } from "../../../Redux/ReduxUtils";
+import { fetchConfirmPassword } from "../../../redux/AuthReducer";
+import { useAppDispatch } from "../../../redux/ReduxUtils";
 import styles from "./confirmed.module.scss";
 import verify from "../../../Assets/Images/verify.png";
 import { HintModal } from "../../../Common/ModalComponents/HintModal/HintModal";

@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { AxiosError } from "axios";
-import { InputType } from "../Hooks/Form";
+import { InputType } from "../hooks/Form";
 import { apiAuth, AuthLoginType, LoginType } from "../api/authAPI";
 import { ProjectTypeReturn, ThunkError } from "../Common/Types/CommonType";
 import { handlerDeleteHint } from "../Common/usefulFuncs";

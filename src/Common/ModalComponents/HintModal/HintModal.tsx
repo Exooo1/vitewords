@@ -1,6 +1,6 @@
 import React from "react";
-import { useActions, useAppSelector } from "../../../Redux/ReduxUtils";
-import { slice } from "../../../Redux/ErrorsReducer";
+import { useActions, useAppSelector } from "../../../redux/ReduxUtils";
+import { slice } from "../../../redux/ErrorsReducer";
 import done from "../../../Assets/Images/done.png";
 import error from "../../../Assets/Images/error.png";
 import styles from "./hintmodal.module.scss";
