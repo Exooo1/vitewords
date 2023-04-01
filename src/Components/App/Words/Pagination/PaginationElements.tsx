@@ -7,8 +7,10 @@ type PaginationType = {
   isActive: boolean;
 };
 const isActiveStyle = {
-    color:'#00bcd4',
-    transform:'scale(0.8)',
+    color:'#606373',
+    width:'60px',
+    borderRadius:'20px',
+    transform:'scale(1.3)',
     fontWeight:900
 }
 export const PaginationElements = ({ id, click, isActive }: PaginationType) => {

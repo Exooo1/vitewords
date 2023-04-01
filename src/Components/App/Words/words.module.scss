@@ -3,12 +3,13 @@
 
 .words {
   @include base-flex-back($justify-start,$align-center,$flex-directionC,$gap-10,#201e1e);
-  @include width-height(100%,100vh);
+  @include width-minHeight(100%,100vh);
   &_footer{
     width: 96%;
     @include base-flex($justify-spaceB,$align-center,auto,auto);
     color: $color-white;
     &_showing{
+      width: 15%;
       font-size: 14px;
       color: $color-darkGrey;
     }
