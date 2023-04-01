@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 
 import styles from "./header.module.scss";
-import logo from "../../assets/Images/logo1.png";
+import logo from "../../assets/Images/logo.png";
 
 export const Header: FC = () => {
   return (

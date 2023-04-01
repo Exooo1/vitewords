@@ -24,8 +24,8 @@ import {Pagination} from "./Pagination/Pagination";
 import {Download} from "./DownloadParameters/Download";
 
 import search from '../../../assets/Images/search.png'
-import letters from '../../../assets/Images/letters.png'
-import books from "../../../assets/Images/books.png";
+import managment from '../../../assets/Images/knowlegde.png'
+import knowledge from "../../../assets/Images/sortknowleadge.png";
 import styles from "./words.module.scss";
 
 let timeout: ReturnType<typeof setTimeout>;
@@ -134,7 +134,7 @@ export const Words = () => {
                             course repeat the words you have learned.
                         </p>
                     </section>
-                    <img src={books} alt="books"/>
+                    <img src={managment} alt="books"/>
                 </section>
                 <section className={styles.words_header_filters}>
                     <section className={styles.words_header_filters_description}>
@@ -149,7 +149,7 @@ export const Words = () => {
                             isLoading={isLoading}
                         />
                     </section>
-                    <img src={letters} alt="books"/>
+                    <img src={knowledge} alt="books"/>
                 </section>
                 <section className={styles.words_header_search}>
                     <section className={styles.words_header_search_description}>
