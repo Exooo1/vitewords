@@ -66,21 +66,11 @@
 
     &_search {
       @include back-shadow-radius(#be69da,0 0 15px #be69da,20px);
-      @include width-minHeight(25%,200px);
+      @include width-minHeight(30%,200px);
       @include base-flex($justify-center,$align-center,auto,$gap-10);
       flex-wrap: wrap;
-
-      button{
-        transition: $transition1s;
-        &:hover{
-          transform: rotateZ(360deg);
-        }
-        cursor: $cursor-pointer;
-        @include back-shadow-radius(rgba(32, 30, 30, 0.85),$box-shadow-black,50%);
-        @include width-height(80px,80px);
-        border: $border-none;
-        font-size: 60px;
-        color: #be69da;
+      img{
+        width: 30%;
       }
       &_description {
         @include width-minHeight(240px,200px);
@@ -98,7 +88,20 @@
 
         &_newWord {
           font-family: $font-lightCalibri;
-          @include base-flex(auto,auto,$flex-directionC,$gap-5);
+          @include base-flex(auto,auto,$flex-directionR,$gap-5);
+
+          button{
+            transition: $transition1s;
+            &:hover{
+              transform: rotateZ(360deg);
+            }
+            cursor: $cursor-pointer;
+            @include back-shadow-radius(rgba(32, 30, 30, 0.85),$box-shadow-black,50%);
+            @include width-height(40px,40px);
+            border: $border-none;
+            font-size: 25px;
+            color: #be69da;
+          }
           section {
             @include back-shadow-radius($color-white,none,40px);
             @include width-height(40px,40px);

@@ -26,6 +26,7 @@ import {Download} from "./DownloadParameters/Download";
 import search from '../../../assets/Images/search.png'
 import managment from '../../../assets/Images/knowlegde.png'
 import knowledge from "../../../assets/Images/sortknowleadge.png";
+import abc from "../../../assets/Images/abc.png";
 import styles from "./words.module.scss";
 
 let timeout: ReturnType<typeof setTimeout>;
@@ -134,7 +135,7 @@ export const Words = () => {
                             course repeat the words you have learned.
                         </p>
                     </section>
-                    <img src={managment} alt="books"/>
+                    <img src={managment} alt="managment" role='picture'/>
                 </section>
                 <section className={styles.words_header_filters}>
                     <section className={styles.words_header_filters_description}>
@@ -149,7 +150,7 @@ export const Words = () => {
                             isLoading={isLoading}
                         />
                     </section>
-                    <img src={knowledge} alt="books"/>
+                    <img src={knowledge} alt="knowledge" role='picture'/>
                 </section>
                 <section className={styles.words_header_search}>
                     <section className={styles.words_header_search_description}>
@@ -177,9 +178,10 @@ export const Words = () => {
                                     placeholder="Search a word"
                                 />
                             </section>
+                            <button onClick={() => handlerIsModal(true)}>+</button>
                         </section>
                     </section>
-                    <button onClick={() => handlerIsModal(true)}>+</button>
+                    <img src={abc} alt="abc-search" role='picture'/>
                 </section>
             </section>
             <section className={styles.words_containerWords}>
