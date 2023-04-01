@@ -1,5 +1,5 @@
 import managment from "../assets/Images/managerwords.png";
-import {ChoiceAuthType, NavType, SliderTypeBanners} from "../Common/Types/CommonType";
+import {ChoiceAuthType, NavType, SliderTypeBanners, SortElementsType} from "../Common/Types/CommonType";
 import profile from "../assets/Images/profile.png";
 import dashboard from "../assets/Images/dashboard.png";
 import vocab from "../assets/Images/vocab.png";
@@ -87,4 +87,8 @@ export const NAV:Array<NavType> = [ {
         img: chat,
         style: false
     },
+]
+export const SORT_ELEMENTS:Array<SortElementsType> = [
+    {id: 2, name: "Description", sort: "DESCRIPTION"},
+    {id: 3, name: "Added", sort: "ADDED"}
 ]

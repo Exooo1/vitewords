@@ -135,7 +135,6 @@ export const fetchWordFind = createAsyncThunk<Array<WordType>, string>(
         }
     }
 );
-
 export const fetchSortWords = createAsyncThunk<Array<WordType>, SortChoice>(
     "words/fetchAddedWords",
     async (sortType, {dispatch, rejectWithValue, getState}) => {

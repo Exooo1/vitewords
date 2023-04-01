@@ -30,6 +30,7 @@ import abc from "../../../assets/Images/abc.png";
 import styles from "./words.module.scss";
 
 let timeout: ReturnType<typeof setTimeout>;
+let sortValue: number = 0;
 
 export const Words = () => {
     const [isSearch, setIsSearch] = useState<boolean>(false);
@@ -80,7 +81,7 @@ export const Words = () => {
         []
     );
     const handlerButtonNext = useCallback(() => {
-        if (current===resultPagination) return;
+        if (current === resultPagination) return;
         else setCurrent(state => state + 1)
     }, [current]);
     const handlerButtonPrevious = useCallback(() => {
@@ -96,8 +97,12 @@ export const Words = () => {
         setFind("");
         dispatch(fetchGetWords(current));
     }, []);
+
     const handlerSortFetch = useCallback((typeSort: SortChoice) => {
-        dispatch(fetchSortWords(typeSort));
+        if (new Date().getTime() > sortValue) {
+            dispatch(fetchSortWords(typeSort));
+            sortValue = new Date().getTime() + 2000
+        } else return
     }, []);
     const downloadFile = useCallback(() => {
         dispatch(fetchDownloadFile(file));

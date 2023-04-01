@@ -1,13 +1,9 @@
-import React, {useState} from "react";
+import React from "react";
 import {SortElement} from "../SortElements/SortElement";
 import {SortChoice} from "../../../../api/wordAPI";
 import styles from "./sort_elements.module.scss";
+import {SORT_ELEMENTS} from "../../../../constants/constants";
 
-type SortElementsType = {
-    id: number;
-    name: string;
-    sort: SortChoice;
-};
 type SortTypeItems = {
     isLoading: boolean;
     fetchSort: (typeSort: SortChoice) => void;
@@ -16,10 +12,7 @@ type SortTypeItems = {
 
 export const SortElementComponents: React.FC<SortTypeItems> = React.memo(
     ({isLoading, fetchSortReset, fetchSort}) => {
-        const [sortElements, setSortElements] = useState<Array<SortElementsType>>([
-            {id: 2, name: "Description", sort: "DESCRIPTION"},
-            {id: 3, name: "Added", sort: "ADDED"}
-        ]);
+        const sortElements = SORT_ELEMENTS;
         const handlerSort = (name: string, sort: SortChoice) => {
             fetchSort(sort);
         };
