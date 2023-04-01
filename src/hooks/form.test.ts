@@ -4,7 +4,7 @@ import {
   InitialStateAuth,
   slice
 } from "../redux/AuthReducer";
-import info from "../Assets/Images/inform.png";
+import info from "../assets/Images/inform.png";
 import { ItemProfileType } from "./Form";
 
 type CreateAccountType = {

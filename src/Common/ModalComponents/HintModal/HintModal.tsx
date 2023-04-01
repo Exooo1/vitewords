@@ -1,8 +1,8 @@
 import React from "react";
 import { useActions, useAppSelector } from "../../../redux/ReduxUtils";
 import { slice } from "../../../redux/ErrorsReducer";
-import done from "../../../Assets/Images/done.png";
-import error from "../../../Assets/Images/error.png";
+import done from "../../../assets/Images/done.png";
+import error from "../../../assets/Images/error.png";
 import styles from "./hintmodal.module.scss";
 
 export const HintModal = () => {

@@ -19,12 +19,13 @@ import {profileReselect} from "../../../redux/Reselect";
 import {SortChoice, WordType} from "../../../api/wordAPI";
 import {changeTitle} from "../../../Common/usefulFuncs";
 import {Loading} from "../../../Common/CommonComponents/Loading/Loading";
-import search from "../../../Assets/Images/search.png";
 import {SortElementComponents} from "./SortElementsComponents/SortElementComponents";
 import {Pagination} from "./Pagination/Pagination";
 import {Download} from "./DownloadParameters/Download";
-import letters from "../../../Assets/Images/letters.png";
-import books from "../../../Assets/Images/books.png";
+
+import search from '../../../assets/Images/search.png'
+import letters from '../../../assets/Images/letters.png'
+import books from "../../../assets/Images/books.png";
 import styles from "./words.module.scss";
 
 let timeout: ReturnType<typeof setTimeout>;
@@ -37,6 +38,7 @@ export const Words = () => {
     const [isModal, setIsModal] = useState<boolean>(false);
     const {words, totalWords, isLoading} = useAppSelector(profileReselect);
     const dispatch = useAppDispatch();
+
     useEffect(() => {
         changeTitle("Words");
         dispatch(fetchGetWords(current));
@@ -55,7 +57,6 @@ export const Words = () => {
             dispatch(fetchWordFind(e.target.value));
         }, 500);
     };
-    console.log(current)
     const returnArrayPagination = () => {
         const right = () => {
             const result = resultPagination - (current + 2);
@@ -77,7 +78,6 @@ export const Words = () => {
         (value: number) => setCurrent(value),
         []
     );
-    console.log(current,resultPagination)
     const handlerButtonNext = useCallback(() => {
         if (current===resultPagination) return;
         else setCurrent(state => state + 1)
@@ -166,7 +166,7 @@ export const Words = () => {
                                 }
                             >
                                 <img
-                                    src="https://cdn-icons-png.flaticon.com/512/3670/3670643.png"
+                                    src={search}
                                     alt="search"
                                     onClick={() => setIsSearch(!isSearch)}
                                 />
@@ -213,68 +213,4 @@ export const Words = () => {
             </section>
         </main>
     );
-    // <div className="container_words">
-    //   <div className="container_words_description">
-    //     <div className="container_words_description_one">
-    //       <h1>Words Management</h1>
-    //       <p>
-    //         Here, you can manage your words and phrases, update, delete,
-    //         correct. Add everything you know!
-    //       </p>
-    //     </div>
-    //     <div className="container_words_description_two">
-    //       <button onClick={() => handlerIsModal(true)}>+ Add new word</button>
-    //       <div>
-    //         <img src={search} alt="Search" />
-    //         <input
-    //           value={find}
-    //           onChange={handlerFindWord}
-    //           type="text"
-    //           placeholder="Search by any words"
-    //         />
-    //       </div>
-    //     </div>
-    //   </div>
-    //   <div className="container_words_sort">
-    //     <div className="container_words_sort_buttons">
-    //       <p>Filters - </p>
-    //       <SortElementComponents
-    //         fetchSortReset={handlerSortResetFetch}
-    //         fetchSort={handlerSortFetch}
-    //         isLoading={isLoading}
-    //       />
-    //     </div>
-    //     <div className={"container_words_word"}>
-    //       <div className={"container_words_word_item"}>
-    //         {isLoading ? <Loading /> : memoResult}
-    //       </div>
-    //       <div className="container_words_pagination">
-    //         <div className="container_words_pagination_showing">
-    //           Showing {find.length >= 1 ? words.length : showing()} words of{" "}
-    //           {find.length >= 1 ? words.length : totalWords} Results
-    //         </div>
-    //         <div className="container_words_pagination_logic">
-    //           {find.length < 1 && (
-    //             <Pagination
-    //               handlerNext={handlerButtonNext}
-    //               handlerPrevious={handlerButtonPrevious}
-    //               handlerCurrent={handlerCurrent}
-    //               array={arrayElementsPagination}
-    //               resultPagination={resultPagination}
-    //               current={current}
-    //               handlerPagination={handlerCurrentPagination}
-    //             />
-    //           )}
-    //         </div>
-    //         <div className="container_words_selectDownload">
-    //           <Download
-    //             file={file}
-    //             handlerFile={handlerFile}
-    //             downloadFile={downloadFile}
-    //           />
-    //         </div>
-    //       </div>
-    //     </div>
-    //   </div>
-    // </div>
 };

@@ -49,6 +49,14 @@
   flex-direction: $direction;
   gap: $gap;
 }
+@mixin base-flex-back($justify, $align, $direction, $gap,$back){
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $direction;
+  gap: $gap;
+  background-color: $back;
+}
 
 //responsive
 @mixin width-height($width, $height) {
@@ -94,4 +102,10 @@
   background: $back;
   box-shadow: $shadow;
   border-radius: $radius;
+}
+
+//shadow-text
+@mixin text-weight($shadow,$weight){
+  text-shadow: $shadow;
+  font-weight: $weight;
 }

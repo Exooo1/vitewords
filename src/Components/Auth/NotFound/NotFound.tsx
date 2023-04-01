@@ -2,7 +2,7 @@ import React, { FC, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { changeTitle } from "../../../Common/usefulFuncs";
 
-import notfound from "../../../Assets/Images/notfound.png";
+import notfound from "../../../assets/Images/notfound.png";
 
 import styles from "./notfound.module.scss";
 

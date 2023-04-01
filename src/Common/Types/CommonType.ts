@@ -1,4 +1,4 @@
-import profile from "../../Assets/Images/profile.png";
+import profile from "../../assets/Images/profile.png";
 
 export type ThunkError = { rejectValue: { errors: string } };
 export type ProjectTypeReturn<T> = {

@@ -1,7 +1,7 @@
 import React, {ChangeEvent, memo, useState} from "react";
-import eye from "../../../Assets/Images/eye.png";
-import eye2 from "../../../Assets/Images/eyep.png";
-import mail from "../../../Assets/Images/email.png";
+import eye from "../../../assets/Images/eye.png";
+import eye2 from "../../../assets/Images/eyep.png";
+import mail from "../../../assets/Images/email.png";
 import styles from "../../../Components/Auth/Registration/registration.module.scss";
 
 type FormPasswordType = {

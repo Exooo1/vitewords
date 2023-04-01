@@ -2,7 +2,7 @@ import { ChangeEvent, useCallback, useState } from "react";
 import { useAppDispatch } from "../redux/ReduxUtils";
 import { fetchLogin, fetchRegistration } from "../redux/AuthReducer";
 import { handlerDeleteHint } from "../Common/usefulFuncs";
-import info from "../Assets/Images/inform.png";
+import info from "../assets/Images/inform.png";
 
 export type InputType = {
   name: string;
