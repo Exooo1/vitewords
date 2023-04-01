@@ -13,6 +13,7 @@ import {handlerDeleteHint} from "../Common/usefulFuncs";
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
 import {Content,TDocumentDefinitions} from "pdfmake/interfaces";
+import {AppRootState} from "./ReduxUtils";
 
 pdfMake.vfs = pdfFonts.pdfMake.vfs
 
@@ -138,10 +139,9 @@ export const fetchWordFind = createAsyncThunk<Array<WordType>, string>(
 export const fetchSortWords = createAsyncThunk<Array<WordType>, SortChoice>(
     "words/fetchAddedWords",
     async (sortType, {dispatch, rejectWithValue, getState}) => {
-        const isSort = getState();
+        const isSort = getState() as AppRootState;
         try {
             const {data} = await wordApi.addedWords({
-                // @ts-ignore
                 isSort: isSort.wordsSlice.isAdded,
                 sortType
             });
