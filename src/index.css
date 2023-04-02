@@ -3,6 +3,7 @@ body {
     text-rendering: optimizeSpeed;
     font-family: "Segoe UI", sans-serif;
     background: black;
+    overflow: auto;
 }
 
 body,
