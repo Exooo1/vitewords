@@ -4,7 +4,7 @@ import { changeTitle } from "../../../Common/usefulFuncs";
 import { fetchConfirmPassword } from "../../../redux/AuthReducer";
 import { useAppDispatch } from "../../../redux/ReduxUtils";
 import styles from "./confirmed.module.scss";
-import verify from "../../../Assets/Images/verify.png";
+import verify from "../../../assets/Images/verify.png";
 import { HintModal } from "../../../Common/ModalComponents/HintModal/HintModal";
 
 export const ConfirmAccount = () => {

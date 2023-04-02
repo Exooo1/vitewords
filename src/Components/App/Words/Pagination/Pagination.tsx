@@ -32,18 +32,20 @@ export const Pagination: React.FC<PaginationType> = React.memo(
                 />
             ));
         };
-        console.log(array.length > 1 && current<resultPagination)
+        console.log(array.length > 1 && current < resultPagination)
         return (
             <section className={styles.container}>
-                <button onClick={handlerPrevious}>&#171;</button>
+                <button onClick={handlerPrevious}><span>&#171;</span></button>
+                <section className={styles.container_isActive}> {current > 3 && <p onClick={handlerCurrent}>1...</p>}</section>
                 <section className={styles.container_pagination}>
-                    {current > 3 && <p onClick={handlerCurrent}>1...</p>}
                     {array.length >= 1 && paginationElements()}
+                </section>
+                <section className={styles.container_isActive}>
                     <p onClick={() => handlerPagination(resultPagination)}>
-                        ... {array.length > 1 && current<resultPagination&&resultPagination}
+                        {array.length > 1 && current < resultPagination && resultPagination +'...'}
                     </p>
                 </section>
-                <button onClick={handlerNext}>&#187;</button>
+                <button onClick={handlerNext}><span>&#187;</span></button>
             </section>
         );
     }

@@ -1,9 +1,10 @@
-import managment from "../Assets/Images/managerwords.png";
-import {ChoiceAuthType, NavType, SliderTypeBanners} from "../Common/Types/CommonType";
-import profile from "../Assets/Images/profile.png";
-import dashboard from "../Assets/Images/dashboard.png";
-import vocab from "../Assets/Images/vocab.png";
-import rewards from "../Assets/Images/rewards.png";
+import managment from "../assets/Images/managerwords.png";
+import {ChoiceAuthType, NavType, SliderTypeBanners, SortElementsType} from "../Common/Types/CommonType";
+import profile from "../assets/Images/profile.png";
+import dashboard from "../assets/Images/dashboard.png";
+import vocab from "../assets/Images/vocab.png";
+import rewards from "../assets/Images/rewards.png";
+import chat from "../assets/Images/chat.png";
 
 export const SLIDER_BANNERS: Array<SliderTypeBanners> = [
   {
@@ -78,4 +79,16 @@ export const NAV:Array<NavType> = [ {
         path: "achievements",
         img: rewards,
         style: false
-    }]
+    },
+    {
+        id: 5,
+        name: "Chat",
+        path: "chat",
+        img: chat,
+        style: false
+    },
+]
+export const SORT_ELEMENTS:Array<SortElementsType> = [
+    {id: 2, name: "Description", sort: "DESCRIPTION"},
+    {id: 3, name: "Added", sort: "ADDED"}
+]

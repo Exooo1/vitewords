@@ -1,7 +1,8 @@
 body {
-  scroll-behavior: smooth;
-  text-rendering: optimizeSpeed;
-  font-family: "Segoe UI", sans-serif;
+    scroll-behavior: smooth;
+    text-rendering: optimizeSpeed;
+    font-family: "Segoe UI", sans-serif;
+    background: black;
 }
 
 body,
@@ -13,5 +14,5 @@ figcaption,
 blockquote,
 dl,
 dd {
-  margin: 0;
+    margin: 0;
 }

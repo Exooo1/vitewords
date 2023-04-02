@@ -1,6 +1,5 @@
 import {
   fetchGetProfile,
-  profileReducer,
   slice
 } from "../../redux/ProfileReducer";
 import { FullNameType } from "../../api/profileAPI";

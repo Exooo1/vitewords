@@ -1,8 +1,8 @@
 import React, { FC } from "react";
 
-import linkedin from "../../Assets/Images/linkedin.png";
-import telegram from "../../Assets/Images/telegram.png";
-import github from "../../Assets/Images/github.png";
+import linkedin from "../../assets/Images/linkedin.png";
+import telegram from "../../assets/Images/telegram.png";
+import github from "../../assets/Images/github.png";
 
 import styles from "./footer.module.scss";
 

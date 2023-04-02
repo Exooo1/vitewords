@@ -1,4 +1,4 @@
-import profile from "../../Assets/Images/profile.png";
+import {SortChoice} from "../../api/wordAPI";
 
 export type ThunkError = { rejectValue: { errors: string } };
 export type ProjectTypeReturn<T> = {
@@ -25,4 +25,9 @@ export type NavType = {
   path: string;
   img: string;
   style: boolean;
+};
+export type SortElementsType = {
+    id: number;
+    name: string;
+    sort: SortChoice;
 };

@@ -19,15 +19,18 @@ import {profileReselect} from "../../../redux/Reselect";
 import {SortChoice, WordType} from "../../../api/wordAPI";
 import {changeTitle} from "../../../Common/usefulFuncs";
 import {Loading} from "../../../Common/CommonComponents/Loading/Loading";
-import search from "../../../Assets/Images/search.png";
 import {SortElementComponents} from "./SortElementsComponents/SortElementComponents";
 import {Pagination} from "./Pagination/Pagination";
 import {Download} from "./DownloadParameters/Download";
-import letters from "../../../Assets/Images/letters.png";
-import books from "../../../Assets/Images/books.png";
+
+import search from '../../../assets/Images/search.png'
+import managment from '../../../assets/Images/knowlegde.png'
+import knowledge from "../../../assets/Images/sortknowleadge.png";
+import abc from "../../../assets/Images/abc.png";
 import styles from "./words.module.scss";
 
 let timeout: ReturnType<typeof setTimeout>;
+let sortValue: number = 0;
 
 export const Words = () => {
     const [isSearch, setIsSearch] = useState<boolean>(false);
@@ -37,6 +40,7 @@ export const Words = () => {
     const [isModal, setIsModal] = useState<boolean>(false);
     const {words, totalWords, isLoading} = useAppSelector(profileReselect);
     const dispatch = useAppDispatch();
+
     useEffect(() => {
         changeTitle("Words");
         dispatch(fetchGetWords(current));
@@ -55,7 +59,6 @@ export const Words = () => {
             dispatch(fetchWordFind(e.target.value));
         }, 500);
     };
-    console.log(current)
     const returnArrayPagination = () => {
         const right = () => {
             const result = resultPagination - (current + 2);
@@ -77,9 +80,8 @@ export const Words = () => {
         (value: number) => setCurrent(value),
         []
     );
-    console.log(current,resultPagination)
     const handlerButtonNext = useCallback(() => {
-        if (current===resultPagination) return;
+        if (current === resultPagination) return;
         else setCurrent(state => state + 1)
     }, [current]);
     const handlerButtonPrevious = useCallback(() => {
@@ -95,8 +97,12 @@ export const Words = () => {
         setFind("");
         dispatch(fetchGetWords(current));
     }, []);
+
     const handlerSortFetch = useCallback((typeSort: SortChoice) => {
-        dispatch(fetchSortWords(typeSort));
+        if (new Date().getTime() > sortValue) {
+            dispatch(fetchSortWords(typeSort));
+            sortValue = new Date().getTime() + 2000
+        } else return
     }, []);
     const downloadFile = useCallback(() => {
         dispatch(fetchDownloadFile(file));
@@ -134,7 +140,7 @@ export const Words = () => {
                             course repeat the words you have learned.
                         </p>
                     </section>
-                    <img src={books} alt="books"/>
+                    <img src={managment} alt="managment" role='picture'/>
                 </section>
                 <section className={styles.words_header_filters}>
                     <section className={styles.words_header_filters_description}>
@@ -149,7 +155,7 @@ export const Words = () => {
                             isLoading={isLoading}
                         />
                     </section>
-                    <img src={letters} alt="books"/>
+                    <img src={knowledge} alt="knowledge" role='picture'/>
                 </section>
                 <section className={styles.words_header_search}>
                     <section className={styles.words_header_search_description}>
@@ -166,7 +172,7 @@ export const Words = () => {
                                 }
                             >
                                 <img
-                                    src="https://cdn-icons-png.flaticon.com/512/3670/3670643.png"
+                                    src={search}
                                     alt="search"
                                     onClick={() => setIsSearch(!isSearch)}
                                 />
@@ -177,9 +183,10 @@ export const Words = () => {
                                     placeholder="Search a word"
                                 />
                             </section>
+                            <button onClick={() => handlerIsModal(true)}>+</button>
                         </section>
                     </section>
-                    <button onClick={() => handlerIsModal(true)}>+</button>
+                    <img src={abc} alt="abc-search" role='picture'/>
                 </section>
             </section>
             <section className={styles.words_containerWords}>
@@ -213,68 +220,4 @@ export const Words = () => {
             </section>
         </main>
     );
-    // <div className="container_words">
-    //   <div className="container_words_description">
-    //     <div className="container_words_description_one">
-    //       <h1>Words Management</h1>
-    //       <p>
-    //         Here, you can manage your words and phrases, update, delete,
-    //         correct. Add everything you know!
-    //       </p>
-    //     </div>
-    //     <div className="container_words_description_two">
-    //       <button onClick={() => handlerIsModal(true)}>+ Add new word</button>
-    //       <div>
-    //         <img src={search} alt="Search" />
-    //         <input
-    //           value={find}
-    //           onChange={handlerFindWord}
-    //           type="text"
-    //           placeholder="Search by any words"
-    //         />
-    //       </div>
-    //     </div>
-    //   </div>
-    //   <div className="container_words_sort">
-    //     <div className="container_words_sort_buttons">
-    //       <p>Filters - </p>
-    //       <SortElementComponents
-    //         fetchSortReset={handlerSortResetFetch}
-    //         fetchSort={handlerSortFetch}
-    //         isLoading={isLoading}
-    //       />
-    //     </div>
-    //     <div className={"container_words_word"}>
-    //       <div className={"container_words_word_item"}>
-    //         {isLoading ? <Loading /> : memoResult}
-    //       </div>
-    //       <div className="container_words_pagination">
-    //         <div className="container_words_pagination_showing">
-    //           Showing {find.length >= 1 ? words.length : showing()} words of{" "}
-    //           {find.length >= 1 ? words.length : totalWords} Results
-    //         </div>
-    //         <div className="container_words_pagination_logic">
-    //           {find.length < 1 && (
-    //             <Pagination
-    //               handlerNext={handlerButtonNext}
-    //               handlerPrevious={handlerButtonPrevious}
-    //               handlerCurrent={handlerCurrent}
-    //               array={arrayElementsPagination}
-    //               resultPagination={resultPagination}
-    //               current={current}
-    //               handlerPagination={handlerCurrentPagination}
-    //             />
-    //           )}
-    //         </div>
-    //         <div className="container_words_selectDownload">
-    //           <Download
-    //             file={file}
-    //             handlerFile={handlerFile}
-    //             downloadFile={downloadFile}
-    //           />
-    //         </div>
-    //       </div>
-    //     </div>
-    //   </div>
-    // </div>
 };

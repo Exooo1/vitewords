@@ -1,25 +1,27 @@
-.sortElements{
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 5px;
-  button{
-    width: 80px;
-    height: 30px;
+@import './src/styles/mixins.scss';
+@import './src/styles/variables.scss';
+
+.sortElements {
+  @include base-flex($justify-start, $align-center, auto, $gap-5);
+
+  button {
+    @include size-weight-line(12px, $weight-700, auto);
+    @include width-height(80px, 30px);
+    border: $border-none;
+    cursor: $cursor-pointer;
     border-radius: 10px;
-    border: none;
-    cursor: pointer;
-    font-size: 12px;
-    font-weight: 700;
-    color: darkgrey;
-    &:hover{
-      box-shadow: 0 0 10px black;
+    color: $color-darkGrey;
+
+    &:hover {
+      box-shadow: $box-shadow-black;
     }
-    &:active{
-      box-shadow: inset 0 0 5px black;
+
+    &:active {
+      box-shadow: $box-shadow-blackInset;
     }
   }
-  button:last-child{
+
+  button:last-child {
     width: 30px;
   }
 }

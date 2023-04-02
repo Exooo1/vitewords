@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { changeTitle } from "../../../Common/usefulFuncs";
 import styles from "./checkmail.module.scss";
-import mail from "../../../Assets/Images/mail.png";
+import mail from "../../../assets/Images/mail.png";
 
 export const CheckMail = () => {
   useEffect(() => {

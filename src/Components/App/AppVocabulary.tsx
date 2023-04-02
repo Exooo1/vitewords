@@ -7,8 +7,8 @@ import {authReselect} from "../../redux/Reselect";
 import {fetchGetProfile} from "../../redux/ProfileReducer";
 import {fetchLogOut} from "../../redux/AuthReducer";
 
-import logo from "../../Assets/Images/logo.png";
-import logout from "../../Assets/Images/logout.png";
+import logo from "../../assets/Images/logo.png";
+import logout from "../../assets/Images/logout.png";
 import styles from "./appVocabulary.module.scss";
 
 export const AppVocabulary = () => {

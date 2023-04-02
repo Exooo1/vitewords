@@ -13,9 +13,9 @@ import {handlerDeleteHint} from "../Common/usefulFuncs";
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
 import {Content,TDocumentDefinitions} from "pdfmake/interfaces";
+import {AppRootState} from "./ReduxUtils";
 
 pdfMake.vfs = pdfFonts.pdfMake.vfs
-
 
 type WordsInitialType = {
     words: Array<WordType>;
@@ -33,6 +33,7 @@ const initialState: WordsInitialType = {
     isAdded: true,
     isLoading: false
 };
+
 export const fetchGetWords = createAsyncThunk<GetWordsType, number, ThunkError>(
     "words/fetchGetWords",
     async (value, {rejectWithValue, dispatch}) => {
@@ -48,6 +49,7 @@ export const fetchGetWords = createAsyncThunk<GetWordsType, number, ThunkError>(
         }
     }
 );
+
 export const fetchAddWord = createAsyncThunk<WordType, WordType, ThunkError>(
     "words/fetchAddWord",
     async (
@@ -92,6 +94,7 @@ export const fetchDeleteWord = createAsyncThunk<DeleteWordType,
         }
     }
 );
+
 export const fetchChangeWord = createAsyncThunk<WordChangeType,
     WordChangeType,
     ThunkError>(
@@ -119,6 +122,7 @@ export const fetchChangeWord = createAsyncThunk<WordChangeType,
         }
     }
 );
+
 export const fetchWordFind = createAsyncThunk<Array<WordType>, string>(
     "words/fetchWordFind",
     async (word, {dispatch, rejectWithValue}) => {
@@ -138,10 +142,9 @@ export const fetchWordFind = createAsyncThunk<Array<WordType>, string>(
 export const fetchSortWords = createAsyncThunk<Array<WordType>, SortChoice>(
     "words/fetchAddedWords",
     async (sortType, {dispatch, rejectWithValue, getState}) => {
-        const isSort = getState();
+        const isSort = getState() as AppRootState;
         try {
             const {data} = await wordApi.addedWords({
-                // @ts-ignore
                 isSort: isSort.wordsSlice.isAdded,
                 sortType
             });

@@ -53,4 +53,7 @@ $font-lightCalibri: "Calibri Light";
 
 //box-shadow
 $box-shadow-black: 0 0 10px #000000;
-$box-shadow-blackInset: 0 0 10px #000000;
+$box-shadow-blackInset: inset 0 0 10px #000000;
+
+//text-shadow
+$text-shadow-black: 0 0 2px black;
