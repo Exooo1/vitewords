@@ -1,0 +1,12 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  width: 450px;
+  height: 580px;
+  background: #525461;
+  border-radius: 20px 20px 0 0;
+  &::-webkit-scrollbar {
+    width: 0px;
+  }
+}
