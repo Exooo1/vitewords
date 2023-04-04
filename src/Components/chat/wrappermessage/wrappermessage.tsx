@@ -10,7 +10,7 @@ type WrapperMessageType = {
 }
 
 export const WrapperMessage: React.FC<WrapperMessageType> = memo(({messages, clientId}) => {
-    return <section id={'test'} className={styles.wrapper}>
+    return <section id='scroll' className={styles.wrapper}>
         <section className={styles.test}>
             {messages.map(item => <ChatMessage key={(Math.random() * messages.length).toString(34)}
                                                align={clientId === item.clientId} message={item.message}/>)}

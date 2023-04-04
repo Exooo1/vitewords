@@ -10,14 +10,14 @@
     justify-content: flex-start;
     align-items: center;
     width: 250px;
-    background: #ffffff;
-    border-radius: 20px;
+    background: #16171b;
+    border-radius: 20px 20px 20px 0px;
     line-height: 5px;
     margin: 10px 10px;
     gap: 5px;
 
     img {
-      margin-left: 5px;
+      margin-left: 15px;
       width: 40px;
       border-radius: 50%;
     }
@@ -32,9 +32,8 @@
       p {
         &:first-child {
           font-weight: 650;
-          color: darkgrey;
         }
-
+        color: white;
         margin: 3px 0;
         font-size: 13px;
       }
@@ -42,14 +41,7 @@
   }
   &_container_isActive{
     align-self: flex-end;
-    background-color: #989a9b;
-    p{
-      &:nth-child(2){
-        color: white;
-      }
-      &:nth-child(1){
-        color: #2e2f35;
-      }
-    }
+    background-color: #b785f5;
+    border-radius: 20px 20px 0 20px;
   }
 }

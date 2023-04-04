@@ -23,8 +23,8 @@ import {SortElementComponents} from "./SortElementsComponents/SortElementCompone
 import {Pagination} from "./Pagination/Pagination";
 import {Download} from "./DownloadParameters/Download";
 
-import search from '../../../assets/Images/search.png'
-import managment from '../../../assets/Images/knowlegde.png'
+import search from "../../../assets/Images/search.png";
+import managment from "../../../assets/Images/knowlegde.png";
 import knowledge from "../../../assets/Images/sortknowleadge.png";
 import abc from "../../../assets/Images/abc.png";
 import styles from "./words.module.scss";
@@ -82,7 +82,7 @@ export const Words = () => {
     );
     const handlerButtonNext = useCallback(() => {
         if (current === resultPagination) return;
-        else setCurrent(state => state + 1)
+        else setCurrent(state => state + 1);
     }, [current]);
     const handlerButtonPrevious = useCallback(() => {
         if (current > 1) setCurrent(state => state - 1);
@@ -101,8 +101,8 @@ export const Words = () => {
     const handlerSortFetch = useCallback((typeSort: SortChoice) => {
         if (new Date().getTime() > sortValue) {
             dispatch(fetchSortWords(typeSort));
-            sortValue = new Date().getTime() + 2000
-        } else return
+            sortValue = new Date().getTime() + 2000;
+        } else return;
     }, []);
     const downloadFile = useCallback(() => {
         dispatch(fetchDownloadFile(file));
@@ -140,7 +140,7 @@ export const Words = () => {
                             course repeat the words you have learned.
                         </p>
                     </section>
-                    <img src={managment} alt="managment" role='picture'/>
+                    <img src={managment} alt="managment" role="picture"/>
                 </section>
                 <section className={styles.words_header_filters}>
                     <section className={styles.words_header_filters_description}>
@@ -155,7 +155,7 @@ export const Words = () => {
                             isLoading={isLoading}
                         />
                     </section>
-                    <img src={knowledge} alt="knowledge" role='picture'/>
+                    <img src={knowledge} alt="knowledge" role="picture"/>
                 </section>
                 <section className={styles.words_header_search}>
                     <section className={styles.words_header_search_description}>
@@ -186,7 +186,7 @@ export const Words = () => {
                             <button onClick={() => handlerIsModal(true)}>+</button>
                         </section>
                     </section>
-                    <img src={abc} alt="abc-search" role='picture'/>
+                    <img src={abc} alt="abc-search" role="picture"/>
                 </section>
             </section>
             <section className={styles.words_containerWords}>
@@ -194,8 +194,15 @@ export const Words = () => {
             </section>
             <section className={styles.words_footer}>
                 <section className={styles.words_footer_showing}>
-                    Showing {find.length >= 1 ? words.length : showing()} words of{" "}
-                    {find.length >= 1 ? words.length : totalWords} Results
+                    Showing{" "}
+                    {find.length >= 1
+                        ? words.length >= 1 ? `1-${words.length}` : words.length
+                        : `${
+                            showing() - COUNT_WORDS
+                                ? showing() - COUNT_WORDS
+                                : showing() - COUNT_WORDS + 1
+                        }-${showing()}`}{" "}
+                    words of {find.length >= 1 ? words.length : totalWords} Results
                 </section>
                 <section className={styles.words_footer_pagination}>
                     {find.length < 1 && (

@@ -32,7 +32,6 @@ export const Pagination: React.FC<PaginationType> = React.memo(
                 />
             ));
         };
-        console.log(array.length > 1 && current < resultPagination)
         return (
             <section className={styles.container}>
                 <button onClick={handlerPrevious}><span>&#171;</span></button>
