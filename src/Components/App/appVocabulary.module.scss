@@ -78,10 +78,13 @@
         }
 
         a {
+          width: 150px;
+          height: 40px;
           font-family: $font-lightCalibri;
           color: $color-white;
           text-decoration: none;
           @include size-weight-line(18px,$weight-600,auto);
+          @include base-flex($justify-start,$align-center,auto,auto)
         }
       }
 

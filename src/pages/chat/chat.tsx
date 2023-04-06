@@ -19,6 +19,7 @@ export const Chat = () => {
     const [messages, setMessages] = useState<Array<MessagesType>>([])
     const [clientId, setClientId] = useState<string>('')
     const [loading, setLoading] = useState<boolean>(true)
+    console.log('chat')
     useEffect(() => {
         const socket = io('http://localhost:8999')
         setSocket(socket)
@@ -54,61 +55,56 @@ export const Chat = () => {
     }, [messages])
 
     return <section className={styles.chat}>
-        <section className={styles.chat_container}>
-            <section className={styles.chat_container_messages}>
-                {loading ? <Loading/> : memoMessages}
-                <section className={styles.chat_container_send}>
-                    <input value={text} onChange={(e) => setText(e.target.value)} type="text"
-                           disabled={loading}
-                           onKeyDown={handlerSend}
-                           placeholder='your message...'/>
-                    {loading ? <Loading/> : <img
-                        onClick={handlerSend}
-                        src={send}
-                        alt="send"/>}
-                </section>
-            </section>
-            <section className={styles.chat_container_header}>
-                <section className={styles.chat_container_header_description}>
-                    <h2>Chat</h2>
-                    <img src={chat} alt="chat" role='picture'/>
-                </section>
-                <figure>
-                    <p>A chat is an online platform that allows users to communicate with each other in real-time.
-                        To communicate with each other in real-time</p>
-                </figure>
-                <section className={styles.chat_container_header_information}>
-                    <section className={styles.chat_container_header_information_head}>
-                        <img src={chats} alt="chats" role='picture'/>
-                        <h3>Information about common chat and group.</h3>
+        {loading ? <Loading/> :
+            <section className={styles.chat_container}>
+                <section className={styles.chat_container_messages}>
+                    {memoMessages}
+                    <section className={styles.chat_container_send}>
+                        <input value={text} onChange={(e) => setText(e.target.value)} type="text"
+                               disabled={loading}
+                               onKeyDown={handlerSend}
+                               placeholder='your message...'/>
+                        <img
+                            onClick={handlerSend}
+                            src={send}
+                            alt="send"/>
                     </section>
-                    <section className={styles.chat_container_header_information_common}>
-                        <h4>Common Chat</h4>
-                        <section className={styles.chat_container_header_information_container}>
-                            <section>
-                                <p>Online users: 5</p>
+                </section>
+                <section className={styles.chat_container_header}>
+                    <section className={styles.chat_container_header_description}>
+                        <h2>Chat</h2>
+                        <img src={chat} alt="chat" role='picture'/>
+                    </section>
+                    <figure>
+                        <p>A chat is an online platform that allows users to communicate with each other in real-time.
+                            To communicate with each other in real-time</p>
+                    </figure>
+                    <section className={styles.chat_container_header_information}>
+                        <section className={styles.chat_container_header_information_head}>
+                            {/*<img src={chats} alt="chats" role='picture'/>*/}
+                            <h3>Information about common chat and group.</h3>
+                        </section>
+                        <section className={styles.chat_container_header_information_common}>
+                            <h4>Common Chat</h4>
+                            <section className={styles.chat_container_header_information_container}>
+                                <section>
+                                    <p>Online</p>
+                                    <strong>5</strong>
+                                </section>
+                                <section>
+                                    <p>You can disconnect and connect at any time!</p>
+                                    <div>
+                                        <button>connect</button>
+                                        <button>disconnect</button>
+                                    </div>
+                                </section>
                             </section>
                         </section>
-                    </section>
-                    <section className={styles.chat_container_header_information_group}>
-                        <Main/>
+                        <section className={styles.chat_container_header_information_group}>
+                        </section>
                     </section>
                 </section>
-            </section>
-        </section>
+            </section>}
     </section>
-}
-
-let inputtt = ''
-const Main = () => {
-    const func = (e:any) => {
-        inputtt = e.target.value
-    }
-    return <div>
-        <input onChange={func} type="text"/>
-        <button onClick={()=>{
-        console.log(inputtt)}
-        }>save</button>
-    </div>
 }
 

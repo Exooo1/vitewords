@@ -17,7 +17,6 @@ export const AppVocabulary = () => {
   const dispatch = useAppDispatch();
   const [nav, setNav] = useState(NAV);
   useEffect(() => {
-    dispatch(fetchGetProfile());
     if (auth === 0) navigate("/auth");
   }, [auth]);
   const changeNav = (id: number) => {
