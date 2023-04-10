@@ -1,110 +1,192 @@
-import {useEffect, useMemo, useState} from "react";
-import {WrapperMessage} from "../../Components/chat/wrappermessage/wrappermessage";
-import {Loading} from "../../Common/CommonComponents/Loading/Loading";
-import io from 'socket.io-client';
+import { ChangeEvent, useEffect, useMemo, useState } from "react";
+import { WrapperMessage } from "../../Components/chat/wrappermessage/wrappermessage";
+import { Loading } from "../../Common/CommonComponents/Loading/Loading";
+import io, { Socket } from "socket.io-client";
 
-import chat from '../../assets/Images/headerchat.png'
-import send from '../../assets/Images/send.png'
-import chats from '../../assets/Images/chats.png'
-import styles from './chat.module.scss'
+import imgChat from "../../assets/Images/headerchat.png";
+import send from "../../assets/Images/send.png";
+import chats from "../../assets/Images/chats.png";
+import styles from "./chat.module.scss";
+import { fetchGetProfile, MessageType } from "../../redux/ProfileReducer";
+import { useAppDispatch, useAppSelector } from "../../redux/ReduxUtils";
 
-export type MessagesType = {
-    message: string
-    clientId: string
-}
+type WriterType = {
+  lastName: string;
+  socketID: string;
+};
 
 export const Chat = () => {
-    const [socket, setSocket] = useState<any>(null)
-    const [text, setText] = useState<string>('')
-    const [messages, setMessages] = useState<Array<MessagesType>>([])
-    const [clientId, setClientId] = useState<string>('')
-    const [loading, setLoading] = useState<boolean>(true)
-    console.log('chat')
-    useEffect(() => {
-        const socket = io('http://localhost:8999')
-        setSocket(socket)
-        socket.on('connect', () => {
-            setLoading(false)
-        })
-        socket.on("clientMessages", (messages) => {
-            setMessages(messages)
-        });
-        socket.on("clientId", (id) => {
-            setClientId(id)
-        });
-        return () => {
-            socket.on('disconnect', () => {
-                console.log('Goodbye!')
-            })
-        }
-    }, []);
+  const [socket, setSocket] = useState<Socket | null>(null);
+  const [writers, setWriters] = useState<Array<WriterType>>([]);
+  const [users, setUsers] = useState<number>(0);
+  const [text, setText] = useState<string>("");
+  const [messages, setMessages] = useState<Array<MessageType>>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const { firstName, lastName, email, chat } = useAppSelector(
+    state => state.profileReducer
+  );
+  const dispatch = useAppDispatch();
 
-    const handlerSend = (e: any) => {
-        if (e.key === 'Enter' && text.length >= 1) {
-            socket.emit('message', text)
-            setText('')
-        }
+  useEffect(() => {
+    dispatch(fetchGetProfile());
+  }, []);
+
+  useEffect(() => {
+    setMessages(chat);
+  }, [chat]);
+
+  useEffect(() => {
+    const socket = io("http://localhost:8999");
+    setSocket(socket);
+    socket.on("connect", () => {
+      setLoading(false);
+    });
+    socket.on("writers", setWriters);
+    socket.on("incUsers", setUsers);
+    socket.on("decrUsers", setUsers);
+    socket.on("clientMessages", setMessages);
+    return () => {
+      socket.disconnect();
+    };
+  }, []);
+
+  useEffect(() => {
+    const element = document.getElementById("scroll");
+    if (element) element.scrollTop = element.scrollHeight;
+  }, [messages]);
+
+  const handlerText = (e: ChangeEvent<HTMLInputElement>) => {
+    if (e.target.value.length === 1)
+      socket?.emit("writer", { lastName, socketID: email });
+    if (e.target.value.length === 0)
+      socket?.emit("cleanWriter", { lastName, socketID: email });
+    setText(e.target.value);
+  };
+
+  const handlerSend = (e: any) => {
+    if (e.key === "Enter" && text.length >= 1) {
+      socket?.emit("message", {
+        text,
+        writer: `${firstName} ${lastName}`,
+        email
+      });
+      setText("");
     }
-    useEffect(() => {
-        const element = document.getElementById('scroll');
-        if (element) element.scrollTop = element.scrollHeight;
-    }, [messages])
+  };
 
-    const memoMessages = useMemo(() => {
-        return <WrapperMessage messages={messages} clientId={clientId}/>
-    }, [messages])
+  const handlerConnDisc = (type: string) => {
+    if (type === "connect") {
+      socket?.connect();
+      setLoading(false);
+    }
+    if (type === "disconnect") {
+      socket?.close();
+      setLoading(true);
+    }
+  };
 
-    return <section className={styles.chat}>
-        {loading ? <Loading/> :
-            <section className={styles.chat_container}>
-                <section className={styles.chat_container_messages}>
-                    {memoMessages}
-                    <section className={styles.chat_container_send}>
-                        <input value={text} onChange={(e) => setText(e.target.value)} type="text"
-                               disabled={loading}
-                               onKeyDown={handlerSend}
-                               placeholder='your message...'/>
-                        <img
-                            onClick={handlerSend}
-                            src={send}
-                            alt="send"/>
-                    </section>
+  const memoMessages = useMemo(() => {
+    return <WrapperMessage messages={messages} clientId={email} />;
+  }, [messages]);
+
+  return (
+    <section className={styles.chat}>
+      <section className={styles.chat_container}>
+        <section className={styles.chat_container_messages}>
+          {loading ? <Loading width={"450"} /> : memoMessages}
+          <section className={styles.chat_container_messages_writers}>
+            <section>
+              {writers.map(item => (
+                <p
+                  key={
+                    item.socketID +
+                    (Math.random() * writers.length).toString(34)
+                  }
+                >
+                  {item.lastName}
+                </p>
+              ))}
+            </section>
+            {writers.length ? (
+              <p style={{ paddingLeft: "8px", color: "darkgray" }}>
+                prints a message...
+              </p>
+            ) : null}
+          </section>
+          <section className={styles.chat_container_send}>
+            <input
+              value={text}
+              onChange={handlerText}
+              type="text"
+              disabled={loading}
+              onKeyDown={handlerSend}
+              placeholder="your message..."
+            />
+            {loading ? null : (
+              <img onClick={handlerSend} src={send} alt="send" />
+            )}
+          </section>
+        </section>
+        <section className={styles.chat_container_header}>
+          <section className={styles.chat_container_header_description}>
+            <h2>Chat</h2>
+            <img src={imgChat} alt="chat" role="picture" />
+          </section>
+          <figure>
+            <p>
+              A chat is an online platform that allows users to communicate with
+              each other in real-time. To communicate with each other in
+              real-time
+            </p>
+          </figure>
+          <section className={styles.chat_container_header_information}>
+            <section className={styles.chat_container_header_information_head}>
+              <img src={chats} alt="chats" role="picture" />
+              <h3>Information about common chat and group.</h3>
+            </section>
+            <section
+              className={styles.chat_container_header_information_common}
+            >
+              <h4>Common Chat</h4>
+              <section
+                className={styles.chat_container_header_information_container}
+              >
+                <section>
+                  {loading ? (
+                    <img
+                      src="https://cdn-icons-png.flaticon.com/512/3088/3088765.png"
+                      alt=""
+                    />
+                  ) : (
+                    <p>Online</p>
+                  )}
+                  {loading ? null : <strong>{users}</strong>}
                 </section>
-                <section className={styles.chat_container_header}>
-                    <section className={styles.chat_container_header_description}>
-                        <h2>Chat</h2>
-                        <img src={chat} alt="chat" role='picture'/>
-                    </section>
-                    <figure>
-                        <p>A chat is an online platform that allows users to communicate with each other in real-time.
-                            To communicate with each other in real-time</p>
-                    </figure>
-                    <section className={styles.chat_container_header_information}>
-                        <section className={styles.chat_container_header_information_head}>
-                            {/*<img src={chats} alt="chats" role='picture'/>*/}
-                            <h3>Information about common chat and group.</h3>
-                        </section>
-                        <section className={styles.chat_container_header_information_common}>
-                            <h4>Common Chat</h4>
-                            <section className={styles.chat_container_header_information_container}>
-                                <section>
-                                    <p>Online</p>
-                                    <strong>5</strong>
-                                </section>
-                                <section>
-                                    <p>You can disconnect and connect at any time!</p>
-                                    <div>
-                                        <button>connect</button>
-                                        <button>disconnect</button>
-                                    </div>
-                                </section>
-                            </section>
-                        </section>
-                        <section className={styles.chat_container_header_information_group}>
-                        </section>
-                    </section>
+                <section>
+                  <p>You can disconnect and connect at any time!</p>
+                  <div>
+                    <button
+                      onClick={() => handlerConnDisc("connect")}
+                      disabled={!loading}
+                    >
+                      join
+                    </button>
+                    <button
+                      disabled={loading}
+                      onClick={() => handlerConnDisc("disconnect")}
+                    >
+                      leave
+                    </button>
+                  </div>
                 </section>
-            </section>}
+              </section>
+            </section>
+            <section
+              className={styles.chat_container_header_information_group}
+            ></section>
+          </section>
+        </section>
+      </section>
     </section>
-}
-
+  );
+};

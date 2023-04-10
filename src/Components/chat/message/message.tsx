@@ -3,9 +3,10 @@ import styles from './message.module.scss'
 type ChatMessageType = {
     message:string
     align:boolean
+    fullName:string
 }
 
-export const ChatMessage:React.FC<ChatMessageType> = ({message,align}) => {
+export const ChatMessage:React.FC<ChatMessageType> = ({message,align,fullName}) => {
     return <section className={styles.message} key={message+align}>
         <section className={`${styles.message_container} ${align?styles.message_container_isActive:''}`} >
             <section>
@@ -14,7 +15,7 @@ export const ChatMessage:React.FC<ChatMessageType> = ({message,align}) => {
                     alt="avatar"/>
             </section>
             <section className={styles.message_container_content}>
-                <p>Vlas Maskalenchik</p>
+                <p>{fullName}</p>
                 <p>{message}</p>
             </section>
         </section>

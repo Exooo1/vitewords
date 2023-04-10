@@ -13,9 +13,28 @@
     height: 850px;
     gap: 20px;
 
+    &_messages {
+      &_writers {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        line-height: 2px;
+        background-color: #1d1e24;
+        font-style: italic;
+        height: 26px;
+        p{
+          font-size: 12px;
+        }
+        p:first-child{
+          padding-left: 15px;
+          color: white;
+        }
+      }
+    }
+
     &_header {
       color: white;
-      height: 640px;
+      height: 666px;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
@@ -46,6 +65,7 @@
             background-color: #525461;
 
             p {
+              color: darkgrey;
               font-family: "Calibri Light";
             }
 
@@ -53,13 +73,21 @@
               cursor: pointer;
               margin: 0 10px;
               width: 80px;
-              height: 30px;
+              height: 35px;
               border-radius: 5px;
               border: none;
               color: white;
+              font-size: 15px;
               font-weight: 600;
-              box-shadow: 0 0 3px black;
-              background-color: #85f607;
+              background-color: #16171b;
+
+              &:active {
+                box-shadow: inset 0 0 5px black;
+              }
+
+              &:disabled {
+                opacity: 0.5;
+              }
             }
           }
 
@@ -72,6 +100,12 @@
             width: 100px;
             border-radius: 10px;
             background-color: #525461;
+
+            img {
+              position: relative;
+              top: 20px;
+              width: 50px;
+            }
 
             strong {
               color: greenyellow;

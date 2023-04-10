@@ -6,6 +6,7 @@ export const changeTitle = (text: string) => {
   const title = document.getElementsByTagName("title");
   title[0].innerText = text;
 };
+
 export const handlerDeleteHint = (
   value: string,
   dispatch: (item: { payload: PayloadHintType | string }) => void,
