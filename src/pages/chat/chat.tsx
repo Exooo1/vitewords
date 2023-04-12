@@ -122,9 +122,7 @@ export const Chat = () => {
               onKeyDown={handlerSend}
               placeholder="your message..."
             />
-            {loading ? null : (
-              <img onClick={handlerSend} src={send} alt="send" />
-            )}
+            <img onClick={handlerSend} src={send} alt="send" />
           </section>
         </section>
         <section className={styles.chat_container_header}>
