@@ -18,3 +18,6 @@ export const handlerDeleteHint = (
     dispatch(deleteHint(v4id));
   }, 5000);
 };
+
+export const uuid = (value: string) =>
+  value + (Math.random() * value.length).toString(34);

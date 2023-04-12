@@ -1,4 +1,4 @@
-import { ChangeEvent, useEffect, useMemo, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { WrapperMessage } from "../../Components/chat/wrappermessage/wrappermessage";
 import { Loading } from "../../Common/CommonComponents/Loading/Loading";
 import io, { Socket } from "socket.io-client";
@@ -9,6 +9,7 @@ import chats from "../../assets/Images/chats.png";
 import styles from "./chat.module.scss";
 import { fetchGetProfile, MessageType } from "../../redux/ProfileReducer";
 import { useAppDispatch, useAppSelector } from "../../redux/ReduxUtils";
+import { uuid } from "../../Common/usefulFuncs";
 
 type WriterType = {
   lastName: string;
@@ -65,6 +66,15 @@ export const Chat = () => {
 
   const handlerSend = (e: any) => {
     if (e.key === "Enter" && text.length >= 1) {
+      setMessages([
+        ...messages,
+        {
+          _id: email,
+          clientId: email,
+          writer: `${firstName} ${lastName}`,
+          message: text
+        }
+      ]);
       socket?.emit("message", {
         text,
         writer: `${firstName} ${lastName}`,
@@ -85,34 +95,29 @@ export const Chat = () => {
     }
   };
 
-  const memoMessages = useMemo(() => {
-    return <WrapperMessage messages={messages} clientId={email} />;
-  }, [messages]);
+  const resWriters = writers.map(item => (
+    <p key={uuid(item.socketID)}>{item.lastName}</p>
+  ));
 
   return (
     <section className={styles.chat}>
       <section className={styles.chat_container}>
         <section className={styles.chat_container_messages}>
-          {loading ? <Loading width={"450"} /> : memoMessages}
-          <section className={styles.chat_container_messages_writers}>
-            <section>
-              {writers.map(item => (
-                <p
-                  key={
-                    item.socketID +
-                    (Math.random() * writers.length).toString(34)
-                  }
-                >
-                  {item.lastName}
-                </p>
-              ))}
-            </section>
-            {writers.length ? (
-              <p style={{ paddingLeft: "8px", color: "darkgray" }}>
-                prints a message...
-              </p>
-            ) : null}
-          </section>
+          {loading ? (
+            <Loading width={"450"} />
+          ) : (
+            <>
+              <WrapperMessage messages={messages} clientId={email} />
+              <section className={styles.chat_container_messages_writers}>
+                <section>{resWriters}</section>
+                {writers.length ? (
+                  <p style={{ paddingLeft: "8px", color: "darkgray" }}>
+                    prints a message...
+                  </p>
+                ) : null}
+              </section>
+            </>
+          )}
           <section className={styles.chat_container_send}>
             <input
               value={text}
