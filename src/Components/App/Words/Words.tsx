@@ -39,6 +39,7 @@ export const Words = () => {
   const [current, setCurrent] = useState<number>(1);
   const [isModal, setIsModal] = useState<boolean>(false);
   const { words, totalWords, isLoading } = useAppSelector(profileReselect);
+  const arr: Array<number> = [];
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -46,7 +47,6 @@ export const Words = () => {
     dispatch(fetchGetWords(current));
   }, [current]);
 
-  const arr: Array<number> = [];
   const COUNT_WORDS = 15;
   const resultPagination = Math.ceil(totalWords / COUNT_WORDS);
   const handlerFindWord = (e: ChangeEvent<HTMLInputElement>) => {
@@ -77,18 +77,16 @@ export const Words = () => {
   };
   returnArrayPagination();
   const handlerIsModal = (value: boolean) => setIsModal(value);
-  const handlerCurrentPagination = useCallback(
-    (value: number) => setCurrent(value),
-    []
-  );
-  const handlerButtonNext = useCallback(() => {
+  const handlerCurrentPagination = (value: number) => setCurrent(value);
+
+  const handlerButtonNext = () => {
     if (current === resultPagination) return;
     else setCurrent(state => state + 1);
-  }, [current]);
-  const handlerButtonPrevious = useCallback(() => {
+  };
+  const handlerButtonPrevious = () => {
     if (current > 1) setCurrent(state => state - 1);
     else return;
-  }, [current]);
+  };
   const showing = () => {
     const total = totalWords - current * COUNT_WORDS;
     if (total > 0) return current * COUNT_WORDS;
@@ -109,9 +107,7 @@ export const Words = () => {
   const downloadFile = useCallback(() => {
     dispatch(fetchDownloadFile(file));
   }, [file]);
-  const handlerFile = useCallback((value: string) => setFile(value), []);
-  const handlerCurrent = useCallback(() => setCurrent(1), []);
-  const arrayElementsPagination = useMemo(() => arr, [totalWords, current]);
+  const handlerCurrent = () => setCurrent(1);
   const memoResult = useMemo(
     () =>
       words.map((item: WordType) => {
@@ -128,6 +124,20 @@ export const Words = () => {
       }),
     [words]
   );
+
+  const MemoResultPagination = () => {
+    return (
+      <Pagination
+        handlerNext={handlerButtonNext}
+        handlerPrevious={handlerButtonPrevious}
+        handlerCurrent={handlerCurrent}
+        array={arr}
+        resultPagination={resultPagination}
+        current={current}
+        handlerPagination={handlerCurrentPagination}
+      />
+    );
+  };
 
   return (
     <main className={styles.words}>
@@ -209,22 +219,12 @@ export const Words = () => {
           words of {find.length >= 1 ? words.length : totalWords} Results
         </section>
         <section className={styles.words_footer_pagination}>
-          {find.length < 1 && (
-            <Pagination
-              handlerNext={handlerButtonNext}
-              handlerPrevious={handlerButtonPrevious}
-              handlerCurrent={handlerCurrent}
-              array={arrayElementsPagination}
-              resultPagination={resultPagination}
-              current={current}
-              handlerPagination={handlerCurrentPagination}
-            />
-          )}
+          {find.length < 1 && <MemoResultPagination />}
         </section>
         <section className={styles.words_footer_download}>
           <Download
             file={file}
-            handlerFile={handlerFile}
+            handlerFile={setFile}
             downloadFile={downloadFile}
           />
         </section>
