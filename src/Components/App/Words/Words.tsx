@@ -108,7 +108,20 @@ export const Words = () => {
     dispatch(fetchDownloadFile(file));
   }, [file]);
   const handlerCurrent = () => setCurrent(1);
-  const memoResult = useMemo(
+  const memoPagination = useMemo(() => {
+    return (
+      <Pagination
+        handlerNext={handlerButtonNext}
+        handlerPrevious={handlerButtonPrevious}
+        handlerCurrent={handlerCurrent}
+        array={arr}
+        resultPagination={resultPagination}
+        current={current}
+        handlerPagination={handlerCurrentPagination}
+      />
+    );
+  }, [current]);
+  const memoWords = useMemo(
     () =>
       words.map((item: WordType) => {
         return (
@@ -124,20 +137,6 @@ export const Words = () => {
       }),
     [words]
   );
-
-  const MemoResultPagination = () => {
-    return (
-      <Pagination
-        handlerNext={handlerButtonNext}
-        handlerPrevious={handlerButtonPrevious}
-        handlerCurrent={handlerCurrent}
-        array={arr}
-        resultPagination={resultPagination}
-        current={current}
-        handlerPagination={handlerCurrentPagination}
-      />
-    );
-  };
 
   return (
     <main className={styles.words}>
@@ -202,7 +201,7 @@ export const Words = () => {
         </section>
       </section>
       <section className={styles.words_containerWords}>
-        {isLoading ? <Loading width="650" /> : memoResult}
+        {isLoading ? <Loading width="650" /> : memoWords}
       </section>
       <section className={styles.words_footer}>
         <section className={styles.words_footer_showing}>
@@ -219,7 +218,7 @@ export const Words = () => {
           words of {find.length >= 1 ? words.length : totalWords} Results
         </section>
         <section className={styles.words_footer_pagination}>
-          {find.length < 1 && <MemoResultPagination />}
+          {find.length < 1 && memoPagination}
         </section>
         <section className={styles.words_footer_download}>
           <Download
