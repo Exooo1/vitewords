@@ -8,13 +8,10 @@ import { NotFound } from "../Auth/NotFound/NotFound";
 import { Login } from "../Auth/Login/Login";
 import { AppVocabulary } from "../App/AppVocabulary";
 import { Words } from "../App/Words/Words";
-import building from '../../assets/Images/soon.png'
-
-import { Footer } from "../footer/footer";
 
 import styles from "./layout.module.scss";
-import {Building} from "../building/building";
-import {Chat} from "../../pages/chat/chat";
+import { Building } from "../building/building";
+import { Chat } from "../../pages/chat/chat";
 
 export const Layout: FC = () => {
   return (
@@ -34,17 +31,35 @@ export const Layout: FC = () => {
             element={<ConfirmAccount />}
           />
           <Route key="app" path="/app" element={<AppVocabulary />}>
-            <Route index element={<Words />} />
-            <Route key="profile" path="profile" element={<div style={{width:'100%'}}><Building/></div>} />
-            <Route key="chat" path="chat" element={<Chat/>}/>
+            <Route key="words" path="words" element={<Words />} />
+            <Route
+              key="profile"
+              path="profile"
+              element={
+                <div style={{ width: "100%" }}>
+                  <Building />
+                </div>
+              }
+            />
+            <Route key="chat" path="chat" element={<Chat />} />
             <Route
               key="dashboard"
               path="dashboard"
-              element={<div style={{width:'100%'}}><Building/></div>} />
+              element={
+                <div style={{ width: "100%" }}>
+                  <Building />
+                </div>
+              }
+            />
             <Route
               key="achievements"
               path="achievements"
-              element={<div style={{width:'100%'}}><Building/></div>} />
+              element={
+                <div style={{ width: "100%" }}>
+                  <Building />
+                </div>
+              }
+            />
           </Route>
         </Routes>
       </div>

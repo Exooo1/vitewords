@@ -1,11 +1,10 @@
-import React, {useEffect, useState} from "react";
-import {HintModal} from "../../Common/ModalComponents/HintModal/HintModal";
-import {NAV} from "../../constants/constants";
-import {Link, Outlet, useNavigate} from "react-router-dom";
-import {useAppDispatch, useAppSelector} from "../../redux/ReduxUtils";
-import {authReselect} from "../../redux/Reselect";
-import {fetchGetProfile} from "../../redux/ProfileReducer";
-import {fetchLogOut} from "../../redux/AuthReducer";
+import React, { useEffect, useState } from "react";
+import { HintModal } from "../../Common/ModalComponents/HintModal/HintModal";
+import { NAV } from "../../constants/constants";
+import { Link, Outlet, useNavigate } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from "../../redux/ReduxUtils";
+import { authReselect } from "../../redux/Reselect";
+import { fetchLogOut } from "../../redux/AuthReducer";
 
 import logo from "../../assets/Images/logo.png";
 import logout from "../../assets/Images/logout.png";
@@ -17,6 +16,7 @@ export const AppVocabulary = () => {
   const dispatch = useAppDispatch();
   const [nav, setNav] = useState(NAV);
   useEffect(() => {
+    navigate("/app/words");
     if (auth === 0) navigate("/auth");
   }, [auth]);
   const changeNav = (id: number) => {

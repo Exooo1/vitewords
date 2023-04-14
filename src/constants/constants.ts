@@ -1,5 +1,10 @@
 import managment from "../assets/Images/managerwords.png";
-import {ChoiceAuthType, NavType, SliderTypeBanners, SortElementsType} from "../Common/Types/CommonType";
+import {
+  ChoiceAuthType,
+  NavType,
+  SliderTypeBanners,
+  SortElementsType
+} from "../Common/Types/CommonType";
 import profile from "../assets/Images/profile.png";
 import dashboard from "../assets/Images/dashboard.png";
 import vocab from "../assets/Images/vocab.png";
@@ -52,43 +57,44 @@ export const CHOICE_AUTH: Array<ChoiceAuthType> = [
   { id: 1, isActive: true },
   { id: 2, isActive: false }
 ];
-export const NAV:Array<NavType> = [ {
+export const NAV: Array<NavType> = [
+  {
     id: 1,
     name: "Profile",
     path: "profile",
     img: profile,
     style: false
-},
-    {
-        id: 2,
-        name: "Dashboard",
-        path: "dashboard",
-        img: dashboard,
-        style: false
-    },
-    {
-        id: 3,
-        name: "Words",
-        path: "",
-        img: vocab,
-        style: true
-    },
-    {
-        id: 4,
-        name: "Achievements",
-        path: "achievements",
-        img: rewards,
-        style: false
-    },
-    {
-        id: 5,
-        name: "Chat",
-        path: "chat",
-        img: chat,
-        style: false
-    },
-]
-export const SORT_ELEMENTS:Array<SortElementsType> = [
-    {id: 2, name: "Description", sort: "DESCRIPTION"},
-    {id: 3, name: "Added", sort: "ADDED"}
-]
+  },
+  {
+    id: 2,
+    name: "Dashboard",
+    path: "dashboard",
+    img: dashboard,
+    style: false
+  },
+  {
+    id: 3,
+    name: "Words",
+    path: "words",
+    img: vocab,
+    style: true
+  },
+  {
+    id: 4,
+    name: "Achievements",
+    path: "achievements",
+    img: rewards,
+    style: false
+  },
+  {
+    id: 5,
+    name: "Chat",
+    path: "chat",
+    img: chat,
+    style: false
+  }
+];
+export const SORT_ELEMENTS: Array<SortElementsType> = [
+  { id: 2, name: "Description", sort: "DESCRIPTION" },
+  { id: 3, name: "Added", sort: "ADDED" }
+];

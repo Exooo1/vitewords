@@ -5,11 +5,10 @@ import io, { Socket } from "socket.io-client";
 
 import imgChat from "../../assets/Images/headerchat.png";
 import send from "../../assets/Images/send.png";
-import chats from "../../assets/Images/chats.png";
 import styles from "./chat.module.scss";
 import { fetchGetProfile, MessageType } from "../../redux/ProfileReducer";
 import { useAppDispatch, useAppSelector } from "../../redux/ReduxUtils";
-import { uuid } from "../../Common/usefulFuncs";
+import { changeTitle, uuid } from "../../Common/usefulFuncs";
 
 type WriterType = {
   lastName: string;
@@ -29,12 +28,18 @@ export const Chat = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
+    changeTitle("chat");
     dispatch(fetchGetProfile());
   }, []);
 
   useEffect(() => {
     setMessages(chat);
   }, [chat]);
+
+  useEffect(() => {
+    const element = document.getElementById("scroll");
+    if (element) element.scrollTop = element.scrollHeight;
+  }, [messages]);
 
   useEffect(() => {
     const socket = io("http://localhost:8999");
@@ -50,11 +55,6 @@ export const Chat = () => {
       socket.disconnect();
     };
   }, []);
-
-  useEffect(() => {
-    const element = document.getElementById("scroll");
-    if (element) element.scrollTop = element.scrollHeight;
-  }, [messages]);
 
   const handlerText = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.value.length === 1)
@@ -144,7 +144,7 @@ export const Chat = () => {
           </figure>
           <section className={styles.chat_container_header_information}>
             <section className={styles.chat_container_header_information_head}>
-              <img src={chats} alt="chats" role="picture" />
+              {/*<img src={chats} alt="chats" role="picture" />*/}
               <h3>Information about common chat and group.</h3>
             </section>
             <section

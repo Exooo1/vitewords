@@ -24,7 +24,6 @@ import { Pagination } from "./Pagination/Pagination";
 import { Download } from "./DownloadParameters/Download";
 
 import search from "../../../assets/Images/search.png";
-import managment from "../../../assets/Images/knowlegde.png";
 import knowledge from "../../../assets/Images/sortknowleadge.png";
 import abc from "../../../assets/Images/abc.png";
 import styles from "./words.module.scss";
@@ -120,7 +119,7 @@ export const Words = () => {
         handlerPagination={handlerCurrentPagination}
       />
     );
-  }, [current]);
+  }, [current, totalWords]);
   const memoWords = useMemo(
     () =>
       words.map((item: WordType) => {
@@ -151,7 +150,7 @@ export const Words = () => {
               course repeat the words you have learned.
             </p>
           </section>
-          <img src={managment} alt="managment" role="picture" />
+          {/*<img src={managment} alt="managment" role="picture" />*/}
         </section>
         <section className={styles.words_header_filters}>
           <section className={styles.words_header_filters_description}>

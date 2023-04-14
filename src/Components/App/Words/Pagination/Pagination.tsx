@@ -23,7 +23,6 @@ export const Pagination: React.FC<PaginationType> = React.memo(
     resultPagination
   }) => {
     const paginationElements = () => {
-      console.log("pagination");
       return array.map((item: number) => (
         <PaginationElements
           key={item}
