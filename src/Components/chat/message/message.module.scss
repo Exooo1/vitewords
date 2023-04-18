@@ -1,20 +1,16 @@
+@import "src/styles/mixins.scss";
+@import "src/styles/variables.scss";
+
 .message {
-  display: flex;
-  flex-direction: column;
+  @include base-flex($justify-center, $align-start, $flex-directionC, auto);
   width: 100%;
-  justify-content: center;
-  align-items: flex-start;
 
   &_container {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+    @include base-flex($justify-start, $align-center, auto, $gap-5);
+    @include back-shadow-radius(#16171b, none, 20px 20px 20px 0px);
     width: 250px;
-    background: #16171b;
-    border-radius: 20px 20px 20px 0px;
     line-height: 5px;
     margin: 10px 10px;
-    gap: 5px;
 
     img {
       margin-left: 15px;
@@ -23,8 +19,7 @@
     }
 
     &_content {
-      display: flex;
-      flex-direction: column;
+      @include base-flex(auto, auto, $flex-directionC, auto);
       width: 100%;
       line-height: 14px;
       min-height: auto;
@@ -33,15 +28,16 @@
         &:first-child {
           font-weight: 650;
         }
+
         color: white;
         margin: 3px 0;
         font-size: 13px;
       }
     }
   }
-  &_container_isActive{
+
+  &_container_isActive {
     align-self: flex-end;
-    background-color: #b785f5;
-    border-radius: 20px 20px 0 20px;
+    @include back-shadow-radius(#b785f5, none, 20px 20px 0 20px);
   }
 }

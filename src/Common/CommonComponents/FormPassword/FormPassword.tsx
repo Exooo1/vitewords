@@ -1,4 +1,4 @@
-import React, {ChangeEvent, memo, useState} from "react";
+import React, { ChangeEvent, memo, useState } from "react";
 import eye from "../../../assets/Images/eye.png";
 import eye2 from "../../../assets/Images/eyep.png";
 import mail from "../../../assets/Images/email.png";
@@ -9,9 +9,10 @@ type FormPasswordType = {
   password: string;
   changePassword: (e: ChangeEvent<HTMLInputElement>) => void;
   changeEmail: (e: ChangeEvent<HTMLInputElement>) => void;
+  login: any;
 };
 export const FormPassword: React.FC<FormPasswordType> = memo(
-  ({ email, password, changePassword, changeEmail }) => {
+  ({ email, password, changePassword, changeEmail, login }) => {
     const [isVisible, setVisible] = useState<boolean>(false);
     const changeVisible = () => setVisible(!isVisible);
     return (
@@ -24,6 +25,7 @@ export const FormPassword: React.FC<FormPasswordType> = memo(
             <input
               value={email}
               onChange={changeEmail}
+              onKeyDown={login}
               type={"email"}
               placeholder={"Email"}
             />
@@ -39,6 +41,7 @@ export const FormPassword: React.FC<FormPasswordType> = memo(
               type={isVisible ? "text" : "password"}
               value={password}
               onChange={changePassword}
+              onKeyDown={login}
               placeholder={"Password"}
             />
           </div>

@@ -68,17 +68,19 @@ export const useForm = (): FormType => {
         );
   };
 
-  const login = () => {
-    if (password.length! < 6)
-      return handlerDeleteHint("Password incorrect", dispatch, "error");
-    !reg.test(email)
-      ? handlerDeleteHint("Email invalid", dispatch, "error")
-      : dispatch(
-          fetchLogin({
-            email,
-            password
-          })
-        );
+  const login = (e: KeyboardEvent) => {
+    if (e.key === "Enter" || e.type === "click") {
+      if (password.length! < 6)
+        return handlerDeleteHint("Password incorrect", dispatch, "error");
+      !reg.test(email)
+        ? handlerDeleteHint("Email invalid", dispatch, "error")
+        : dispatch(
+            fetchLogin({
+              email,
+              password
+            })
+          );
+    }
   };
 
   const itemsProfile: Array<ItemProfileType> = [

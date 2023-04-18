@@ -1,11 +1,12 @@
+@import "src/styles/mixins.scss";
+@import "src/styles/variables.scss";
+
 .wrapper {
-  display: flex;
-  flex-direction: column;
+  @include base-flex(auto, auto, $flex-directionC, auto);
+  @include width-height(450px, 580px);
+  @include back-shadow-radius(#1d1e24, none, 20px 20px 0 0);
   overflow: auto;
-  width: 450px;
-  height: 580px;
-  background: #1d1e24;
-  border-radius: 20px 20px 0 0;
+
   &::-webkit-scrollbar {
     width: 0px;
   }
