@@ -1,33 +1,28 @@
-@import "../../../styles/mixins";
+@import "src/styles/mixins.scss";
+@import "src/styles/variables.scss";
 
 .hint {
+  @include base-flex($justify-center, $align-center, $flex-directionR, auto);
+  @include width-height(280px, 100px);
+  @include back-shadow-radius(#1c1b20, 0 0 5px #b55fda, 30px);
+  @include base-positionF(25px);
+  cursor: $cursor-pointer;
   z-index: 10;
-  @include flexDiv(center, center, row);
-  @include wi_he(280px, 100px);
-  background: #1c1b20;
   transition: 1s;
-  border-radius: 30px;
-  position: fixed;
-  left: 25px;
-  cursor: pointer;
-  box-shadow: 0 0 5px #b55fda;
 
   div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include base-flex($justify-center, $align-center, auto, auto);
     width: 190px;
 
     span {
-      font-size: 20px;
-      font-weight: 900;
+      @include size-weight-line(20px, $weight-900, auto);
       text-decoration: underline;
       text-underline-offset: 3px;
     }
   }
 
   img {
-    @include wi_he(52px, 52px);
+    @include width-height(52px, 52px);
     margin: 0 10px;
   }
 }

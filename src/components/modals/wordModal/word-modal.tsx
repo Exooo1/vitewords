@@ -52,10 +52,10 @@ export const WordModal: React.FC<WordModalType> = ({ handlerIsModal }) => {
     }
   };
   return (
-    <div className="container_modalWord" onClick={handlerIsModal}>
-      <div onClick={e => e.stopPropagation()}>
-        <h2>Add new Word</h2>
-        <div className={hint === "word" ? "modalWord_requiredfield" : ""}>
+    <section className="container_modalWord" onClick={handlerIsModal}>
+      <section onClick={e => e.stopPropagation()}>
+        <h2>New word</h2>
+        <section className={hint === "word" ? "modalWord_requiredfield" : ""}>
           {word && <label>Word</label>}
           <input
             autoFocus={true}
@@ -65,8 +65,10 @@ export const WordModal: React.FC<WordModalType> = ({ handlerIsModal }) => {
             onChange={handlerWord}
             onKeyDown={handlerEnter}
           />
-        </div>
-        <div className={hint === "translate" ? "modalWord_requiredfield" : ""}>
+        </section>
+        <section
+          className={hint === "translate" ? "modalWord_requiredfield" : ""}
+        >
           {translate && <label>Translate</label>}
           <input
             type="text"
@@ -75,8 +77,8 @@ export const WordModal: React.FC<WordModalType> = ({ handlerIsModal }) => {
             onChange={handlerTranslate}
             onKeyDown={handlerEnter}
           />
-        </div>
-        <div>
+        </section>
+        <section>
           {description && <label>Description</label>}
           <input
             type="text"
@@ -85,12 +87,12 @@ export const WordModal: React.FC<WordModalType> = ({ handlerIsModal }) => {
             onChange={handlerDescription}
             onKeyDown={handlerEnter}
           />
-        </div>
-        <div className="container_modalWord_buttons">
+        </section>
+        <section className="container_modalWord_buttons">
           <button onClick={handlerAddNewWord}>Add</button>
           <button onClick={handlerIsModal}>Cancel</button>
-        </div>
-      </div>
-    </div>
+        </section>
+      </section>
+    </section>
   );
 };
