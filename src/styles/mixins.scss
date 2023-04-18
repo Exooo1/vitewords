@@ -49,7 +49,7 @@
   flex-direction: $direction;
   gap: $gap;
 }
-@mixin base-flex-back($justify, $align, $direction, $gap,$back){
+@mixin base-flex-back($justify, $align, $direction, $gap, $back) {
   display: flex;
   justify-content: $justify;
   align-items: $align;
@@ -87,10 +87,10 @@
   position: relative;
   top: $top;
 }
-@mixin base-positionA($left,$top){
+@mixin base-positionA($left, $top) {
   position: absolute;
-  left:$left;
-  top:$top;
+  left: $left;
+  top: $top;
 }
 
 //background
@@ -105,7 +105,7 @@
 }
 
 //shadow-text
-@mixin text-weight($shadow,$weight){
+@mixin text-weight($shadow, $weight) {
   text-shadow: $shadow;
   font-weight: $weight;
 }

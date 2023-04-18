@@ -1,0 +1,40 @@
+@import "../../../styles/mixins.scss";
+@import "../../../styles/variables.scss";
+
+.confirmed {
+  height: 100vh;
+  background: linear-gradient(to right, #0f2027, #553d83, #8f049f);
+  @include base-flex($justify-center, $align-center, $flex-directionC, auto);
+  &_content {
+    border-radius: 20px;
+    color: $color-white;
+    background: linear-gradient(to right, #262b37, #4d4450);
+    @include maxWidth-height(420px, 450px);
+    @include base-flex(
+      $justify-center,
+      $align-center,
+      $flex-directionC,
+      $gap-10
+    );
+    h2 {
+      span {
+        color: #0a84de;
+      }
+    }
+    p {
+      text-align: center;
+    }
+  }
+  img {
+    width: 150px;
+  }
+  button {
+    cursor: $cursor-pointer;
+    border-radius: 10px;
+    border: none;
+    color: $color-white;
+    @include width-height(180px, 70px);
+    @include size-weight-line(18px, $weight-900, auto);
+    @include back-shadow(#0370e5, $box-shadow-black);
+  }
+}

@@ -1,0 +1,43 @@
+@import "./src/styles/mixins.scss";
+@import "./src/styles/variables.scss";
+
+.container {
+  background-color: #525461;
+  @include base-flex($justify-center, $align-center, auto, $gap-10);
+  width: 450px;
+  border-radius: 20px;
+  &_isActive {
+    width: 40px;
+  }
+  button {
+    @include width-height(40px, 40px);
+    @include back-shadow-radius(#7974f1, $box-shadow-black, 50%);
+    cursor: $cursor-pointer;
+    color: $color-white;
+    border: $border-none;
+    font-size: 25px;
+    span {
+      position: relative;
+      top: -2px;
+    }
+  }
+
+  &_pagination {
+    @include base-flex($justify-center, $align-center, auto, $gap-15);
+    cursor: $cursor-pointer;
+    width: 235px;
+
+    section {
+      @include base-flex($justify-center, $align-center, auto, auto);
+      @include back-shadow-radius(white, 0 0 10px #525461, 50%);
+      @include width-height(30px, 30px);
+      color: black;
+      p {
+        text-align: center;
+        width: 30px;
+        font-size: 13px;
+        padding-bottom: 3px;
+      }
+    }
+  }
+}

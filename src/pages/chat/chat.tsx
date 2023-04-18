@@ -1,14 +1,14 @@
 import { ChangeEvent, useEffect, useState } from "react";
-import { WrapperMessage } from "../../Components/chat/wrappermessage/wrappermessage";
-import { Loading } from "../../Common/CommonComponents/Loading/Loading";
+import { WrapperMessage } from "../../components/chat/wrappermessage/wrappermessage";
+import { Loading } from "../../components/all/loading/Loading";
 import io, { Socket } from "socket.io-client";
 
-import imgChat from "../../assets/Images/headerchat.png";
-import send from "../../assets/Images/send.png";
+import imgChat from "../../assets/images/headerchat.png";
+import send from "../../assets/images/send.png";
 import styles from "./chat.module.scss";
-import { fetchGetProfile, MessageType } from "../../redux/ProfileReducer";
-import { useAppDispatch, useAppSelector } from "../../redux/ReduxUtils";
-import { changeTitle, uuid } from "../../Common/usefulFuncs";
+import { fetchGetProfile, MessageType } from "../../redux/profileReducer";
+import { useAppDispatch, useAppSelector } from "../../redux/reduxUtils";
+import { changeTitle, uuid } from "../../utils/usefulFuncs";
 
 type WriterType = {
   lastName: string;

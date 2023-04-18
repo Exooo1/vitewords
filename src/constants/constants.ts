@@ -1,21 +1,21 @@
-import managment from "../assets/Images/managerwords.png";
+import managment from "../assets/images/managerwords.png";
 import {
   ChoiceAuthType,
   NavType,
   SliderTypeBanners,
   SortElementsType
-} from "../Common/Types/CommonType";
-import profile from "../assets/Images/profile.png";
-import dashboard from "../assets/Images/dashboard.png";
-import vocab from "../assets/Images/vocab.png";
-import rewards from "../assets/Images/rewards.png";
-import chat from "../assets/Images/chat.png";
+} from "../utils/types/commonTypes";
+import profile from "../assets/images/profile.png";
+import dashboard from "../assets/images/dashboard.png";
+import vocab from "../assets/images/vocab.png";
+import rewards from "../assets/images/rewards.png";
+import chat from "../assets/images/chat.png";
 
 export const SLIDER_BANNERS: Array<SliderTypeBanners> = [
   {
     id: 0,
     img: "https://www.webfx.com/wp-content/uploads/2021/10/dark-web-design-01-nerisson.png",
-    title: "About this App",
+    title: "About this app",
     description:
       "This app will help you repeat and learn new words in English, you can track your actions and your new words.",
     focus: true

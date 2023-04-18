@@ -1,5 +1,5 @@
 import axios, { AxiosPromise, AxiosRequestConfig } from "axios";
-import { ProjectTypeReturn } from "../Common/Types/CommonType";
+import { ProjectTypeReturn } from "../utils/types/commonTypes";
 
 export type WordType = {
   word: string;

@@ -1,0 +1,25 @@
+@import "../../../styles/mixins.scss";
+@import "../../../styles/variables.scss";
+
+.checkMail {
+  height: 100vh;
+  background: linear-gradient(to right, #0f2027, #553d83, #8f049f);
+  @include base-flex($justify-center, $align-center, auto, auto);
+  img {
+    width: 100px;
+  }
+  p {
+    text-align: center;
+  }
+  span {
+    font-weight: $weight-800;
+    color: #41ea6e;
+  }
+  figure {
+    color: white;
+    border-radius: 20px;
+    background: linear-gradient(to right, #262b37, #4d4450);
+    @include base-flex($justify-center, $align-center, $flex-directionC, auto);
+    @include maxWidth-height(420px, 450px);
+  }
+}
