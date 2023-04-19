@@ -8,7 +8,7 @@
 
   button {
     &:active {
-      box-shadow: 0 0 6px #06fbde;
+      box-shadow: inset 0 0 10px #131313;
     }
 
     @include back-shadow-radius(white, $box-shadow-black, 20px);

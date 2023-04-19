@@ -26,7 +26,7 @@ export const Login: FC = () => {
         <b>With this app you will grow!</b>
       </header>
       <FormPassword {...form} />
-      <button onClick={form.login} type="button">
+      <button onClick={form.buttonLogin} type="button">
         Log In
       </button>
       <section className={styles.login_description}>

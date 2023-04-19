@@ -89,8 +89,8 @@
       }
 
       img {
-        margin-right: 10px;
         @include width-height(45px, 45px);
+        margin-right: 10px;
       }
     }
   }

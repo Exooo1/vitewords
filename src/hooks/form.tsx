@@ -26,6 +26,7 @@ type FormType = {
   itemsProfile: Array<ItemProfileType>;
   createAccount: () => void;
   login: (e: KeyboardEvent) => void;
+  buttonLogin: () => void;
 } & InputType;
 export const useForm = (): FormType => {
   const reg = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
@@ -83,6 +84,19 @@ export const useForm = (): FormType => {
     }
   };
 
+  const buttonLogin = () => {
+    if (password.length! < 6)
+      return handlerDeleteHint("Password incorrect", dispatch, "error");
+    !reg.test(email)
+      ? handlerDeleteHint("Email invalid", dispatch, "error")
+      : dispatch(
+          fetchLogin({
+            email,
+            password
+          })
+        );
+  };
+
   const itemsProfile: Array<ItemProfileType> = [
     {
       id: 1,
@@ -112,6 +126,7 @@ export const useForm = (): FormType => {
     changeName,
     changeSurname,
     createAccount,
-    login
+    login,
+    buttonLogin
   };
 };
