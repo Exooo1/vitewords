@@ -18,7 +18,7 @@ import { WordModal } from "../../modals/wordModal/word-modal";
 import { profileReselect } from "../../../redux/reselect";
 import { SortChoice, WordType } from "../../../api/wordAPI";
 import { changeTitle } from "../../../utils/usefulFuncs";
-import { Loading } from "../../all/loading/Loading";
+import { Loading } from "../../all/loading/loading";
 import { SortElements } from "./sortElements/sort-elements";
 import { Pagination } from "./pagination/pagination";
 import { Download } from "./download/download";

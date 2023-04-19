@@ -1,6 +1,6 @@
 import { ChangeEvent, useEffect, useState } from "react";
 import { WrapperMessage } from "../../components/chat/wrappermessage/wrappermessage";
-import { Loading } from "../../components/all/loading/Loading";
+import { Loading } from "../../components/all/loading/loading";
 import io, { Socket } from "socket.io-client";
 
 import imgChat from "../../assets/images/headerchat.png";

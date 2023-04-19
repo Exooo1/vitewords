@@ -6,7 +6,7 @@ import { CheckMail } from "../auth/checkMail/check-mail";
 import { ConfirmAccount } from "../auth/confirmAccount/confirm-account";
 import { NotFound } from "../auth/notFound/not-found";
 import { Login } from "../auth/login/login";
-import { AppVocabulary } from "../app/appVocabulary";
+import { AppVocabulary } from "../app/app-vocabulary";
 import { Words } from "../app/words/words";
 
 import styles from "./layout.module.scss";

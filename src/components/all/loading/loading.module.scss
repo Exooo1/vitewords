@@ -1,3 +1,5 @@
+@import "src/styles/mixins.scss";
+
 @keyframes loadingAnimation {
   from {
     transform: rotate(190deg);
@@ -5,9 +7,7 @@
 }
 
 .loading {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include base-flex(center, center, auto, auto);
   height: auto;
 
   img {

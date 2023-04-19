@@ -1,4 +1,4 @@
-import React, { ChangeEvent, memo, useState } from "react";
+import React, { ChangeEvent, KeyboardEvent, memo, useState } from "react";
 import eye from "../../../assets/images/eye.png";
 import eye2 from "../../../assets/images/eyep.png";
 import mail from "../../../assets/images/email.png";
@@ -9,7 +9,7 @@ type FormPasswordType = {
   password: string;
   changePassword: (e: ChangeEvent<HTMLInputElement>) => void;
   changeEmail: (e: ChangeEvent<HTMLInputElement>) => void;
-  login: any;
+  login: (e: KeyboardEvent) => void;
 };
 export const FormPassword: React.FC<FormPasswordType> = memo(
   ({ email, password, changePassword, changeEmail, login }) => {

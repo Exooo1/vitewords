@@ -1,10 +1,9 @@
 import React, { FC, useEffect } from "react";
-import { LinkMemo } from "../../all/memoLink/Link";
 import { fetchGetAuth } from "../../../redux/authReducer";
 import { useAppDispatch, useAppSelector } from "../../../redux/reduxUtils";
 import { useForm } from "../../../hooks/form";
-import { Navigate } from "react-router-dom";
-import { FormPassword } from "../../all/useform/FormPassword";
+import { Link, Navigate } from "react-router-dom";
+import { FormPassword } from "../../all/useform/form-password";
 import { authReselect, resultCodeReselect } from "../../../redux/reselect";
 
 import styles from "./registration.module.scss";
@@ -14,7 +13,8 @@ export const Registration: FC = () => {
   useEffect(() => {
     dispatch(fetchGetAuth());
   }, []);
-  const { password, email, changePassword, changeEmail, ...form } = useForm();
+  const { password, email, changePassword, changeEmail, login, ...form } =
+    useForm();
   const resultCode = useAppSelector(resultCodeReselect);
   const auth = useAppSelector(authReselect);
   if (resultCode === 1) return <Navigate to="/auth/email" replace={true} />;
@@ -45,7 +45,7 @@ export const Registration: FC = () => {
           Create new Account <span>.</span>
         </h1>
         <b>
-          Already A Member? <LinkMemo name="Login" path="login" />
+          Already A Member? <Link to="login">login</Link>
         </b>
       </header>
       <section className={styles.registration_fill}>
@@ -55,6 +55,7 @@ export const Registration: FC = () => {
           password={password}
           changeEmail={changeEmail}
           changePassword={changePassword}
+          login={login}
         />
       </section>
       <section className={styles.registration_button}>

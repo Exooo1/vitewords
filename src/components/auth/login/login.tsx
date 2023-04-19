@@ -1,7 +1,7 @@
 import React, { FC, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "../../../hooks/form";
-import { FormPassword } from "../../all/useform/FormPassword";
+import { FormPassword } from "../../all/useform/form-password";
 import { changeTitle } from "../../../utils/usefulFuncs";
 import { useAppSelector } from "../../../redux/reduxUtils";
 import { authReselect } from "../../../redux/reselect";
