@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useState } from "react";
 import { useAppDispatch } from "../../../redux/reduxUtils";
 import { fetchAddWord } from "../../../redux/wordsReducer";
-import "./wordModal.scss";
+import styles from "./wordModal.module.scss";
 
 type WordModalType = {
   handlerIsModal: () => void;
@@ -52,7 +52,7 @@ export const WordModal: React.FC<WordModalType> = ({ handlerIsModal }) => {
     }
   };
   return (
-    <section className="container_modalWord" onClick={handlerIsModal}>
+    <section className={styles.container_modalWord} onClick={handlerIsModal}>
       <section onClick={e => e.stopPropagation()}>
         <h2>New word</h2>
         <section className={hint === "word" ? "modalWord_requiredfield" : ""}>
@@ -88,7 +88,7 @@ export const WordModal: React.FC<WordModalType> = ({ handlerIsModal }) => {
             onKeyDown={handlerEnter}
           />
         </section>
-        <section className="container_modalWord_buttons">
+        <section className={styles.container_modalWord_buttons}>
           <button onClick={handlerAddNewWord}>Add</button>
           <button onClick={handlerIsModal}>Cancel</button>
         </section>

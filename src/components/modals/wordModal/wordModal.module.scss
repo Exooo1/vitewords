@@ -9,7 +9,7 @@
   right: 0;
   background: rgba(0, 0, 0, 0.56);
 
-  div {
+  section {
     @include base-flex($justify-spaceA, $align-center, $flex-directionC, auto);
     @include width-height(400px, 500px);
     @include back-radius(linear-gradient(to right, #121421, #252734), 20px);
@@ -52,7 +52,7 @@
       }
     }
 
-    div {
+    section {
       @include width-height(300px, 85px);
       @include back-radius(#323645, 20px);
       @include base-flex($justify-center, $align-start, $flex-directionC, auto);

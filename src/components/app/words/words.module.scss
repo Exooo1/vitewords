@@ -10,16 +10,19 @@
     #201e1e
   );
   @include width-minHeight(100%, 100vh);
+
   &_footer {
     width: 96%;
     @include base-flex($justify-spaceB, $align-center, auto, auto);
     color: $color-white;
+
     &_showing {
       width: 16%;
       font-size: 14px;
       color: $color-darkGrey;
     }
   }
+
   &_containerWords {
     &::-webkit-scrollbar-thumb {
       border-radius: 100px;
@@ -35,10 +38,12 @@
     &::-webkit-scrollbar {
       width: 10px;
     }
+
     overflow: auto;
     @include width-height(96%, 65vh);
     @include base-flex-back(auto, auto, $flex-directionC, auto, #201e1e);
   }
+
   &_header {
     @include base-flex($justify-spaceA, $align-center, auto, auto);
     @include width-minHeight(100%, 25vh);
@@ -75,9 +80,11 @@
       @include width-minHeight(30%, 200px);
       @include base-flex($justify-center, $align-center, auto, $gap-10);
       flex-wrap: wrap;
+
       img {
         width: 30%;
       }
+
       &_description {
         @include width-minHeight(240px, 200px);
         margin: 0 16px;
@@ -98,9 +105,11 @@
 
           button {
             transition: $transition1s;
+
             &:hover {
               transform: rotateZ(360deg);
             }
+
             cursor: $cursor-pointer;
             @include back-shadow-radius(
               rgba(32, 30, 30, 0.85),
@@ -112,16 +121,19 @@
             font-size: 25px;
             color: #be69da;
           }
+
           section {
             @include back-shadow-radius($color-white, none, 40px);
             @include width-height(40px, 40px);
             transition: $transition1s;
             overflow: hidden;
             display: flex;
+
             input {
               &::placeholder {
-                color: darkgrey;
+                color: $color-darkGrey;
               }
+
               @include width-height(170px, 40px);
               border: $border-none;
               font-size: 15px;
@@ -133,6 +145,7 @@
               @include width-height(40px, 40px);
             }
           }
+
           .words_header_search_description_newWord_isActive {
             width: 220px;
           }
