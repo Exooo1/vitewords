@@ -10,8 +10,8 @@ import {
 } from "../api/wordAPI";
 import { ProjectTypeReturn, ThunkError } from "../utils/types/commonTypes";
 import { handlerDeleteHint } from "../utils/usefulFuncs";
-import pdfMake from "pdfmake/build/pdfmake";
-import pdfFonts from "pdfmake/build/vfs_fonts";
+import * as pdfMake from "pdfmake/build/pdfmake";
+import * as pdfFonts from "pdfmake/build/vfs_fonts";
 import { Content, TDocumentDefinitions } from "pdfmake/interfaces";
 import { AppRootState } from "./reduxUtils";
 
@@ -172,7 +172,7 @@ export const fetchSortWords = createAsyncThunk<Array<WordType>, SortChoice>(
 export const fetchDownloadFile = createAsyncThunk<any, string>(
   "words/fetchDownloadFile",
   async (arg, { dispatch, rejectWithValue }) => {
-    pdfMake.vfs = pdfFonts.pdfMake.vfs;
+    (pdfMake as any).vfs = pdfFonts.pdfMake.vfs;
     try {
       const { data } = await wordApi.downloadFile();
       if (arg === "pdf") {
