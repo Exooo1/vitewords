@@ -1,10 +1,11 @@
-@import "../../../styles/mixins.scss";
-@import "../../../styles/variables.scss";
+@import "../../styles/mixins";
+@import "../../styles/variables";
 
 .confirmed {
   height: 100vh;
   background: linear-gradient(to right, #0f2027, #553d83, #8f049f);
   @include base-flex($justify-center, $align-center, $flex-directionC, auto);
+
   &_content {
     border-radius: 20px;
     color: $color-white;
@@ -16,18 +17,22 @@
       $flex-directionC,
       $gap-10
     );
+
     h2 {
       span {
         color: #0a84de;
       }
     }
+
     p {
       text-align: center;
     }
   }
+
   img {
     width: 150px;
   }
+
   button {
     cursor: $cursor-pointer;
     border-radius: 10px;

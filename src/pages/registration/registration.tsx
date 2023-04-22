@@ -1,10 +1,10 @@
 import React, { FC, useEffect } from "react";
-import { fetchGetAuth } from "../../../redux/authReducer";
-import { useAppDispatch, useAppSelector } from "../../../redux/reduxUtils";
-import { useForm } from "../../../hooks/form";
+import { fetchGetAuth } from "../../redux/authReducer";
+import { useAppDispatch, useAppSelector } from "../../redux/reduxUtils";
+import { useForm } from "../../hooks/form";
 import { Link, Navigate } from "react-router-dom";
-import { FormPassword } from "../../all/useform/form-password";
-import { authReselect, resultCodeReselect } from "../../../redux/reselect";
+import { FormPassword } from "../../components/all/useform/form-password";
+import { authReselect, resultCodeReselect } from "../../redux/reselect";
 
 import styles from "./registration.module.scss";
 

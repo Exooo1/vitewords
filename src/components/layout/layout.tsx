@@ -1,11 +1,11 @@
 import React, { FC } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { Auth } from "../auth/auth";
-import { Registration } from "../auth/registration/registration";
-import { CheckMail } from "../auth/checkMail/check-mail";
-import { ConfirmAccount } from "../auth/confirmAccount/confirm-account";
+import { Registration } from "../../pages/registration/registration";
+import { AuthenticationEmail } from "../../pages/authenticationemail/authentication-email";
+import { ConfirmAccount } from "../../pages/confirmaccount/confirm-account";
 import { NotFound } from "../auth/notFound/not-found";
-import { Login } from "../auth/login/login";
+import { Login } from "../../pages/login/login";
 import { AppVocabulary } from "../app/app-vocabulary";
 import { Words } from "../app/words/words";
 
@@ -24,7 +24,11 @@ export const Layout: FC = () => {
             <Route index element={<Registration />} />
             <Route key="login" path="login" element={<Login />} />
           </Route>
-          <Route key="auth/email" path="auth/email" element={<CheckMail />} />
+          <Route
+            key="auth/email"
+            path="auth/email"
+            element={<AuthenticationEmail />}
+          />
           <Route
             key="auth/confirmed/:id"
             path="auth/confirmed/:id"

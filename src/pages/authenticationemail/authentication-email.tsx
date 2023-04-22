@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
-import { changeTitle } from "../../../utils/usefulFuncs";
+import { changeTitle } from "../../utils/usefulFuncs";
 import styles from "./checkmail.module.scss";
-import mail from "../../../assets/images/mail.png";
+import mail from "../../assets/images/mail.png";
 
-export const CheckMail = () => {
+export const AuthenticationEmail = () => {
   useEffect(() => {
     changeTitle("Email");
   }, []);

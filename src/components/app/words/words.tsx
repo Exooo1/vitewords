@@ -26,6 +26,7 @@ import { Download } from "./download/download";
 import search from "../../../assets/images/search.png";
 import knowledge from "../../../assets/images/sortknowleadge.png";
 import abc from "../../../assets/images/abc.png";
+import managment from "../../../assets/images/management.png";
 import styles from "./words.module.scss";
 
 let timeout: ReturnType<typeof setTimeout>;
@@ -150,7 +151,7 @@ export const Words = () => {
               course repeat the words you have learned.
             </p>
           </section>
-          {/*<img src={managment} alt="managment" role="picture" />*/}
+          <img src={managment} alt="managment" role="picture" />
         </section>
         <section className={styles.words_header_filters}>
           <section className={styles.words_header_filters_description}>

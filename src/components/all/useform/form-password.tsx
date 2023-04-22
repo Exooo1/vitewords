@@ -2,7 +2,7 @@ import React, { ChangeEvent, KeyboardEvent, memo, useState } from "react";
 import eye from "../../../assets/images/eye.png";
 import eye2 from "../../../assets/images/eyep.png";
 import mail from "../../../assets/images/email.png";
-import styles from "../../auth/registration/registration.module.scss";
+import styles from "../../../pages/registration/registration.module.scss";
 
 type FormPasswordType = {
   email: string;

@@ -52,6 +52,7 @@
       @include back-shadow-radius(#525461, 0 0 15px #525461, 20px);
       @include width-minHeight(32%, 200px);
       @include base-flex($justify-center, $align-center, auto, $gap-10);
+      margin: 10px 0;
       flex-wrap: wrap;
 
       img {
@@ -82,7 +83,7 @@
       flex-wrap: wrap;
 
       img {
-        width: 30%;
+        width: 32.8%;
       }
 
       &_description {
