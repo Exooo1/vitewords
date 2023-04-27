@@ -1,4 +1,5 @@
 import { addHint, deleteHint, PayloadHintType } from "../redux/errorsReducer";
+import { AttributesImageType } from "./types/commonTypes";
 
 type StatusTypeHint = "done" | "error";
 
@@ -22,14 +23,8 @@ export const handlerDeleteHint = (
 export const uuid = (value: string) =>
   value + (Math.random() * value.length).toString(34);
 
-type AttributeType = {
-  src: string;
-  alt: string;
-  role: string;
-  title?: string;
-  width: string;
-};
-
-export const imgAttribute = (attributes: AttributeType): AttributeType => {
-  return { ...attributes, title: "-img" };
+export const imgAttribute = (
+  attributes: AttributesImageType
+): AttributesImageType => {
+  return { ...attributes, title: attributes.alt + "-img" };
 };

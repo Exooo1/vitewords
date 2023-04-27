@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from "react";
+import { ChangeEvent, FC, useState } from "react";
 import { useAppDispatch } from "../../../redux/reduxUtils";
 import { fetchAddWord } from "../../../redux/wordsReducer";
 import styles from "./wordModal.module.scss";
@@ -7,7 +7,7 @@ type WordModalType = {
   handlerIsModal: () => void;
 };
 
-export const WordModal: React.FC<WordModalType> = ({ handlerIsModal }) => {
+export const WordModal: FC<WordModalType> = ({ handlerIsModal }) => {
   const dispatch = useAppDispatch();
   const [word, setWord] = useState<string>("");
   const [translate, setTranslate] = useState<string>("");

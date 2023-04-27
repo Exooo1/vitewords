@@ -1,5 +1,6 @@
-import React, {
+import {
   ChangeEvent,
+  FC,
   useCallback,
   useEffect,
   useMemo,
@@ -32,7 +33,7 @@ import styles from "./words.module.scss";
 let timeout: ReturnType<typeof setTimeout>;
 let sortValue: number = 0;
 
-export const Words = () => {
+export const Words: FC = () => {
   const [isSearch, setIsSearch] = useState<boolean>(false);
   const [file, setFile] = useState<string>("txt");
   const [find, setFind] = useState<string>("");

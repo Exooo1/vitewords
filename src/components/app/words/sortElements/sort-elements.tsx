@@ -1,4 +1,4 @@
-import React from "react";
+import { FC, memo } from "react";
 import { SortElement } from "../sortElement/sort-element";
 import { SortChoice } from "../../../../api/wordAPI";
 import styles from "./sort_elements.module.scss";
@@ -10,7 +10,7 @@ type SortTypeItems = {
   fetchSortReset: () => void;
 };
 
-export const SortElements: React.FC<SortTypeItems> = React.memo(
+export const SortElements: FC<SortTypeItems> = memo(
   ({ isLoading, fetchSortReset, fetchSort }) => {
     const sortElements = SORT_ELEMENTS;
     const handlerSort = (name: string, sort: SortChoice) => {

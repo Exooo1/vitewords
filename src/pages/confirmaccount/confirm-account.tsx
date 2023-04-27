@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { FC, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { changeTitle } from "../../utils/functionutils";
 import { fetchConfirmPassword } from "../../redux/authReducer";
@@ -7,7 +7,7 @@ import styles from "./confirmed.module.scss";
 import verify from "../../assets/images/verify.png";
 import { HintModal } from "../../components/modals/hintModal/hint-modal";
 
-export const ConfirmAccount = () => {
+export const ConfirmAccount: FC = () => {
   const redirect = useNavigate();
   const dispatch = useAppDispatch();
   const { id } = useParams();

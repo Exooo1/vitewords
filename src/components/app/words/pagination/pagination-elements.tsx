@@ -1,4 +1,5 @@
-import React from "react";
+import { FC } from "react";
+
 import "./pagination.module.scss";
 
 type PaginationType = {
@@ -13,7 +14,11 @@ const isActiveStyle = {
   transform: "scale(1.3)",
   fontWeight: 900
 };
-export const PaginationElements = ({ id, click, isActive }: PaginationType) => {
+export const PaginationElements: FC<PaginationType> = ({
+  id,
+  click,
+  isActive
+}) => {
   return (
     <section onClick={click} style={isActive ? isActiveStyle : {}}>
       <p>{id}</p>

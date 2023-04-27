@@ -1,3 +1,4 @@
+import { FC } from "react";
 import styles from "./message.module.scss";
 
 type ChatMessageType = {
@@ -6,7 +7,7 @@ type ChatMessageType = {
   fullName: string;
 };
 
-export const ChatMessage: React.FC<ChatMessageType> = ({
+export const ChatMessage: FC<ChatMessageType> = ({
   message,
   align,
   fullName

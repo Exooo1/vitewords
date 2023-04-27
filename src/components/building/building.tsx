@@ -1,8 +1,10 @@
-import styles from "./building.module.scss";
-import building from "../../assets/images/building.png";
+import { FC } from "react";
 import { useLocation } from "react-router-dom";
 
-export const Building = () => {
+import styles from "./building.module.scss";
+import building from "../../assets/images/building.png";
+
+export const Building: FC = () => {
   const location = useLocation();
   const page =
     location.pathname.split("/")[location.pathname.split("/").length - 1];

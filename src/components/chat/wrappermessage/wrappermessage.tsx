@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import { FC, memo } from "react";
 import { ChatMessage } from "../message/message";
 
 import styles from "./wrapper.module.scss";
@@ -10,7 +10,7 @@ type WrapperMessageType = {
   clientId: string;
 };
 
-export const WrapperMessage: React.FC<WrapperMessageType> = memo(
+export const WrapperMessage: FC<WrapperMessageType> = memo(
   ({ messages, clientId }) => {
     return (
       <section id="scroll" className={styles.wrapper}>

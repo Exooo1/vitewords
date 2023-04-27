@@ -34,3 +34,11 @@ export type SortElementsType = {
   name: string;
   sort: SortChoice;
 };
+
+export type AttributesImageType = {
+  src: string;
+  alt: string;
+  role: string;
+  width: string;
+  title?: string;
+};

@@ -1,11 +1,15 @@
-import React from "react";
+import { FC } from "react";
 
 type SortElementType = {
   name: string;
   sortElem: () => void;
   isLoading: boolean;
 };
-export const SortElement = ({ name, sortElem, isLoading }: SortElementType) => {
+export const SortElement: FC<SortElementType> = ({
+  name,
+  sortElem,
+  isLoading
+}) => {
   return (
     <button onClick={sortElem} disabled={isLoading}>
       {name}

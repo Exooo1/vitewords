@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from "react";
+import { ChangeEvent, FC, useState } from "react";
 import "./word.module.scss";
 import { useAppDispatch } from "../../../../redux/reduxUtils";
 import { fetchChangeWord } from "../../../../redux/wordsReducer";
@@ -12,7 +12,7 @@ type WordType = {
   deleteWord: () => void;
   id: string;
 };
-export const Word: React.FC<WordType> = ({
+export const Word: FC<WordType> = ({
   id,
   word,
   description,

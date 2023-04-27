@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { HintModal } from "../modals/hintModal/hint-modal";
 import { NAV } from "../../constants/constants";
 import { Link, Outlet, useNavigate } from "react-router-dom";
@@ -10,7 +10,7 @@ import logo from "../../assets/images/logo.png";
 import logout from "../../assets/images/logout.png";
 import styles from "./appVocabulary.module.scss";
 
-export const AppVocabulary = () => {
+export const AppVocabulary: FC = () => {
   const auth = useAppSelector(authReselect);
   const navigate = useNavigate();
   const dispatch = useAppDispatch();

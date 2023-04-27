@@ -1,4 +1,10 @@
-import { ChangeEvent, useEffect, useState } from "react";
+import React, {
+  ChangeEvent,
+  FC,
+  KeyboardEvent,
+  useEffect,
+  useState
+} from "react";
 import { WrapperMessage } from "../../components/chat/wrappermessage/wrappermessage";
 import { Loading } from "../../components/all/loading/loading";
 import io, { Socket } from "socket.io-client";
@@ -16,7 +22,7 @@ type WriterType = {
   socketID: string;
 };
 
-export const Chat = () => {
+export const Chat: FC = () => {
   const [socket, setSocket] = useState<Socket | null>(null);
   const [writers, setWriters] = useState<Array<WriterType>>([]);
   const [users, setUsers] = useState<number>(0);
@@ -65,7 +71,7 @@ export const Chat = () => {
     setText(e.target.value);
   };
 
-  const handlerSend = (e: any) => {
+  const handlerSend = (e: KeyboardEvent) => {
     if (e.key === "Enter" && text.length >= 1) {
       setMessages([
         ...messages,
@@ -76,6 +82,17 @@ export const Chat = () => {
           message: text
         }
       ]);
+      socket?.emit("message", {
+        text,
+        writer: `${firstName} ${lastName}`,
+        email
+      });
+      setText("");
+    }
+  };
+
+  const handlerSendClick = () => {
+    if (text.length >= 1) {
       socket?.emit("message", {
         text,
         writer: `${firstName} ${lastName}`,
@@ -129,7 +146,7 @@ export const Chat = () => {
               placeholder="your message..."
             />
             <img
-              onClick={handlerSend}
+              onClick={handlerSendClick}
               src={send}
               alt="send"
               role="send-message"

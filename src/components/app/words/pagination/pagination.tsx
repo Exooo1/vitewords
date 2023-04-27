@@ -1,4 +1,4 @@
-import React from "react";
+import { FC, memo } from "react";
 import { PaginationElements } from "./pagination-elements";
 import styles from "./pagination.module.scss";
 
@@ -12,7 +12,7 @@ type PaginationType = {
   handlerPrevious: () => void;
 };
 
-export const Pagination: React.FC<PaginationType> = React.memo(
+export const Pagination: FC<PaginationType> = memo(
   ({
     handlerNext,
     handlerPrevious,

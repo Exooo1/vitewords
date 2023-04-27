@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from "react";
+import { ChangeEvent, FC, memo } from "react";
 import styles from "./download.module.scss";
 
 type DownloadType = {
@@ -6,7 +6,7 @@ type DownloadType = {
   file: string;
   downloadFile: () => void;
 };
-export const Download: React.FC<DownloadType> = React.memo(
+export const Download: FC<DownloadType> = memo(
   ({ downloadFile, file, handlerFile }) => {
     console.log("Download!");
     const changeFile = (e: ChangeEvent<HTMLSelectElement>) => {

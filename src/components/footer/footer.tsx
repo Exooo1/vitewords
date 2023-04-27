@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 
 import linkedin from "../../assets/images/linkedin.png";
 import telegram from "../../assets/images/telegram.png";

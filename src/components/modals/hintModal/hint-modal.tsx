@@ -1,11 +1,11 @@
-import React from "react";
+import { FC } from "react";
 import { useActions, useAppSelector } from "../../../redux/reduxUtils";
 import { slice } from "../../../redux/errorsReducer";
 import done from "../../../assets/images/done.png";
 import error from "../../../assets/images/error.png";
 import styles from "./hintmodal.module.scss";
 
-export const HintModal = () => {
+export const HintModal: FC = () => {
   const { deleteHint } = useActions(slice.actions);
   const hints = useAppSelector(state => state.errorsReducer.errors);
   const removeHint = (id: string) => deleteHint(id);

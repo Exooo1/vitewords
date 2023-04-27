@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 
 import styles from "./slider.module.scss";
 import { SLIDER_BANNERS } from "../../constants/constants";
 
-export const Slider = () => {
+export const Slider: FC = () => {
   const [count, setCount] = useState<number>(0);
   const [slider, setSlider] = useState(SLIDER_BANNERS);
   const changeCount = (id: number) => setCount(id);
