@@ -8,7 +8,7 @@ export const Building = () => {
     location.pathname.split("/")[location.pathname.split("/").length - 1];
   return (
     <figure className={styles.building}>
-      <img src={building} alt="building" role="picture" />
+      <img src={building} alt="building" role="picture" title="building" />
       <h2>We are working on {page}...</h2>
     </figure>
   );

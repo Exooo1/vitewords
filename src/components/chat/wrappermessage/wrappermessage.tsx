@@ -3,7 +3,7 @@ import { ChatMessage } from "../message/message";
 
 import styles from "./wrapper.module.scss";
 import { MessageType } from "../../../redux/profileReducer";
-import { uuid } from "../../../utils/usefulFuncs";
+import { uuid } from "../../../utils/functionutils";
 
 type WrapperMessageType = {
   messages: Array<MessageType>;

@@ -19,7 +19,12 @@ export const HintModal = () => {
             onClick={() => removeHint(item.id)}
             key={item.id}
           >
-            <img src={error} alt={item.article} />
+            <img
+              src={error}
+              alt={item.article}
+              role="hint-picture"
+              title="hint"
+            />
             <div>
               <p>
                 {item.message} <span>{item.article}</span>
@@ -35,7 +40,12 @@ export const HintModal = () => {
             onClick={() => removeHint(item.id)}
             key={item.id}
           >
-            <img src={done} alt={item.article} />
+            <img
+              src={done}
+              alt={item.article}
+              role="hint-picture"
+              title="hint"
+            />
             <div>
               <p>
                 {item.message} <span>{item.article}</span>

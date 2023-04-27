@@ -77,7 +77,8 @@ export const Word: React.FC<WordType> = ({
       <section className={styles.word_management}>
         <p>{added}</p>
         <img
-          role="just picture"
+          title="edit"
+          role="edit-img"
           onClick={acceptChange}
           src={
             isEdit

@@ -35,7 +35,7 @@ export const Slider = () => {
   return (
     <section className={styles.slider}>
       <article>
-        <img src={slider[count].img} alt="pictures" />
+        <img src={slider[count].img} alt="pictures" role="slider-picture" />
         <section className={styles.slider_description}>
           <dl>
             <dt>{slider[count].title}</dt>

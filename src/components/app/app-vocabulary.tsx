@@ -33,7 +33,7 @@ export const AppVocabulary = () => {
         key={item.id + item.name}
         className={item.style ? styles.container_aside_navActive : ""}
       >
-        <img src={item.img} alt={item.name} />
+        <img src={item.img} alt={item.name} role="link-picture" title="link" />
         <Link key={item.id} to={item.path} onClick={() => changeNav(item.id)}>
           {item.name}
         </Link>
@@ -46,7 +46,7 @@ export const AppVocabulary = () => {
       <HintModal />
       <aside className={styles.container_aside}>
         <figure>
-          <img src={logo} alt="logo" />
+          <img src={logo} alt="logo" role="logo-picture" title="logo" />
           <section>
             <h1>
               Vocabulary <sup>App</sup>
@@ -55,7 +55,7 @@ export const AppVocabulary = () => {
         </figure>
         <nav>{arrayLinks}</nav>
         <section className={styles.container_logout} onClick={handlerLogOut}>
-          <img src={logout} alt="LogOut" />
+          <img src={logout} alt="LogOut" role="logout-picture" title="logout" />
           <p>Log Out</p>
         </section>
       </aside>

@@ -10,7 +10,7 @@ export const Header: FC = () => {
         <h1>YourVocabulary</h1>
         <p>vers-1.6.4</p>
       </section>
-      <img src={logo} alt="logo" />
+      <img src={logo} alt="logo" role="logo-picture" title="logo" />
     </header>
   );
 };

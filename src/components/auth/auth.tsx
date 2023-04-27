@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 import { HintModal } from "../modals/hintModal/hint-modal";
-import { changeTitle } from "../../utils/usefulFuncs";
+import { changeTitle } from "../../utils/functionutils";
 
 import styles from "./auth.module.scss";
 import { Slider } from "../slider/slider";

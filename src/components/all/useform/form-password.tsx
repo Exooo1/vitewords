@@ -30,7 +30,7 @@ export const FormPassword: React.FC<FormPasswordType> = memo(
               placeholder={"Email"}
             />
           </div>
-          <img src={mail} alt={email} />
+          <img src={mail} alt={email} role="email-picture" title="email" />
         </section>
         <section className={styles.registration_fill_field}>
           <div>
@@ -49,6 +49,8 @@ export const FormPassword: React.FC<FormPasswordType> = memo(
             onClick={changeVisible}
             src={isVisible ? eye2 : eye}
             alt={password}
+            role="password-picture"
+            title="password"
           />
         </section>
       </>

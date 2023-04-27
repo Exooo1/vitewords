@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { changeTitle } from "../../utils/usefulFuncs";
+import { changeTitle } from "../../utils/functionutils";
 import styles from "./checkmail.module.scss";
 import mail from "../../assets/images/mail.png";
 

@@ -17,7 +17,7 @@ import {
 import { WordModal } from "../../modals/wordModal/word-modal";
 import { profileReselect } from "../../../redux/reselect";
 import { SortChoice, WordType } from "../../../api/wordAPI";
-import { changeTitle } from "../../../utils/usefulFuncs";
+import { changeTitle, imgAttribute } from "../../../utils/functionutils";
 import { Loading } from "../../all/loading/loading";
 import { SortElements } from "./sortElements/sort-elements";
 import { Pagination } from "./pagination/pagination";
@@ -151,7 +151,14 @@ export const Words = () => {
               course repeat the words you have learned.
             </p>
           </section>
-          <img src={managment} alt="managment" role="picture" />
+          <img
+            {...imgAttribute({
+              src: managment,
+              alt: "managment",
+              role: "picture",
+              width: "160px"
+            })}
+          />
         </section>
         <section className={styles.words_header_filters}>
           <section className={styles.words_header_filters_description}>
@@ -166,7 +173,14 @@ export const Words = () => {
               isLoading={isLoading}
             />
           </section>
-          <img src={knowledge} alt="knowledge" role="picture" />
+          <img
+            {...imgAttribute({
+              src: knowledge,
+              alt: "knowledge",
+              role: "picture",
+              width: "160px"
+            })}
+          />
         </section>
         <section className={styles.words_header_search}>
           <section className={styles.words_header_search_description}>
@@ -183,6 +197,8 @@ export const Words = () => {
                 }
               >
                 <img
+                  title="search"
+                  role="search-img"
                   src={search}
                   alt="search"
                   onClick={() => setIsSearch(!isSearch)}
@@ -197,7 +213,14 @@ export const Words = () => {
               <button onClick={() => handlerIsModal(true)}>+</button>
             </section>
           </section>
-          <img src={abc} alt="abc-search" role="picture" />
+          <img
+            {...imgAttribute({
+              src: abc,
+              alt: "abc",
+              role: "picture",
+              width: "160px"
+            })}
+          />
         </section>
       </section>
       <section className={styles.words_containerWords}>

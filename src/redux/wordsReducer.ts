@@ -9,7 +9,7 @@ import {
   WordType
 } from "../api/wordAPI";
 import { ProjectTypeReturn, ThunkError } from "../utils/types/commonTypes";
-import { handlerDeleteHint } from "../utils/usefulFuncs";
+import { handlerDeleteHint } from "../utils/functionutils";
 import * as pdfMake from "pdfmake/build/pdfmake";
 import * as pdfFonts from "pdfmake/build/vfs_fonts";
 import { Content, TDocumentDefinitions } from "pdfmake/interfaces";

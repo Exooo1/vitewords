@@ -8,7 +8,8 @@
   &_container {
     @include base-flex($justify-start, $align-center, auto, $gap-5);
     @include back-shadow-radius(#16171b, none, 20px 20px 20px 0px);
-    @include width-minHeight(250px, 50px);
+    width: 250px;
+    min-height: 60px;
     line-height: 5px;
     margin: 10px 10px;
 

@@ -1,7 +1,7 @@
 import { ChangeEvent, KeyboardEvent, useCallback, useState } from "react";
 import { useAppDispatch } from "../redux/reduxUtils";
 import { fetchLogin, fetchRegistration } from "../redux/authReducer";
-import { handlerDeleteHint } from "../utils/usefulFuncs";
+import { handlerDeleteHint } from "../utils/functionutils";
 import info from "../assets/images/inform.png";
 
 export type InputType = {

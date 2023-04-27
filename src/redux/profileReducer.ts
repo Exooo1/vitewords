@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { AxiosError } from "axios";
 import { profileAPI } from "../api/profileAPI";
 import { ProjectTypeReturn, ThunkError } from "../utils/types/commonTypes";
-import { handlerDeleteHint } from "../utils/usefulFuncs";
+import { handlerDeleteHint } from "../utils/functionutils";
 
 export type MessageType = {
   message: string;

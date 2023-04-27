@@ -13,13 +13,28 @@ export const Footer: FC = () => {
         <section className={styles.footer_description_links}>
           <ul>
             <li>
-              <img src={linkedin} alt="linkedin" />
+              <img
+                src={linkedin}
+                alt="linkedin"
+                role="link-picture"
+                title="linkedin"
+              />
             </li>
             <li>
-              <img src={github} alt="github" />
+              <img
+                src={github}
+                alt="github"
+                role="link-picture"
+                title="github"
+              />
             </li>
             <li>
-              <img src={telegram} alt="telegram" />
+              <img
+                src={telegram}
+                alt="telegram"
+                role="link-picture"
+                title="telegram"
+              />
             </li>
           </ul>
         </section>

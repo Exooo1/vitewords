@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { changeTitle } from "../../utils/usefulFuncs";
+import { changeTitle } from "../../utils/functionutils";
 import { fetchConfirmPassword } from "../../redux/authReducer";
 import { useAppDispatch } from "../../redux/reduxUtils";
 import styles from "./confirmed.module.scss";
@@ -29,7 +29,7 @@ export const ConfirmAccount = () => {
           <h2>
             Congratulations<span>!</span>
           </h2>
-          <img src={verify} alt="confirmEmail" />
+          <img src={verify} alt="confirmEmail" role="confirm-email-picture" />
           <p>
             Your account is registered, you can already log in to your account.
           </p>

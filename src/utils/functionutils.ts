@@ -21,3 +21,15 @@ export const handlerDeleteHint = (
 
 export const uuid = (value: string) =>
   value + (Math.random() * value.length).toString(34);
+
+type AttributeType = {
+  src: string;
+  alt: string;
+  role: string;
+  title?: string;
+  width: string;
+};
+
+export const imgAttribute = (attributes: AttributeType): AttributeType => {
+  return { ...attributes, title: "-img" };
+};

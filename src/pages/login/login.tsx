@@ -2,7 +2,7 @@ import React, { FC, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "../../hooks/form";
 import { FormPassword } from "../../components/all/useform/form-password";
-import { changeTitle } from "../../utils/usefulFuncs";
+import { changeTitle } from "../../utils/functionutils";
 import { useAppSelector } from "../../redux/reduxUtils";
 import { authReselect } from "../../redux/reselect";
 import styles from "./login.module.scss";

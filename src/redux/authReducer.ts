@@ -3,7 +3,7 @@ import { AxiosError } from "axios";
 import { InputType } from "../hooks/form";
 import { apiAuth, AuthLoginType, LoginType } from "../api/authAPI";
 import { ProjectTypeReturn, ThunkError } from "../utils/types/commonTypes";
-import { handlerDeleteHint } from "../utils/usefulFuncs";
+import { handlerDeleteHint } from "../utils/functionutils";
 
 export type InitialStateAuth = {
   auth: number;

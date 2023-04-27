@@ -9,7 +9,13 @@ type LoadingType = {
 export const Loading: FC<LoadingType> = ({ width }) => {
   return (
     <section className={styles.loading}>
-      <img style={{ width: `${width}px` }} src={logo} alt={"loading"} />
+      <img
+        style={{ width: `${width}px` }}
+        src={logo}
+        alt="loading"
+        role="loading-picture"
+        title="loading"
+      />
     </section>
   );
 };

@@ -5,10 +5,11 @@ import io, { Socket } from "socket.io-client";
 
 import imgChat from "../../assets/images/headerchat.png";
 import send from "../../assets/images/send.png";
+import aboutChat from "../../assets/images/aboutchat.png";
 import styles from "./chat.module.scss";
 import { fetchGetProfile, MessageType } from "../../redux/profileReducer";
 import { useAppDispatch, useAppSelector } from "../../redux/reduxUtils";
-import { changeTitle, uuid } from "../../utils/usefulFuncs";
+import { changeTitle, uuid } from "../../utils/functionutils";
 
 type WriterType = {
   lastName: string;
@@ -127,13 +128,18 @@ export const Chat = () => {
               onKeyDown={handlerSend}
               placeholder="your message..."
             />
-            <img onClick={handlerSend} src={send} alt="send" />
+            <img
+              onClick={handlerSend}
+              src={send}
+              alt="send"
+              role="send-message"
+            />
           </section>
         </section>
         <section className={styles.chat_container_header}>
           <section className={styles.chat_container_header_description}>
             <h2>Chat</h2>
-            <img src={imgChat} alt="chat" role="picture" />
+            <img src={imgChat} alt="chat" role="picture" title="chats" />
           </section>
           <figure>
             <p>
@@ -144,7 +150,12 @@ export const Chat = () => {
           </figure>
           <section className={styles.chat_container_header_information}>
             <section className={styles.chat_container_header_information_head}>
-              {/*<img src={chats} alt="chats" role="picture" />*/}
+              <img
+                src={aboutChat}
+                alt="chats"
+                role="picture"
+                title="about-chat"
+              />
               <h3>Information about common chat and group.</h3>
             </section>
             <section
