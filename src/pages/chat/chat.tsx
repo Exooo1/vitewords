@@ -16,6 +16,8 @@ import styles from "./chat.module.scss";
 import { fetchGetProfile, MessageType } from "../../redux/profileReducer";
 import { useAppDispatch, useAppSelector } from "../../redux/reduxUtils";
 import { changeTitle, uuid } from "../../utils/functionutils";
+import mp3 from "../../assets/notification.mp3";
+import axios from "axios";
 
 type WriterType = {
   lastName: string;
@@ -33,6 +35,7 @@ export const Chat: FC = () => {
     state => state.profileReducer
   );
   const dispatch = useAppDispatch();
+  const audio = new Audio(mp3);
 
   useEffect(() => {
     changeTitle("chat");
@@ -40,6 +43,8 @@ export const Chat: FC = () => {
   }, []);
 
   useEffect(() => {
+    const mail = window.localStorage.getItem("email");
+    if (!mail) window.localStorage.setItem("email", email);
     setMessages(chat);
   }, [chat]);
 
@@ -57,31 +62,45 @@ export const Chat: FC = () => {
     socket.on("writers", setWriters);
     socket.on("incUsers", setUsers);
     socket.on("decrUsers", setUsers);
-    socket.on("clientMessages", setMessages);
+    socket.on("clientMessages", message => {
+      audio.play();
+      setMessages(message);
+    });
     return () => {
+      disconnectWriter();
       socket.disconnect();
     };
   }, []);
 
+  const disconnectWriter = async () => {
+    const email = window.localStorage.getItem("email");
+    await axios.post(`http://localhost:8999/disconnect`, { email });
+  };
+
   const handlerText = (e: ChangeEvent<HTMLInputElement>) => {
-    if (e.target.value.length === 1)
-      socket?.emit("writer", { lastName, socketID: email });
     if (e.target.value.length === 0)
       socket?.emit("cleanWriter", { lastName, socketID: email });
     setText(e.target.value);
+    if (
+      e.target.value.length <= 1 &&
+      !writers.some(item => item.socketID === email)
+    ) {
+      console.log(e.target.value.length);
+      socket?.emit("writer", { lastName, socketID: email });
+    }
   };
 
   const handlerSend = (e: KeyboardEvent) => {
     if (e.key === "Enter" && text.length >= 1) {
-      setMessages([
-        ...messages,
-        {
-          _id: email,
-          clientId: email,
-          writer: `${firstName} ${lastName}`,
-          message: text
-        }
-      ]);
+      // setMessages([
+      //   ...messages,
+      //   {
+      //     _id: email,
+      //     clientId: email,
+      //     writer: `${firstName} ${lastName}`,
+      //     message: text
+      //   }
+      // ]);
       socket?.emit("message", {
         text,
         writer: `${firstName} ${lastName}`,
@@ -113,9 +132,14 @@ export const Chat: FC = () => {
     }
   };
 
-  const resWriters = writers.map(item => (
-    <p key={uuid(item.socketID)}>{item.lastName}</p>
-  ));
+  const resWriters = writers.map((item, index) => {
+    return (
+      <p key={uuid(item.socketID)}>
+        {item.lastName}
+        {writers.length === index + 1 ? null : ","}
+      </p>
+    );
+  });
 
   return (
     <section className={styles.chat}>

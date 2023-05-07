@@ -60,7 +60,7 @@ export const wordApi = {
     return instance.post<ProjectTypeReturn<null>>("word-change", values);
   },
   findWords(word: string): AxiosPromise<ProjectTypeReturn<Array<WordType>>> {
-    return instance.post<ProjectTypeReturn<Array<WordType>>>(
+    return instance.get<ProjectTypeReturn<Array<WordType>>>(
       `word-find?word=${word}`
     );
   },
