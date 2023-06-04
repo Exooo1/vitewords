@@ -204,12 +204,13 @@ export const Words: FC = () => {
                   alt="search"
                   onClick={() => setIsSearch(!isSearch)}
                 />
+                {isSearch?
                 <input
                   value={find}
                   onChange={handlerFindWord}
                   type="text"
                   placeholder="Search a word"
-                />
+                />:null}
               </section>
               <button onClick={() => handlerIsModal(true)}>+</button>
             </section>
