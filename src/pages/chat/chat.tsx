@@ -73,9 +73,7 @@ export const Chat: FC = () => {
     if (e.target.value.length === 0)
       socket?.emit("cleanWriter", { lastName, socketID: email });
     setText(e.target.value);
-    if (
-      e.target.value.length <= 1 &&
-      !writers.some(item => item.socketID === email)
+    if (!writers.some(item => item.socketID === email)
     ) {
       socket?.emit("writer", { lastName, socketID: email });
     }
