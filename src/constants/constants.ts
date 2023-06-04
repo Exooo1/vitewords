@@ -1,16 +1,21 @@
-import managment from "../assets/Images/managerwords.png";
-import {ChoiceAuthType, NavType, SliderTypeBanners, SortElementsType} from "../Common/Types/CommonType";
-import profile from "../assets/Images/profile.png";
-import dashboard from "../assets/Images/dashboard.png";
-import vocab from "../assets/Images/vocab.png";
-import rewards from "../assets/Images/rewards.png";
-import chat from "../assets/Images/chat.png";
+import managment from "../assets/images/managerwords.png";
+import {
+  ChoiceAuthType,
+  NavType,
+  SliderTypeBanners,
+  SortElementsType
+} from "../utils/types/commonTypes";
+import profile from "../assets/images/profile.png";
+import dashboard from "../assets/images/dashboard.png";
+import vocab from "../assets/images/vocab.png";
+import rewards from "../assets/images/rewards.png";
+import chat from "../assets/images/chat.png";
 
 export const SLIDER_BANNERS: Array<SliderTypeBanners> = [
   {
     id: 0,
     img: "https://www.webfx.com/wp-content/uploads/2021/10/dark-web-design-01-nerisson.png",
-    title: "About this App",
+    title: "About this app",
     description:
       "This app will help you repeat and learn new words in English, you can track your actions and your new words.",
     focus: true
@@ -52,43 +57,44 @@ export const CHOICE_AUTH: Array<ChoiceAuthType> = [
   { id: 1, isActive: true },
   { id: 2, isActive: false }
 ];
-export const NAV:Array<NavType> = [ {
+export const NAV: Array<NavType> = [
+  {
     id: 1,
     name: "Profile",
     path: "profile",
     img: profile,
     style: false
-},
-    {
-        id: 2,
-        name: "Dashboard",
-        path: "dashboard",
-        img: dashboard,
-        style: false
-    },
-    {
-        id: 3,
-        name: "Words",
-        path: "",
-        img: vocab,
-        style: true
-    },
-    {
-        id: 4,
-        name: "Achievements",
-        path: "achievements",
-        img: rewards,
-        style: false
-    },
-    {
-        id: 5,
-        name: "Chat",
-        path: "chat",
-        img: chat,
-        style: false
-    },
-]
-export const SORT_ELEMENTS:Array<SortElementsType> = [
-    {id: 2, name: "Description", sort: "DESCRIPTION"},
-    {id: 3, name: "Added", sort: "ADDED"}
-]
+  },
+  {
+    id: 2,
+    name: "Dashboard",
+    path: "dashboard",
+    img: dashboard,
+    style: false
+  },
+  {
+    id: 3,
+    name: "Words",
+    path: "words",
+    img: vocab,
+    style: true
+  },
+  {
+    id: 4,
+    name: "Achievements",
+    path: "achievements",
+    img: rewards,
+    style: false
+  },
+  {
+    id: 5,
+    name: "Chat",
+    path: "chat",
+    img: chat,
+    style: false
+  }
+];
+export const SORT_ELEMENTS: Array<SortElementsType> = [
+  { id: 2, name: "Description", sort: "DESCRIPTION" },
+  { id: 3, name: "Added", sort: "ADDED" }
+];

@@ -3,9 +3,9 @@ import {
   fetchRegistration,
   InitialStateAuth,
   slice
-} from "../redux/AuthReducer";
-import info from "../assets/Images/inform.png";
-import { ItemProfileType } from "./Form";
+} from "../redux/authReducer";
+import info from "../assets/images/inform.png";
+import { ItemProfileType } from "./form";
 
 type CreateAccountType = {
   name: string;

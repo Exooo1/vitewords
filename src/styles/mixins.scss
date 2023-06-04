@@ -1,46 +1,3 @@
-@mixin flexDiv($just, $align, $direc) {
-  display: flex;
-  justify-content: $just;
-  align-items: $align;
-  flex-direction: $direc;
-}
-
-@mixin sizes($width, $height, $weight, $size) {
-  width: $width;
-  height: $height;
-  font-weight: $weight;
-  font-size: $size;
-}
-@mixin wei_fon($weight, $size) {
-  font-weight: $weight;
-  font-size: $size;
-}
-
-@mixin wi_he($width, $height) {
-  width: $width;
-  height: $height;
-}
-
-@mixin colorGrad($color, $back) {
-  color: $color;
-  background: linear-gradient(to right, $back);
-}
-
-@mixin colorShadow($color, $back, $box, $text) {
-  color: $color;
-  background: $back;
-  box-shadow: $box;
-  text-shadow: $text;
-}
-
-@mixin colorSimple($color, $back) {
-  color: $color;
-  background: $back;
-}
-@mixin transitionScale($trans, $scale) {
-  transition: $trans;
-  transform: scale($scale);
-}
 //FlexMixins
 @mixin base-flex($justify, $align, $direction, $gap) {
   display: flex;
@@ -49,7 +6,8 @@
   flex-direction: $direction;
   gap: $gap;
 }
-@mixin base-flex-back($justify, $align, $direction, $gap,$back){
+
+@mixin base-flex-back($justify, $align, $direction, $gap, $back) {
   display: flex;
   justify-content: $justify;
   align-items: $align;
@@ -63,19 +21,23 @@
   width: $width;
   height: $height;
 }
+
 @mixin maxWidth-height($width, $height) {
   max-width: $width;
   height: $height;
 }
+
 @mixin width-minHeight($width, $height) {
   width: $width;
   min-height: $height;
 }
+
 @mixin size-weight-line($size, $weight, $line) {
   font-size: $size;
   font-weight: $weight;
   line-height: $line;
 }
+
 @mixin size-weight-spacing($size, $weight, $spacing) {
   font-size: $size;
   font-weight: $weight;
@@ -87,10 +49,16 @@
   position: relative;
   top: $top;
 }
-@mixin base-positionA($left,$top){
+
+@mixin base-positionA($left, $top) {
   position: absolute;
-  left:$left;
-  top:$top;
+  left: $left;
+  top: $top;
+}
+
+@mixin base-positionF($left) {
+  position: fixed;
+  left: $left;
 }
 
 //background
@@ -98,6 +66,12 @@
   background: $back;
   box-shadow: $shadow;
 }
+
+@mixin back-radius($back, $radius) {
+  background: $back;
+  border-radius: $radius;
+}
+
 @mixin back-shadow-radius($back, $shadow, $radius) {
   background: $back;
   box-shadow: $shadow;
@@ -105,7 +79,7 @@
 }
 
 //shadow-text
-@mixin text-weight($shadow,$weight){
+@mixin text-weight($shadow, $weight) {
   text-shadow: $shadow;
   font-weight: $weight;
 }

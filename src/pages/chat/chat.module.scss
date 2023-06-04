@@ -1,0 +1,185 @@
+@import "./src/styles/mixins.scss";
+@import "./src/styles/variables.scss";
+
+.chat {
+  @include base-flex($justify-center, $align-center, auto, auto);
+  @include width-height(100%, 100vh);
+
+  &_container {
+    @include base-flex($justify-center, $align-center, auto, $gap-20);
+    @include width-height(60%, 850px);
+    flex-wrap: wrap;
+
+    &_messages {
+      &_writers {
+        @include base-flex($justify-start, $align-start, auto, auto);
+        line-height: 2px;
+        background-color: #1d1e24;
+        font-style: italic;
+        height: 26px;
+
+        p {
+          font-size: 12px;
+        }
+
+        p:first-child {
+          padding-left: 15px;
+          color: white;
+        }
+
+        section {
+          display: flex;
+          color: white;
+        }
+      }
+    }
+
+    &_header {
+      @include base-flex($justify-start, $align-center, $flex-directionC, auto);
+      color: white;
+      height: 666px;
+
+      &_information {
+        @include base-flex(
+          $justify-start,
+          $align-center,
+          $flex-directionC,
+          auto
+        );
+        width: 100%;
+
+        &_container {
+          width: 100%;
+          @include base-flex($justify-center, $align-center, auto, $gap-10);
+
+          section:nth-child(2) {
+            @include base-flex(
+              $justify-start,
+              $align-center,
+              $flex-directionC,
+              auto
+            );
+            @include width-height(400px, 100px);
+            @include back-shadow-radius(#525461, none, 10px);
+
+            p {
+              color: $color-darkGrey;
+              font-family: $font-lightCalibri;
+            }
+
+            button {
+              @include width-height(80px, 35px);
+              @include back-shadow-radius(#16171b, none, 5px);
+              @include size-weight-line(15px, $weight-600, auto);
+              cursor: $cursor-pointer;
+              border: $border-none;
+              margin: 0 10px;
+              color: white;
+
+              &:active {
+                box-shadow: $box-shadow-blackInset;
+              }
+
+              &:disabled {
+                opacity: 0.5;
+              }
+            }
+          }
+
+          section:nth-child(1) {
+            @include base-flex(
+              $justify-start,
+              $align-center,
+              $flex-directionC,
+              auto
+            );
+            @include width-height(90px, 100px);
+            @include back-shadow-radius(#525461, none, 10px);
+
+            img {
+              @include base-positionR(20px);
+              width: 50px;
+            }
+
+            strong {
+              color: greenyellow;
+              font-size: 25px;
+            }
+          }
+        }
+
+        &_head {
+          @include base-flex($justify-start, $align-center, auto, auto);
+
+          img {
+            width: 120px;
+          }
+        }
+
+        &_common {
+          @include base-flex(
+            $justify-start,
+            $align-start,
+            $flex-directionC,
+            auto
+          );
+          width: 100%;
+        }
+      }
+
+      &_description {
+        display: flex;
+
+        h2 {
+          text-shadow: 0 5px 0 rgba(255, 255, 255, 0.25);
+          font-size: 35px;
+        }
+
+        img {
+          width: 250px;
+        }
+      }
+
+      figure {
+        @include base-flex(
+          $justify-center,
+          $align-center,
+          $flex-directionC,
+          auto
+        );
+        width: 500px;
+
+        p {
+          color: $color-darkGrey;
+          font-family: $font-lightCalibri;
+          width: 450px;
+        }
+      }
+    }
+
+    &_send {
+      @include base-flex($justify-center, $align-center, auto, $gap-10);
+      @include width-height(100%, 60px);
+      @include back-shadow-radius(#16171b, none, 0 0 10px 10px);
+
+      img {
+        @include width-height(30px, 30px);
+        cursor: $cursor-pointer;
+
+        &:active {
+          transform: scale(0.8);
+        }
+      }
+
+      input {
+        border: $border-none;
+        @include width-height(350px, 40px);
+        background: $border-none;
+        outline: $border-none;
+        border-bottom: solid 1px darkgrey;
+        color: white;
+        font-size: 16px;
+      }
+    }
+  }
+}

@@ -1,0 +1,61 @@
+@import "./src/styles/mixins.scss";
+@import "./src/styles/variables.scss";
+
+.word {
+  @include base-flex($justify-start, $align-center, auto, auto);
+  @include width-height(100%, 40px);
+  color: $color-white;
+
+  &_management {
+    @include base-flex($justify-start, $align-center, auto, $gap-5);
+    width: 20%;
+
+    p {
+      font-family: $font-lightCalibri;
+      width: 100%;
+    }
+
+    img {
+      @include width-height(35px, 33px);
+      cursor: $cursor-pointer;
+    }
+
+    button {
+      @include width-height(35px, 32px);
+      @include back-shadow-radius(#751ee9, auto, 50%);
+      font-weight: $weight-800;
+      color: $color-white;
+      cursor: $cursor-pointer;
+      border: $border-none;
+    }
+  }
+
+  &_description {
+    @include base-flex($justify-center, $align-center, auto, auto);
+    @include width-height(80%, 40px);
+
+    p {
+      &:first-child {
+        font-family: $font-lightCalibri;
+        @include text-weight(0 0 10px black, $weight-900);
+        font-size: 17px;
+        font-style: italic;
+      }
+
+      width: 33.3%;
+    }
+
+    input {
+      @include width-height(33.3%, 35px);
+      background: $border-none;
+      border: $border-none;
+      color: $color-white;
+    }
+  }
+}
+
+@media (min-height: 1080px) {
+  .word {
+    @include width-height(100%, auto);
+  }
+}

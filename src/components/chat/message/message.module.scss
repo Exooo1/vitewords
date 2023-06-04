@@ -1,0 +1,44 @@
+@import "src/styles/mixins.scss";
+@import "src/styles/variables.scss";
+
+.message {
+  @include base-flex($justify-center, $align-start, $flex-directionC, auto);
+  width: 100%;
+
+  &_container {
+    @include base-flex($justify-start, $align-center, auto, $gap-5);
+    @include back-shadow-radius(#16171b, none, 20px 20px 20px 0px);
+    width: 250px;
+    min-height: 60px;
+    line-height: 5px;
+    margin: 10px 10px;
+
+    img {
+      margin-left: 15px;
+      width: 40px;
+      border-radius: 50%;
+    }
+
+    &_content {
+      @include base-flex(auto, auto, $flex-directionC, auto);
+      width: 100%;
+      line-height: 14px;
+      min-height: auto;
+
+      p {
+        &:first-child {
+          font-weight: 650;
+        }
+
+        color: white;
+        margin: 3px 0;
+        font-size: 13px;
+      }
+    }
+  }
+
+  &_container_isActive {
+    align-self: flex-end;
+    @include back-shadow-radius(#b785f5, none, 20px 20px 0 20px);
+  }
+}
