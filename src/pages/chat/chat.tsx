@@ -17,7 +17,6 @@ import { fetchGetProfile, MessageType } from "../../redux/profileReducer";
 import { useAppDispatch, useAppSelector } from "../../redux/reduxUtils";
 import { changeTitle, uuid } from "../../utils/functionutils";
 import mp3 from "../../assets/notification.mp3";
-import axios from "axios";
 
 type WriterType = {
   lastName: string;
@@ -43,8 +42,6 @@ export const Chat: FC = () => {
   }, []);
 
   useEffect(() => {
-    const mail = window.localStorage.getItem("email");
-    if (!mail) window.localStorage.setItem("email", email);
     setMessages(chat);
   }, [chat]);
 
@@ -62,20 +59,15 @@ export const Chat: FC = () => {
     socket.on("writers", setWriters);
     socket.on("incUsers", setUsers);
     socket.on("decrUsers", setUsers);
+
     socket.on("clientMessages", message => {
       audio.play();
       setMessages(message);
     });
     return () => {
-      disconnectWriter();
       socket.disconnect();
     };
   }, []);
-
-  const disconnectWriter = async () => {
-    const email = window.localStorage.getItem("email");
-    await axios.post(`http://localhost:8999/disconnect`, { email });
-  };
 
   const handlerText = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.value.length === 0)
@@ -85,22 +77,12 @@ export const Chat: FC = () => {
       e.target.value.length <= 1 &&
       !writers.some(item => item.socketID === email)
     ) {
-      console.log(e.target.value.length);
       socket?.emit("writer", { lastName, socketID: email });
     }
   };
 
   const handlerSend = (e: KeyboardEvent) => {
     if (e.key === "Enter" && text.length >= 1) {
-      // setMessages([
-      //   ...messages,
-      //   {
-      //     _id: email,
-      //     clientId: email,
-      //     writer: `${firstName} ${lastName}`,
-      //     message: text
-      //   }
-      // ]);
       socket?.emit("message", {
         text,
         writer: `${firstName} ${lastName}`,
@@ -136,7 +118,7 @@ export const Chat: FC = () => {
     return (
       <p key={uuid(item.socketID)}>
         {item.lastName}
-        {writers.length === index + 1 ? null : ","}
+        {writers.length === index + 1 ? null : ", "}
       </p>
     );
   });
