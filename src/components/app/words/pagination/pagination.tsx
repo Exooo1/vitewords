@@ -32,13 +32,13 @@ export const Pagination: FC<PaginationType> = memo(
         />
       ));
     };
+
     return (
       <section className={styles.container}>
         <button onClick={handlerPrevious}>
           <span>&#171;</span>
         </button>
         <section className={styles.container_isActive}>
-          {" "}
           {current > 3 && <p onClick={handlerCurrent}>1...</p>}
         </section>
         <section className={styles.container_pagination}>
