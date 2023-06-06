@@ -81,7 +81,7 @@ export const Words: FC = () => {
   const handlerCurrentPagination = (value: number) => setCurrent(value);
 
   const handlerButtonNext = () => {
-    if (current === resultPagination) return;
+    if (current === resultPagination || !resultPagination) return;
     else setCurrent(state => state + 1);
   };
   const handlerButtonPrevious = () => {
@@ -89,9 +89,16 @@ export const Words: FC = () => {
     else return;
   };
   const showing = () => {
-    const total = totalWords - current * COUNT_WORDS;
-    if (total > 0) return current * COUNT_WORDS;
-    else return current * COUNT_WORDS - Math.abs(total);
+    let end = totalWords - COUNT_WORDS * current;
+    let start = words.length
+      ? COUNT_WORDS * current - COUNT_WORDS + 1
+      : words.length;
+    if (end > 0) end = COUNT_WORDS * current;
+    else end = COUNT_WORDS * current - Math.abs(end);
+    const isFind = find.length ? words.length : `${start}-${end}`
+    return `Showing ${isFind} words of ${
+      find.length ? words.length : totalWords
+    } results`;
   };
   const handlerSortResetFetch = useCallback(() => {
     setFind("");
@@ -204,13 +211,14 @@ export const Words: FC = () => {
                   alt="search"
                   onClick={() => setIsSearch(!isSearch)}
                 />
-                {isSearch?
-                <input
-                  value={find}
-                  onChange={handlerFindWord}
-                  type="text"
-                  placeholder="Search a word"
-                />:null}
+                {isSearch ? (
+                  <input
+                    value={find}
+                    onChange={handlerFindWord}
+                    type="text"
+                    placeholder="Search a word"
+                  />
+                ) : null}
               </section>
               <button onClick={() => handlerIsModal(true)}>+</button>
             </section>
@@ -230,17 +238,7 @@ export const Words: FC = () => {
       </section>
       <section className={styles.words_footer}>
         <section className={styles.words_footer_showing}>
-          Showing{" "}
-          {find.length >= 1
-            ? words.length >= 1
-              ? `1-${words.length}`
-              : words.length
-            : `${
-                showing() - COUNT_WORDS
-                  ? showing() - COUNT_WORDS
-                  : showing() - COUNT_WORDS + 1
-              }-${showing()}`}{" "}
-          words of {find.length >= 1 ? words.length : totalWords} Results
+          {showing()}
         </section>
         <section className={styles.words_footer_pagination}>
           {find.length < 1 && memoPagination}
