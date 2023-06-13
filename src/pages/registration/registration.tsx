@@ -1,24 +1,19 @@
-import React, { FC, useEffect } from "react";
-import { fetchGetAuth } from "../../redux/authReducer";
-import { useAppDispatch, useAppSelector } from "../../redux/reduxUtils";
+import React, { FC } from "react";
+import { useAppSelector } from "../../redux/reduxUtils";
 import { useForm } from "../../hooks/form";
 import { Link, Navigate } from "react-router-dom";
 import { FormPassword } from "../../components/all/useform/form-password";
-import { authReselect, resultCodeReselect } from "../../redux/reselect";
+import { resultCodeReselect } from "../../redux/reselect";
 
 import styles from "./registration.module.scss";
 
 export const Registration: FC = () => {
-  const dispatch = useAppDispatch();
-  useEffect(() => {
-    dispatch(fetchGetAuth());
-  }, []);
+
   const { password, email, changePassword, changeEmail, login, ...form } =
     useForm();
   const resultCode = useAppSelector(resultCodeReselect);
-  const auth = useAppSelector(authReselect);
   if (resultCode === 1) return <Navigate to="/auth/email" replace={true} />;
-  if (auth === 1) return <Navigate to="/app" replace={true} />;
+
   const profile = form.itemsProfile.map(item => {
     return (
       <section key={item.id} className={styles.registration_fill_field}>
@@ -37,6 +32,7 @@ export const Registration: FC = () => {
       </section>
     );
   });
+
   return (
     <section className={styles.registration}>
       <header>
