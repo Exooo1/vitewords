@@ -23,9 +23,6 @@ export const fetchRegistration = createAsyncThunk<
     const person = { email, password, name, surname };
     try {
       const auth = await apiAuth.registration(person);
-      const verify = auth.data.item || "";
-      if (auth.data.resultCode === 1)
-        await apiAuth.sendEmail({ email, name, verify });
       return auth.data.resultCode;
     } catch (err) {
       const { message, response } = err as AxiosError<

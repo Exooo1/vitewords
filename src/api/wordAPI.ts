@@ -14,8 +14,6 @@ export type SortType = {
   sortType: SortChoice;
 };
 export type ProfileType = {
-  firstName: string;
-  lastName: string;
   words: Array<WordType>;
   totalWords: number;
 };
@@ -31,7 +29,7 @@ export type WordChangeType = {
   id: string;
 };
 const instance = axios.create({
-  baseURL: "http://localhost:8080/"
+  baseURL: "http://localhost:8080/words"
 });
 
 instance.interceptors.request.use((config: AxiosRequestConfig) => {
@@ -45,7 +43,7 @@ instance.interceptors.request.use((config: AxiosRequestConfig) => {
 export const wordApi = {
   getWords(count: number): AxiosPromise<ProjectTypeReturn<ProfileType>> {
     return instance.get<ProjectTypeReturn<ProfileType>>(
-      `words/?count=${count}`
+        `/?count=${count}`
     );
   },
   addWord(values: WordType): AxiosPromise<ProjectTypeReturn<WordType>> {
