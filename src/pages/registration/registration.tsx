@@ -52,6 +52,7 @@ export const Registration: FC = () => {
           changeEmail={changeEmail}
           changePassword={changePassword}
           login={login}
+          typePress='registration'
         />
       </section>
       <section className={styles.registration_button}>
