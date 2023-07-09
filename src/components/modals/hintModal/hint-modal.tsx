@@ -1,21 +1,43 @@
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import { useActions, useAppSelector } from "../../../redux/reduxUtils";
 import { slice } from "../../../redux/errorsReducer";
 import done from "../../../assets/images/done.png";
 import error from "../../../assets/images/error.png";
 import styles from "./hintmodal.module.scss";
 
+type HintsType = {
+  id: string;
+  article: string;
+  status: string;
+  message: string;
+  check?: boolean;
+};
+
 export const HintModal: FC = () => {
   const { deleteHint } = useActions(slice.actions);
   const hints = useAppSelector(state => state.errorsReducer.errors);
-  const removeHint = (id: string) => deleteHint(id);
-  const resultHits = hints.map((item, index) => {
+  const [test, setTest] = useState<Array<HintsType>>([]);
+  useEffect(() => {
+    setTest(hints);
+  }, [hints]);
+  const removeHint = (id: string) => {
+    setTest(
+      test.map(item => (item.id === id ? { ...item, check: true } : item))
+    );
+    setTimeout(()=>{
+      deleteHint(id)
+    },700)
+  };
+  const resultHits = test.map((item, index) => {
     switch (item.status) {
       case "error":
         return (
           <div
-            style={{ top: `${800 - index * 115}px`, color: "#ed4004" }}
-            className={styles.hint}
+            style={{
+              color: "#ed4004",
+              transform: item.check ? "translate(-300px)" : ""
+            }}
+            className={styles.hints_item}
             onClick={() => removeHint(item.id)}
             key={item.id}
           >
@@ -69,5 +91,5 @@ export const HintModal: FC = () => {
     }
   });
 
-  return <div>{resultHits}</div>;
+  return <div className={styles.hints}>{resultHits}</div>;
 };
