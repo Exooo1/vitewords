@@ -5,8 +5,10 @@ import { authReducer } from "./authReducer";
 import { wordsSlice } from "./wordsReducer";
 import { profileReducer } from "./profileReducer";
 import { wordApi } from "./wordRTK";
+import {loadingReducer} from "./loadingReducer";
 
 const reducers = combineReducers({
+  loadingReducer,
   errorsReducer,
   authReducer,
   wordsSlice,

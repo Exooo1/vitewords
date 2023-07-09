@@ -6,12 +6,14 @@ import { FormPassword } from "../../components/all/useform/form-password";
 import { resultCodeReselect } from "../../redux/reselect";
 
 import styles from "./registration.module.scss";
+import {Loading} from "../../components/all/loading/loading";
 
 export const Registration: FC = () => {
 
   const { password, email, changePassword, changeEmail, login, ...form } =
     useForm();
   const resultCode = useAppSelector(resultCodeReselect);
+  const isAuth = useAppSelector(state=>state.loadingReducer.isAuth)
   if (resultCode === 1) return <Navigate to="/auth/email" replace={true} />;
 
   const profile = form.itemsProfile.map(item => {
@@ -57,7 +59,7 @@ export const Registration: FC = () => {
       </section>
       <section className={styles.registration_button}>
         <button type="button" onClick={form.createAccount}>
-          CreateAccount
+            {isAuth? <Loading width={'100'}/>:'CreateAccount'}
         </button>
       </section>
     </section>
