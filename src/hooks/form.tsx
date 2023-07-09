@@ -3,6 +3,7 @@ import { useAppDispatch } from "../redux/reduxUtils";
 import { fetchLogin, fetchRegistration } from "../redux/authReducer";
 import { handlerDeleteHint } from "../utils/functionutils";
 import info from "../assets/images/inform.png";
+import {handlerIsAuth} from "../redux/loadingReducer";
 
 export type InputType = {
   name: string;
@@ -25,7 +26,7 @@ type FormType = {
   changePassword: (e: ChangeEvent<HTMLInputElement>) => void;
   itemsProfile: Array<ItemProfileType>;
   createAccount: () => void;
-  login: (e: KeyboardEvent) => void;
+  login: (e: KeyboardEvent, type: string) => void;
   buttonLogin: () => void;
 } & InputType;
 export const useForm = (): FormType => {
@@ -60,27 +61,36 @@ export const useForm = (): FormType => {
     !reg.test(email)
       ? handlerDeleteHint("Email invalid", dispatch, "error")
       : dispatch(
-          fetchRegistration({
-            name: name[0].toUpperCase() + name.slice(1),
-            surname: surname[0].toUpperCase() + surname.slice(1),
-            password,
-            email
-          })
+            fetchRegistration({
+              name: name[0].toUpperCase() + name.slice(1),
+              surname: surname[0].toUpperCase() + surname.slice(1),
+              password,
+              email
+            })
         );
+    dispatch(handlerIsAuth())
   };
 
-  const login = (e: KeyboardEvent) => {
+  const login = (e: KeyboardEvent, type: string) => {
     if (e.key === "Enter" || e.type === "click") {
       if (password.length! < 6)
         return handlerDeleteHint("Password incorrect", dispatch, "error");
       !reg.test(email)
         ? handlerDeleteHint("Email invalid", dispatch, "error")
         : dispatch(
-            fetchLogin({
-              email,
-              password
-            })
+            type === "login"
+              ? fetchLogin({
+                  email,
+                  password
+                })
+              : fetchRegistration({
+                  name: name[0].toUpperCase() + name.slice(1),
+                  surname: surname[0].toUpperCase() + surname.slice(1),
+                  password,
+                  email
+                })
           );
+      dispatch(handlerIsAuth())
     }
   };
 
@@ -95,6 +105,7 @@ export const useForm = (): FormType => {
             password
           })
         );
+    dispatch(handlerIsAuth())
   };
 
   const itemsProfile: Array<ItemProfileType> = [

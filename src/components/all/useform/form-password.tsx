@@ -9,10 +9,11 @@ type FormPasswordType = {
   password: string;
   changePassword: (e: ChangeEvent<HTMLInputElement>) => void;
   changeEmail: (e: ChangeEvent<HTMLInputElement>) => void;
-  login: (e: KeyboardEvent) => void;
+  login: (e: KeyboardEvent, type: string) => void;
+  typePress: string;
 };
 export const FormPassword: FC<FormPasswordType> = memo(
-  ({ email, password, changePassword, changeEmail, login }) => {
+  ({ email, password, changePassword, changeEmail, login, typePress }) => {
     const [isVisible, setVisible] = useState<boolean>(false);
     const changeVisible = () => setVisible(!isVisible);
     return (
@@ -25,7 +26,7 @@ export const FormPassword: FC<FormPasswordType> = memo(
             <input
               value={email}
               onChange={changeEmail}
-              onKeyDown={login}
+              onKeyDown={e => login(e, typePress)}
               type={"email"}
               placeholder={"Email"}
             />
@@ -41,7 +42,7 @@ export const FormPassword: FC<FormPasswordType> = memo(
               type={isVisible ? "text" : "password"}
               value={password}
               onChange={changePassword}
-              onKeyDown={login}
+              onKeyDown={e => login(e, typePress)}
               placeholder={"Password"}
             />
           </div>

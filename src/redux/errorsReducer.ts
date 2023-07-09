@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import uuid from "uuid";
 
-type HintsType = {
+export type HintsType = {
   id: string;
   article: string;
   status: string;

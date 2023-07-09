@@ -34,7 +34,7 @@ export const apiAuth = {
       email: values.email,
       password: values.password
     };
-    return instance.post<ProjectTypeReturn<string>>("registration", result);
+    return instance.post<ProjectTypeReturn<string>>("signup", result);
   },
   sendEmail(values: EmailType): AxiosPromise<ProjectTypeReturn<null>> {
     return instance.post("email", values);

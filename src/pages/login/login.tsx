@@ -25,7 +25,7 @@ export const Login: FC = () => {
         </h1>
         <b>With this app you will grow!</b>
       </header>
-      <FormPassword {...form} />
+      <FormPassword {...form} typePress='login' />
       <button onClick={form.buttonLogin} type="button">
         Log In
       </button>

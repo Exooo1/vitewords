@@ -18,7 +18,7 @@
     &:hover > img {
       animation: bye_bye 1s infinite alternate;
     }
-
+    height: 25vh;
     width: 210px;
     cursor: $cursor-pointer;
     margin-top: 250px;
@@ -99,6 +99,15 @@
         background-color: #be69da;
         border-radius: 10px;
       }
+    }
+  }
+}
+
+@media (min-height: 1080px) {
+  .container {
+    &_logout {
+      display: flex;
+      align-items: flex-end;
     }
   }
 }
