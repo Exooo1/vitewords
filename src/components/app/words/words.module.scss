@@ -65,8 +65,7 @@
         color: $color-white;
 
         h2 {
-          text-shadow: 0 0 2px black;
-          font-weight: $weight-900;
+          @include text-weight(none, $weight-900);
         }
 
         p {
@@ -92,7 +91,7 @@
         color: $color-white;
 
         h2 {
-          @include text-weight($text-shadow-black, $weight-900);
+          @include text-weight(none, $weight-900);
         }
 
         p {
@@ -164,7 +163,7 @@
         color: $color-white;
 
         h2 {
-          @include text-weight(0 0 2px black, $weight-900);
+          @include text-weight(none, $weight-900);
         }
 
         p {
