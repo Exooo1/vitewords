@@ -55,7 +55,7 @@ export const WordModal: FC<WordModalType> = ({ handlerIsModal }) => {
     <section className={styles.container_modalWord} onClick={handlerIsModal}>
       <section onClick={e => e.stopPropagation()}>
         <h2>New word</h2>
-        <section className={hint === "word" ? "modalWord_requiredfield" : ""}>
+        <section className={hint === "word" ? styles.container_modalWord_required : ""}>
           {word && <label>Word</label>}
           <input
             autoFocus={true}
@@ -67,7 +67,7 @@ export const WordModal: FC<WordModalType> = ({ handlerIsModal }) => {
           />
         </section>
         <section
-          className={hint === "translate" ? "modalWord_requiredfield" : ""}
+          className={hint === "translate" ? styles.container_modalWord_required : ""}
         >
           {translate && <label>Translate</label>}
           <input
