@@ -1,8 +1,6 @@
 import { FC, useEffect, useState } from "react";
 import { useActions, useAppSelector } from "../../../redux/reduxUtils";
 import { HintsType, slice } from "../../../redux/errorsReducer";
-import done from "../../../assets/images/done.png";
-import error from "../../../assets/images/error.png";
 import styles from "./hintmodal.module.scss";
 import {Hint} from "./hint";
 
@@ -28,7 +26,7 @@ export const HintModal: FC = () => {
   };
 
   const resultHits = test.map((item) => {
-    return <Hint key={item.id} removeHint={()=>removeHint(item.id)} {...item} imgStatus={error} />
+    return <Hint key={item.id} removeHint={()=>removeHint(item.id)} {...item}/>
   });
 
   return <div className={styles.hints}>{resultHits}</div>;

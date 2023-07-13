@@ -1,9 +1,10 @@
 import { FC, useState } from "react";
+import done from "../../../assets/images/done.png";
+import error from "../../../assets/images/error.png";
 import styles from "./hintmodal.module.scss";
 
 type THint = {
   removeHint: () => void;
-  imgStatus: string;
   message: string;
   article: string;
   status:string
@@ -11,7 +12,6 @@ type THint = {
 
 export const Hint: FC<THint> = ({
   removeHint,
-  imgStatus,
   article,
   message,
   status,
@@ -23,18 +23,22 @@ export const Hint: FC<THint> = ({
   };
 
   let color:string;
+  let imgStatus = done;
 
   switch (status){
     case 'error':
       color = '#ed4004'
+      imgStatus = error
       break;
     case 'done':
       color = '#00f61a'
+      imgStatus = done
       break;
     case 'warn':
       color = 'yellow'
       break;
-    default:  color = 'white'
+    default:
+      color = 'white'
   }
 
   return (

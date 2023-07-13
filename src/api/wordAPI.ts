@@ -55,7 +55,7 @@ export const wordApi = {
     );
   },
   changeWord(values: WordChangeType): AxiosPromise<ProjectTypeReturn<null>> {
-    return instance.post<ProjectTypeReturn<null>>("word-change", values);
+    return instance.put<ProjectTypeReturn<null>>("change-word", values);
   },
   findWords(word: string): AxiosPromise<ProjectTypeReturn<Array<WordType>>> {
     return instance.get<ProjectTypeReturn<Array<WordType>>>(

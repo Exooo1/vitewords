@@ -3,6 +3,7 @@ import "./word.module.scss";
 import { useAppDispatch } from "../../../../redux/reduxUtils";
 import { fetchChangeWord } from "../../../../redux/wordsReducer";
 import styles from "./word.module.scss";
+import {handlerDeleteHint} from "../../../../utils/functionutils";
 
 type WordType = {
   word: string;
@@ -26,22 +27,25 @@ export const Word: FC<WordType> = ({
   const [tran, setTran] = useState<string>(translate);
   const [descrip, setDescrip] = useState<string>(description);
   const handlerWord = (e: ChangeEvent<HTMLInputElement>) => {
-    if (wor.length > 1) setWor(e.target.value);
+    if (wor.length >= 1) setWor(e.target.value);
   };
 
   const acceptChange = () => {
     if (isEdit) {
       setIsEdit(false);
       if (descrip === description && tran === translate && wor === word) return;
-      dispatch(
-        fetchChangeWord({
-          word: wor,
-          id,
-          translate: tran,
-          description: descrip,
-          added
-        })
-      );
+      if (wor && tran && descrip) {
+        dispatch(
+          fetchChangeWord({
+            word: wor,
+            id,
+            translate: tran,
+            description: descrip,
+            added
+          })
+        );
+      }
+      else handlerDeleteHint('The word should not be empty ', dispatch, "error");
     } else setIsEdit(true);
   };
   return (
