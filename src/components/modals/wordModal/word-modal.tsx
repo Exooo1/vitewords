@@ -31,15 +31,15 @@ export const WordModal: FC<WordModalType> = ({ handlerIsModal }) => {
       setHint("translate");
       return;
     }
-    const wordTrim = word.trim();
-    const translateTrim = translate.trim();
+    const wordTrim = word[0].toUpperCase() + word.slice(1).trim();
+    const transUpdated = translate[0].toUpperCase() + translate.slice(1).trim()
     const descriptionTrim = description.trim();
     const date = new Date();
     const added = `${date.toDateString()} ${date.toTimeString().split(" ")[0]}`;
     dispatch(
       fetchAddWord({
         word: wordTrim,
-        translate: translateTrim,
+        translate: transUpdated,
         description: descriptionTrim,
         added
       })

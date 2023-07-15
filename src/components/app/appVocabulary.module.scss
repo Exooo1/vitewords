@@ -18,7 +18,6 @@
     &:hover > img {
       animation: bye_bye 1s infinite alternate;
     }
-    height: 25vh;
     width: 210px;
     cursor: $cursor-pointer;
     margin-top: 250px;
@@ -105,6 +104,15 @@
 
 @media (min-height: 1080px) {
   .container {
+    &_aside{
+      figure{
+        height: 350px;
+      }
+      nav {
+        justify-content: flex-start;
+        height: 600px;
+      }
+    }
     &_logout {
       display: flex;
       align-items: flex-end;

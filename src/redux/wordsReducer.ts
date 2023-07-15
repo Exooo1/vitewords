@@ -57,9 +57,8 @@ export const fetchAddWord = createAsyncThunk<WordType, WordType, ThunkError>(
     { dispatch, rejectWithValue }
   ) => {
     try {
-      const upperWord = word[0].toUpperCase() + word.slice(1);
       const { data } = await wordApi.addWord({
-        word: upperWord,
+        word,
         translate,
         description,
         added

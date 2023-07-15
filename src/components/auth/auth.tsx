@@ -46,11 +46,11 @@ export const Auth: FC = () => {
   ));
   return (
     <section>
+      <HintModal />
       <Header />
       <section className={styles.auth_choose}>{buttons}</section>
       <section className={styles.auth}>
         {choose ? <Outlet /> : <Slider />}
-        <HintModal />
       </section>
     </section>
   );
