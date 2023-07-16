@@ -1,8 +1,7 @@
-import React, { FC, useEffect, useState } from "react";
+import React, {FC, useEffect, useState} from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import { HintModal } from "../modals/hintModal/hint-modal";
 import { changeTitle } from "../../utils/functionutils";
-
 import { Slider } from "../slider/slider";
 import { Header } from "../header/header";
 import { CHOICE_AUTH } from "../../constants/constants";
@@ -35,7 +34,8 @@ export const Auth: FC = () => {
           : { ...item, isActive: false }
       )
     );
-    setChoose(!choose);
+    if(value === 1) setChoose(true);
+    else setChoose(false)
   };
   const buttons = choice.map(item => (
     <button
