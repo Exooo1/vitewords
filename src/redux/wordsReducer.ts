@@ -183,13 +183,13 @@ export const fetchDownloadFile = createAsyncThunk<any, string>(
               alignment: "center",
               bold: true
             },
-            { text: data, fontSize: 10 }
+            { text: data.item, fontSize: 10 }
           ]
         };
         const pdfDocGenerator = pdfMake.createPdf(docDefinition);
         pdfDocGenerator.download("my-pdf.pdf");
       } else {
-        const blob = new Blob([data]);
+        const blob = new Blob([data.item]);
         const url = URL.createObjectURL(blob);
         const a = document.createElement("a");
         a.href = url;

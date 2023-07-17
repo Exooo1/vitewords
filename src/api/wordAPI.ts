@@ -71,6 +71,6 @@ export const wordApi = {
     );
   },
   downloadFile() {
-    return instance.get("words-download");
+    return instance.get("download-words");
   }
 };
