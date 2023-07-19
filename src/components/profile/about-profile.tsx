@@ -1,4 +1,5 @@
 import styles from "./about-profile.module.scss";
+import { ProgressBar } from "./progress/progress-bar";
 
 export const AboutProfile = () => {
   return (
@@ -21,12 +22,20 @@ export const AboutProfile = () => {
         <h2>Your Progress</h2>
         <p>All data on English language levels are taken from the Internet.</p>
         <section className={styles.aboutProfile_progress_information}>
-           <section className={styles.aboutProfile_progress_information_level}>
-             <section>
-                <h1>A<sup>0</sup></h1>
-             </section>
-           </section>
-           <section></section>
+          <section className={styles.aboutProfile_progress_information_level}>
+            <section>
+              <h1>
+                A<sup>0</sup>
+              </h1>
+            </section>
+            <section>
+              <h1>hello</h1>
+            </section>
+          </section>
+          <section></section>
+        </section>
+        <section className={styles.aboutProfile_progress_information_bar}>
+          <ProgressBar />
         </section>
       </section>
     </section>

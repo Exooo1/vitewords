@@ -10,9 +10,6 @@ export const Profile = () => {
               <AboutProfile />
               <AboutProfile />
             </section>
-            <section className={styles.profile_any}>
-                <h1>building</h1>
-            </section>
         </section>
         <section className={styles.profile_twoblock}>
             <h1>Hello</h1>
