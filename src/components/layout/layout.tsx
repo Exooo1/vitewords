@@ -12,6 +12,7 @@ import { Words } from "../app/words/words";
 import styles from "./layout.module.scss";
 import { Building } from "../building/building";
 import { Chat } from "../../pages/chat/chat";
+import {Profile} from "../../pages/profile/profile";
 
 export const Layout: FC = () => {
   return (
@@ -39,11 +40,7 @@ export const Layout: FC = () => {
             <Route
               key="profile"
               path="profile"
-              element={
-                <div style={{ width: "100%" }}>
-                  <Building />
-                </div>
-              }
+              element={<Profile />}
             />
             <Route key="chat" path="chat" element={<Chat />} />
             <Route
