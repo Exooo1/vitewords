@@ -14,12 +14,6 @@ export const Profile = () => {
         <section className={styles.profile_twoblock}>
             <h1>Hello</h1>
         </section>
-      {/*<section className={styles.profile_oneblock}>*/}
-      {/*  <AboutProfile />*/}
-      {/*</section>*/}
-      {/*<section className={styles.profile_twoblock}>*/}
-      {/*    <h1>building</h1>*/}
-      {/*</section>*/}
     </section>
   );
 };

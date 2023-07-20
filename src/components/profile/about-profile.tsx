@@ -1,6 +1,9 @@
 import styles from "./about-profile.module.scss";
 import { ProgressBar } from "./progress/progress-bar";
 import { LEVEL_ENGLISH } from "../../constants/constants";
+import words from '../../assets/images/words.png'
+import notes from '../../assets/images/notes.png'
+import days from '../../assets/images/days.png'
 
 const checkLevel = (words: number) => {
   let level = LEVEL_ENGLISH.a0;
@@ -43,7 +46,18 @@ export const AboutProfile = () => {
               </h1>
             </section>
             <section>
-              <h1>hello</h1>
+              <section>
+                <img src={days} alt="days"/>
+                <p>2d</p>
+              </section>
+              <section>
+                <img src={notes} alt="notes"/>
+                <p>3</p>
+              </section>
+              <section>
+                <img src={words} alt="words"/>
+                <p style={{color:'#03ff03'}}>738</p>
+              </section>
             </section>
           </section>
           <section></section>

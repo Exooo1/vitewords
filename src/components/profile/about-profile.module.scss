@@ -83,8 +83,7 @@
           justify-content: center;
           align-items: center;
           width: 80px;
-          height: 70px;
-          background-color: #78bc7e;
+          height: 85px;
           border-radius: 10px;
           color: white;
           h1{
@@ -96,8 +95,28 @@
           }
         }
         section:nth-child(2){
-          width: 50%;
-          background-color: #b55fda;
+          display: flex;
+          justify-content: space-around;
+          width: 70%;
+          background-color: #10111b;
+          section{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 70px;
+            height: 70px;
+            img{
+              width: 41px;
+            }
+            p{
+              text-align: center;
+              font-weight: 800;
+              width: 43px;
+              padding: 0;
+              margin: 1px 0;
+            }
+          }
         }
       }
     }
