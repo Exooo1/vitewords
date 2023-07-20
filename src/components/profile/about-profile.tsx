@@ -1,7 +1,19 @@
 import styles from "./about-profile.module.scss";
 import { ProgressBar } from "./progress/progress-bar";
 
+const checkLevel = (words: number) => {
+  const level = { letter: "A", sup: "0" };
+  if (words >= 1000) (level.letter = "A"), (level.sup = "1");
+  if (words >= 2000) (level.letter = "A"), (level.sup = "2");
+  if (words >= 3000) (level.letter = "B"), (level.sup = "1");
+  if (words >= 4000) (level.letter = "B"), (level.sup = "2");
+  if (words >= 5000) (level.letter = "C"), (level.sup = "1");
+  if (words >= 6000) (level.letter = "C"), (level.sup = "2");
+  return level;
+};
+
 export const AboutProfile = () => {
+  const level = checkLevel(1000)
   return (
     <section className={styles.aboutProfile}>
       <section className={styles.aboutProfile_avatar}>
@@ -25,7 +37,7 @@ export const AboutProfile = () => {
           <section className={styles.aboutProfile_progress_information_level}>
             <section>
               <h1>
-                A<sup>0</sup>
+                {level.letter}<sup>{level.sup}</sup>
               </h1>
             </section>
             <section>
