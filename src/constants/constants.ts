@@ -98,3 +98,13 @@ export const SORT_ELEMENTS: Array<SortElementsType> = [
   { id: 2, name: "Description", sort: "DESCRIPTION" },
   { id: 3, name: "Added", sort: "ADDED" }
 ];
+
+export const LEVEL_ENGLISH = {
+  a0: { letter: "A", sup: "0", color: "red" },
+  a1: { letter: "A", sup: "1", color: "orange" },
+  a2: { letter: "A", sup: "2", color: "#d5d51a" },
+  b1: { letter: "B", sup: "1", color: "green" },
+  b2: { letter: "B", sup: "2", color: "#6868ff" },
+  c1: { letter: "C", sup: "1", color: "blue" },
+  c2: { letter: "C", sup: "2", color: "purple" }
+};
