@@ -3,7 +3,8 @@ import {
   ChoiceAuthType,
   NavType,
   SliderTypeBanners,
-  SortElementsType
+  SortElementsType,
+  TLevelsEnglish
 } from "../utils/types/commonTypes";
 import profile from "../assets/images/profile.png";
 import dashboard from "../assets/images/dashboard.png";
@@ -99,12 +100,12 @@ export const SORT_ELEMENTS: Array<SortElementsType> = [
   { id: 3, name: "Added", sort: "ADDED" }
 ];
 
-export const LEVEL_ENGLISH = {
-  a0: { letter: "A", sup: "0", color: "red" },
-  a1: { letter: "A", sup: "1", color: "orange" },
-  a2: { letter: "A", sup: "2", color: "#d5d51a" },
-  b1: { letter: "B", sup: "1", color: "green" },
-  b2: { letter: "B", sup: "2", color: "#6868ff" },
-  c1: { letter: "C", sup: "1", color: "blue" },
-  c2: { letter: "C", sup: "2", color: "purple" }
+export const LEVEL_ENGLISH: TLevelsEnglish = {
+  a0: { letter: "A", sup: "0", color: "red", goal: 0 },
+  a1: { letter: "A", sup: "1", color: "orange", goal: 500 },
+  a2: { letter: "A", sup: "2", color: "#d5d51a", goal: 1000 },
+  b1: { letter: "B", sup: "1", color: "green", goal: 2000  },
+  b2: { letter: "B", sup: "2", color: "#6868ff", goal: 3000},
+  c1: { letter: "C", sup: "1", color: "blue", goal: 4000  },
+  c2: { letter: "C", sup: "2", color: "purple", goal: 5000  }
 };
