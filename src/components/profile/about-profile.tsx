@@ -35,6 +35,13 @@ const addFile = () => {
   const html = document.createElement("input");
   html.type = "file";
   html.name = "addFile";
+  html.addEventListener("change", (event) => {
+    // @ts-ignore
+    const selectedFile = event.target.files[0];
+    if (selectedFile) {
+      console.log("Selected file:", selectedFile);
+    }
+  });
   document.body.appendChild(html);
   html.click();
 };
