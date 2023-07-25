@@ -55,9 +55,9 @@ export const AboutProfile = () => {
         file = files[0]
         const newFile = new File([file],firstName+lastName+file.name)
         formData.append('file', newFile);
-        if (file) {
-          dispatch(fetchSetAvatar(formData))
-        }
+      }
+      if (file) {
+        dispatch(fetchSetAvatar(formData))
       }
     });
     document.body.appendChild(html);
@@ -67,7 +67,7 @@ export const AboutProfile = () => {
 
   return (
     <section className={styles.aboutProfile}>
-      <section className={styles.aboutProfile_avatar} id={"sectionid"}>
+      <section className={styles.aboutProfile_avatar}>
         <figure>
           <img onClick={addFile} src={`http://localhost:8080/profile/get-avatar/${avatar}`} alt="avatar" />
         </figure>

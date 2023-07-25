@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { AxiosError } from "axios";
-import { profileAPI, TAvatar, TProfileInfo } from "../api/profileAPI";
+import { profileAPI, TProfileInfo } from "../api/profileAPI";
 import { ProjectTypeReturn, ThunkError } from "../utils/types/commonTypes";
 import { handlerDeleteHint } from "../utils/functionutils";
 
@@ -60,7 +60,7 @@ export const fetchGetProfileInfo = createAsyncThunk<
   }
 });
 
-export const fetchSetAvatar = createAsyncThunk<string, any, ThunkError>(
+export const fetchSetAvatar = createAsyncThunk<string, FormData, ThunkError>(
   "profile/fetchSetAvatar",
   async (file, { dispatch, rejectWithValue }) => {
     try {

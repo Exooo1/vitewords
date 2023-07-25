@@ -6,15 +6,6 @@ const instance = axios.create({
   baseURL: "http://localhost:8080/profile"
 });
 
-export type TAvatar = {
-  lastModified: number;
-  lastModifiedDate: any;
-  name: string;
-  size: number;
-  type: string;
-  webkitRelativePath: string;
-};
-
 export type TProfileInfo = {
   totalWords: number;
   days: number;
