@@ -6,14 +6,16 @@ type TProgressBar = {
   end: number;
   rest: number;
   count: number;
+  color:string
 };
 
-export const ProgressBar: FC<TProgressBar> = ({ start, end, rest, count }) => {
+export const ProgressBar: FC<TProgressBar> = ({ start, end, rest, count, color }) => {
   const percent = (count / end) * 100;
+
   return (
     <section className={styles.bar}>
       <section className={styles.bar_under}>
-        <div>
+        <div style={{marginLeft:`${percent-5}%`, color:color}}>
           <h1>{rest}</h1>
         </div>
       </section>

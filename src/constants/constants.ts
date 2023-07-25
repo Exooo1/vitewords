@@ -76,7 +76,7 @@ export const NAV: Array<NavType> = [
   {
     id: 3,
     name: "Words",
-    path: "words",
+    path: "",
     img: vocab,
     style: true
   },

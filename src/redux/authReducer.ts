@@ -6,11 +6,11 @@ import { ProjectTypeReturn, ThunkError } from "../utils/types/commonTypes";
 import { handlerDeleteHint } from "../utils/functionutils";
 
 export type InitialStateAuth = {
-  auth: number;
+  auth: number | null;
   resultCode: number;
 };
 const initialState: InitialStateAuth = {
-  auth: 0,
+  auth: null,
   resultCode: 0
 };
 export const fetchRegistration = createAsyncThunk<
@@ -118,6 +118,9 @@ export const slice = createSlice({
     });
     builder.addCase(fetchGetAuth.fulfilled, (state, action) => {
       state.auth = action.payload;
+    });
+    builder.addCase(fetchGetAuth.rejected, state => {
+      state.auth = 0;
     });
     builder.addCase(fetchLogOut.fulfilled, (state, action) => {
       state.auth = action.payload;

@@ -8,7 +8,6 @@ type DownloadType = {
 };
 export const Download: FC<DownloadType> = memo(
   ({ downloadFile, file, handlerFile }) => {
-    console.log("Download!");
     const changeFile = (e: ChangeEvent<HTMLSelectElement>) => {
       handlerFile(e.target.value);
     };

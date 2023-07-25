@@ -11,7 +11,7 @@ import { Words } from "../app/words/words";
 
 import styles from "./layout.module.scss";
 import { Building } from "../building/building";
-import { Chat } from "../../pages/chat/chat";
+// import { Chat } from "../../pages/chat/chat";
 import {Profile} from "../../pages/profile/profile";
 
 export const Layout: FC = () => {
@@ -36,13 +36,13 @@ export const Layout: FC = () => {
             element={<ConfirmAccount />}
           />
           <Route key="app" path="/app" element={<AppVocabulary />}>
-            <Route key="words" path="words" element={<Words />} />
+            <Route key="words" index element={<Words />} />
             <Route
               key="profile"
               path="profile"
               element={<Profile />}
             />
-            <Route key="chat" path="chat" element={<Chat />} />
+            {/*<Route key="chat" path="chat" element={<Chat />} />*/}
             <Route
               key="dashboard"
               path="dashboard"

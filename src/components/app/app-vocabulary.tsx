@@ -4,7 +4,7 @@ import { NAV } from "../../constants/constants";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../redux/reduxUtils";
 import { authReselect } from "../../redux/reselect";
-import { fetchLogOut } from "../../redux/authReducer";
+import { fetchGetAuth, fetchLogOut } from "../../redux/authReducer";
 
 import logo from "../../assets/images/logo.png";
 import logout from "../../assets/images/logout.png";
@@ -15,10 +15,15 @@ export const AppVocabulary: FC = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const [nav, setNav] = useState(NAV);
+
   useEffect(() => {
-    navigate("/app/words");
+    dispatch(fetchGetAuth());
+  }, []);
+
+  useEffect(() => {
     if (auth === 0) navigate("/auth");
   }, [auth]);
+
   const changeNav = (id: number) => {
     setNav(
       nav.map(item =>
