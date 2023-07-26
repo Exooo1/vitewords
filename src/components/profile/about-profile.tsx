@@ -43,7 +43,6 @@ export const AboutProfile = () => {
   const level = checkLevel(totalWords);
   const end = countWords(level);
   const rest = end - totalWords;
-  const url = avatar ? avatar : avatarImg;
 
   const addFile = () => {
     const html = document.createElement("input");
