@@ -1,12 +1,14 @@
 import { ProgressBar } from "./progress/progress-bar";
 import { LEVEL_ENGLISH } from "../../constants/constants";
-import {useAppDispatch, useAppSelector} from "../../redux/reduxUtils";
+import { useAppDispatch, useAppSelector } from "../../redux/reduxUtils";
 import { TLevel } from "../../utils/types/commonTypes";
 import styles from "./about-profile.module.scss";
 import iwords from "../../assets/images/words.png";
 import inotes from "../../assets/images/notes.png";
 import idays from "../../assets/images/days.png";
-import {fetchSetAvatar} from "../../redux/profileReducer";
+import avatarImg from "../../assets/images/avatar.jpg";
+import { fetchSetAvatar } from "../../redux/profileReducer";
+import { BASE_URL } from "../../constants/path";
 
 const checkLevel = (words: number) => {
   let level = LEVEL_ENGLISH.a0;
@@ -32,44 +34,53 @@ const countWords = (value: TLevel) => {
   return lvl;
 };
 
-
 export const AboutProfile = () => {
   const {
     profile: { lastName, firstName, days, totalWords, avatar, notes }
   } = useAppSelector(state => state.profileReducer);
 
-  const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
   const level = checkLevel(totalWords);
   const end = countWords(level);
   const rest = end - totalWords;
+  const url = avatar ? avatar : avatarImg;
 
-  const addFile =  () => {
+  const addFile = () => {
     const html = document.createElement("input");
     html.type = "file";
     html.name = "addFile";
-    html.addEventListener( "change", event => {
+    html.addEventListener("change", event => {
       const formData = new FormData();
       const files = (event?.target as HTMLInputElement).files;
-      let file = null
-      if(files){
-        file = files[0]
-        const newFile = new File([file],firstName+lastName+file.name)
-        formData.append('file', newFile);
+      let file = null;
+      if (files) {
+        file = files[0];
+        const newFile = new File(
+          [file],
+          file.size + firstName + lastName + file.name
+        );
+        formData.append("file", newFile);
       }
       if (file) {
-        dispatch(fetchSetAvatar(formData))
+        dispatch(fetchSetAvatar(formData));
       }
     });
     document.body.appendChild(html);
     html.click();
-    html.remove()
+    html.remove();
   };
 
   return (
     <section className={styles.aboutProfile}>
       <section className={styles.aboutProfile_avatar}>
         <figure>
-          <img onClick={addFile} src={`http://localhost:8080/profile/get-avatar/${avatar}`} alt="avatar" />
+          <img
+            width={80}
+            height={80}
+            onClick={addFile}
+            src={avatar ? BASE_URL + `profile/get-avatar/${avatar}` : avatarImg}
+            alt="avatar"
+          />
         </figure>
         <section>
           <section>
