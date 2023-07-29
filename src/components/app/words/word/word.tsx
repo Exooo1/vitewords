@@ -34,7 +34,7 @@ export const Word: FC<WordType> = ({
     if (isEdit) {
       setIsEdit(false);
       if (descrip === description && tran === translate && wor === word) return;
-      if (wor && tran && descrip) {
+      if (wor && tran) {
         dispatch(
           fetchChangeWord({
             word: wor,
