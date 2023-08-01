@@ -56,5 +56,10 @@ export const apiAuth = {
   },
   logout(): AxiosPromise<ProjectTypeReturn<number>> {
     return instance.put<ProjectTypeReturn<number>>("logout");
+  },
+  changePassword(email: string): AxiosPromise<ProjectTypeReturn<number>> {
+    return instance.get<ProjectTypeReturn<number>>(
+      `change-password?email=${email}`
+    );
   }
 };

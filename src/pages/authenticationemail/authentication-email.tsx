@@ -19,7 +19,7 @@ export const AuthenticationEmail: FC = () => {
         </p>
         <p>
           if you do not confirm registration, your account will be deleted after
-          12 hours
+          15 minutes
         </p>
       </figure>
     </section>

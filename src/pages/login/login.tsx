@@ -32,7 +32,7 @@ export const Login: FC = () => {
       <section className={styles.login_description}>
         <p>Don&apos;t have an account or you forgot password</p>
         <section>
-          <Link to="/auth/forgot">Forgot Password</Link>
+          <Link to="/auth/change-password">Forgot Password</Link>
           <Link to="/auth">SignUp</Link>
         </section>
       </section>

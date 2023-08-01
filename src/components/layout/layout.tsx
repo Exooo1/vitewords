@@ -13,6 +13,7 @@ import styles from "./layout.module.scss";
 import { Building } from "../building/building";
 // import { Chat } from "../../pages/chat/chat";
 import {Profile} from "../../pages/profile/profile";
+import {ChangePassword} from "../../pages/password/change-password";
 
 export const Layout: FC = () => {
   return (
@@ -26,6 +27,12 @@ export const Layout: FC = () => {
             <Route key="login" path="login" element={<Login />} />
           </Route>
           <Route
+            key="auth/change-password"
+            path="auth/change-password"
+            element={<ChangePassword />}
+          />
+          <Route key="auth/new-password" path="auth/new-password" element={<Login />} />
+          <Route
             key="auth/email"
             path="auth/email"
             element={<AuthenticationEmail />}
@@ -37,11 +44,7 @@ export const Layout: FC = () => {
           />
           <Route key="app" path="/app" element={<AppVocabulary />}>
             <Route key="words" index element={<Words />} />
-            <Route
-              key="profile"
-              path="profile"
-              element={<Profile />}
-            />
+            <Route key="profile" path="profile" element={<Profile />} />
             {/*<Route key="chat" path="chat" element={<Chat />} />*/}
             <Route
               key="dashboard"
