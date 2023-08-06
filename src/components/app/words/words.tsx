@@ -129,13 +129,14 @@ export const Words: FC = () => {
       />
     );
   }, [current, totalWords]);
+
   const memoWords = useMemo(
     () =>
       words.map((item: WordType) => {
         return (
           <Word
-            id={item._id || ""}
             key={item._id}
+            id={item._id || ""}
             {...item}
             deleteWord={() =>
               dispatch(fetchDeleteWord({ id: item._id || "", word: item.word }))
@@ -145,7 +146,8 @@ export const Words: FC = () => {
       }),
     [words]
   );
-  const tt = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+
+
   return (
     <main className={styles.words}>
       {isModal && <WordModal handlerIsModal={() => handlerIsModal(false)} />}
