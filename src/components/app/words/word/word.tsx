@@ -3,7 +3,7 @@ import "./word.module.scss";
 import { useAppDispatch } from "../../../../redux/reduxUtils";
 import { fetchChangeWord } from "../../../../redux/wordsReducer";
 import styles from "./word.module.scss";
-import {handlerDeleteHint} from "../../../../utils/functionutils";
+import { handlerDeleteHint } from "../../../../utils/functionutils";
 
 type WordType = {
   word: string;
@@ -26,9 +26,13 @@ export const Word: FC<WordType> = ({
   const [wor, setWor] = useState<string>(word);
   const [tran, setTran] = useState<string>(translate);
   const [descrip, setDescrip] = useState<string>(description);
-  const handlerWord = (e: ChangeEvent<HTMLInputElement>) => {
-    if (wor.length >= 1) setWor(e.target.value);
-  };
+
+  const handlerState =
+    (state: (value: string) => void) =>
+    (e: ChangeEvent<HTMLInputElement>) => {
+     console.log(e.target.value)
+      state(e.target.value);
+    };
 
   const acceptChange = () => {
     if (isEdit) {
@@ -44,8 +48,8 @@ export const Word: FC<WordType> = ({
             added
           })
         );
-      }
-      else handlerDeleteHint('The word should not be empty ', dispatch, "error");
+      } else
+        handlerDeleteHint("The word should not be empty ", dispatch, "error");
     } else setIsEdit(true);
   };
   return (
@@ -56,17 +60,17 @@ export const Word: FC<WordType> = ({
             autoFocus={true}
             type="text"
             value={wor}
-            onChange={handlerWord}
+            onChange={handlerState(setWor)}
           />
           <input
             type="text"
             value={tran}
-            onChange={e => setTran(e.target.value)}
+            onChange={handlerState(setTran)}
           />
           <input
             type="text"
             value={descrip || "your description"}
-            onChange={e => setDescrip(e.target.value)}
+            onChange={handlerState(setDescrip)}
           />
         </section>
       ) : (
