@@ -125,15 +125,17 @@
           section {
             @include back-shadow-radius($color-white, none, 40px);
             @include width-height(40px, 40px);
-            transition: $transition1s;
+            transition: 600ms;
             overflow: hidden;
             display: flex;
+            align-items: center;
 
             input {
+              z-index: 2;
               &::placeholder {
                 color: $color-darkGrey;
               }
-
+              padding-left: 10px;
               @include width-height(170px, 40px);
               border: $border-none;
               font-size: 15px;
@@ -141,6 +143,8 @@
             }
 
             img {
+              transition: 600ms;
+              position: absolute;
               cursor: $cursor-pointer;
               @include width-height(40px, 40px);
             }
@@ -148,6 +152,9 @@
 
           .words_header_search_description_newWord_isActive {
             width: 220px;
+            img{
+              opacity: 0;
+            }
           }
         }
       }

@@ -215,6 +215,8 @@ export const Words: FC = () => {
                 />
                 {isSearch ? (
                   <input
+                    onBlur={() => setIsSearch(!isSearch)}
+                    autoFocus={true}
                     value={find}
                     onChange={handlerFindWord}
                     type="text"
