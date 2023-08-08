@@ -3,11 +3,11 @@
 
 .words {
   @include base-flex-back(
-    $justify-start,
-    $align-center,
-    $flex-directionC,
-    $gap-10,
-    #201e1e
+                  $justify-start,
+                  $align-center,
+                  $flex-directionC,
+                  $gap-10,
+                  #201e1e
   );
   @include width-minHeight(100%, 100vh);
 
@@ -65,7 +65,8 @@
         color: $color-white;
 
         h2 {
-          @include text-weight(none, $weight-900);
+          text-shadow: 0 0 2px black;
+          font-weight: $weight-900;
         }
 
         p {
@@ -91,7 +92,7 @@
         color: $color-white;
 
         h2 {
-          @include text-weight(none, $weight-900);
+          @include text-weight($text-shadow-black, $weight-900);
         }
 
         p {
@@ -112,9 +113,9 @@
 
             cursor: $cursor-pointer;
             @include back-shadow-radius(
-              rgba(32, 30, 30, 0.85),
-              $box-shadow-black,
-              50%
+                            rgba(32, 30, 30, 0.85),
+                            $box-shadow-black,
+                            50%
             );
             @include width-height(40px, 40px);
             border: $border-none;
@@ -125,13 +126,11 @@
           section {
             @include back-shadow-radius($color-white, none, 40px);
             @include width-height(40px, 40px);
-            transition: 600ms;
+            transition: $transition1s;
             overflow: hidden;
             display: flex;
-            align-items: center;
 
             input {
-              z-index: 2;
               &::placeholder {
                 color: $color-darkGrey;
               }
@@ -151,8 +150,12 @@
           }
 
           .words_header_search_description_newWord_isActive {
-            width: 220px;
+            width: 180px;
+            input{
+              z-index: 2;
+            }
             img{
+              z-index: 0;
               opacity: 0;
             }
           }
@@ -170,7 +173,7 @@
         color: $color-white;
 
         h2 {
-          @include text-weight(none, $weight-900);
+          @include text-weight(0 0 2px black, $weight-900);
         }
 
         p {
@@ -180,10 +183,10 @@
 
         @include width-height(300px, 190px);
         @include base-flex(
-          $justify-start,
-          $align-start,
-          $flex-directionC,
-          auto
+                        $justify-start,
+                        $align-start,
+                        $flex-directionC,
+                        auto
         );
         margin-left: 16px;
       }

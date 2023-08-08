@@ -147,6 +147,7 @@ export const Words: FC = () => {
     [words]
   );
 
+  const handlerIsSearch = () =>setIsSearch(!isSearch)
 
   return (
     <main className={styles.words}>
@@ -211,11 +212,11 @@ export const Words: FC = () => {
                   role="search-img"
                   src={search}
                   alt="search"
-                  onClick={() => setIsSearch(!isSearch)}
+                  onClick={handlerIsSearch}
                 />
                 {isSearch ? (
                   <input
-                    onBlur={() => setIsSearch(!isSearch)}
+                    onBlur={handlerIsSearch}
                     autoFocus={true}
                     value={find}
                     onChange={handlerFindWord}
