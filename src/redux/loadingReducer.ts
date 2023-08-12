@@ -24,6 +24,12 @@ const slice = createSlice({
     builder.addCase(fetchLogin.fulfilled, state => {
       state.isAuth = false;
     });
+    builder.addCase(fetchRegistration.rejected, state => {
+      state.isAuth = false;
+    });
+    builder.addCase(fetchLogin.rejected, state => {
+      state.isAuth = false;
+    });
   }
 });
 
