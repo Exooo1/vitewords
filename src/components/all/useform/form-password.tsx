@@ -29,6 +29,8 @@ export const FormPassword: FC<FormPasswordType> = memo(
               onKeyDown={e => login(e, typePress)}
               type={"email"}
               placeholder={"Email"}
+              name='email'
+              autoComplete='email webauthn'
             />
           </div>
           <img src={mail} alt={email} role="email-picture" title="email" />
@@ -39,6 +41,8 @@ export const FormPassword: FC<FormPasswordType> = memo(
               Password
             </label>
             <input
+              name='password'
+              autoComplete='current-password webauthn'
               type={isVisible ? "text" : "password"}
               value={password}
               onChange={changePassword}

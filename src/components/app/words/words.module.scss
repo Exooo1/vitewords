@@ -134,7 +134,7 @@
               &::placeholder {
                 color: $color-darkGrey;
               }
-              padding-left: 10px;
+              padding-left: 5px;
               @include width-height(170px, 40px);
               border: $border-none;
               font-size: 15px;
@@ -142,15 +142,13 @@
             }
 
             img {
-              transition: 600ms;
-              position: absolute;
               cursor: $cursor-pointer;
               @include width-height(40px, 40px);
             }
           }
 
           .words_header_search_description_newWord_isActive {
-            width: 180px;
+            width: 230px;
             input{
               z-index: 2;
             }
