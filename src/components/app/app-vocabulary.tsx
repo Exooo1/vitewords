@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState } from "react";
 import { HintModal } from "../modals/hintModal/hint-modal";
 import { NAV } from "../../constants/constants";
-import { Link, Outlet, useNavigate } from "react-router-dom";
+import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../redux/reduxUtils";
 import { authReselect } from "../../redux/reselect";
 import { fetchGetAuth, fetchLogOut } from "../../redux/authReducer";
@@ -12,6 +12,7 @@ import styles from "./appVocabulary.module.scss";
 
 export const AppVocabulary: FC = () => {
   const auth = useAppSelector(authReselect);
+  const { pathname } = useLocation();
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const [nav, setNav] = useState(NAV);
@@ -21,6 +22,7 @@ export const AppVocabulary: FC = () => {
   }, []);
 
   useEffect(() => {
+    setNav(nav.map(el => (pathname === el.path ? { ...el, style: true } : el)));
     if (auth === 0) navigate("/auth");
   }, [auth]);
 
