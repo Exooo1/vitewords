@@ -51,6 +51,11 @@
       @include back-shadow-radius($color-white, $box-shadow-black, 20px);
       color: #464444;
     }
+
+    section{
+      @include width-height(345px, 70px);
+      @include back-shadow-radius($color-white, $box-shadow-black, 20px);
+    }
   }
 
   &_fill {
@@ -67,7 +72,7 @@
       @include back-shadow-radius($color-white, $box-shadow-black, 10px);
 
       div {
-        @include base-flex(auto, $align-start, $flex-directionC, auto);
+        @include base-flex(center, $align-start, $flex-directionC, auto);
         height: 70px;
       }
 
@@ -75,17 +80,22 @@
         outline: none;
         color: #464444;
         margin-left: 15px;
-        background: $color-white;
+        background-color: $color-white;
         border: $border-none;
         @include width-height(265px, 40px);
         @include size-weight-line(18px, $weight-900, auto);
       }
 
+      input:-webkit-autofill {
+        background-color: $color-white;
+      }
+
       label {
+        position: absolute;
         color: #848383;
-        padding-top: 5px;
-        padding-left: 15px;
-        @include size-weight-spacing(12px, $weight-800, 1.2px);
+        margin-bottom: 40px;
+        padding-left: 16px;
+        @include size-weight-spacing(13px, $weight-800, 1.2px);
       }
 
       img {

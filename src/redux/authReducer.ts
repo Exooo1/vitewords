@@ -143,6 +143,7 @@ export const slice = createSlice({
       state.auth = action.payload;
     });
     builder.addCase(fetchGetAuth.rejected, state => {
+      state.resultCode = 0
       state.auth = 0;
     });
     builder.addCase(fetchLogOut.fulfilled, (state, action) => {
