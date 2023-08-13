@@ -1,7 +1,12 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { AxiosError } from "axios";
 import { InputType } from "../hooks/form";
-import { apiAuth, AuthLoginType, LoginType } from "../api/authAPI";
+import {
+  apiAuth,
+  AuthLoginType,
+  LoginType,
+  TNewPassword
+} from "../api/authAPI";
 import { ProjectTypeReturn, ThunkError } from "../utils/types/commonTypes";
 import { handlerDeleteHint } from "../utils/functionutils";
 
@@ -128,6 +133,27 @@ export const fetchChangePassword = createAsyncThunk<number, string, ThunkError>(
   }
 );
 
+export const fetchNewPassword = createAsyncThunk<
+  null,
+  TNewPassword,
+  ThunkError
+>(
+  "auth/fetchConfirmPassword",
+  async (account, { dispatch, rejectWithValue }) => {
+    try {
+      const { data } = await apiAuth.newPassword(account);
+      handlerDeleteHint(data.message || "", dispatch, "done");
+      return null;
+    } catch (err) {
+      const { response, message } = err as AxiosError<ProjectTypeReturn<null>>;
+      if (response?.data === undefined)
+        handlerDeleteHint(message, dispatch, "error");
+      else handlerDeleteHint(response.data.error, dispatch, "error");
+      return rejectWithValue({ errors: response?.data.error || message });
+    }
+  }
+);
+
 export const slice = createSlice({
   name: "auth",
   initialState,
@@ -143,7 +169,7 @@ export const slice = createSlice({
       state.auth = action.payload;
     });
     builder.addCase(fetchGetAuth.rejected, state => {
-      state.resultCode = 0
+      state.resultCode = 0;
       state.auth = 0;
     });
     builder.addCase(fetchLogOut.fulfilled, (state, action) => {

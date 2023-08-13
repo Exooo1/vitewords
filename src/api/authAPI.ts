@@ -17,15 +17,23 @@ export type AuthLoginType = {
   token: string;
   auth: number;
 };
+
 export type LoginType = {
   email: string;
   password: string;
 };
+
 export type EmailType = {
   email: string;
   name: string;
   verify: string;
 };
+
+export type TNewPassword = {
+  id:string
+  password:string
+}
+
 export const apiAuth = {
   registration(values: InputType): AxiosPromise<ProjectTypeReturn<string>> {
     const result = {
@@ -60,6 +68,11 @@ export const apiAuth = {
   changePassword(email: string): AxiosPromise<ProjectTypeReturn<number>> {
     return instance.get<ProjectTypeReturn<number>>(
       `change-password?email=${email}`
+    );
+  },
+  newPassword(data:TNewPassword): AxiosPromise<ProjectTypeReturn<null>> {
+    return instance.post<ProjectTypeReturn<null>>(
+        `new-password`,data
     );
   }
 };

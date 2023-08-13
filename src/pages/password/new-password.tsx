@@ -4,9 +4,12 @@ import styles from "./password.module.scss";
 import { useAppDispatch } from "../../redux/reduxUtils";
 import { handlerDeleteHint } from "../../utils/functionutils";
 import { HintModal } from "../../components/modals/hintModal/hint-modal";
+import { fetchNewPassword } from "../../redux/authReducer";
+import { useParams } from "react-router-dom";
 
 export const NewPassword = () => {
   const dispatch = useAppDispatch();
+  const { id = '' } = useParams();
   const [passwordOne, setPasswordOne] = useState("");
   const [passwordTwo, setPasswordTwo] = useState("");
 
@@ -25,13 +28,10 @@ export const NewPassword = () => {
       return;
     }
     if (passwordOne !== passwordTwo) {
-      handlerDeleteHint(
-          "Passwords are different",
-          dispatch,
-          "error"
-      );
-      return
+      handlerDeleteHint("Passwords are different", dispatch, "error");
+      return;
     }
+    dispatch(fetchNewPassword({ id, password: passwordOne }));
   };
 
   return (
