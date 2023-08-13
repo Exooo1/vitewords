@@ -6,7 +6,6 @@ import styles from "./about-profile.module.scss";
 import iwords from "../../assets/images/words.png";
 import inotes from "../../assets/images/notes.png";
 import idays from "../../assets/images/days.png";
-import avatarImg from "../../assets/images/avatar.jpg";
 import { fetchSetAvatar } from "../../redux/profileReducer";
 import { BASE_URL } from "../../constants/path";
 
@@ -77,7 +76,7 @@ export const AboutProfile = () => {
             width={80}
             height={80}
             onClick={addFile}
-            src={avatar ? BASE_URL + `profile/get-avatar/${avatar}` : avatarImg}
+            src={`${BASE_URL}profile/get-avatar/${avatar}`}
             alt="avatar"
           />
         </figure>
