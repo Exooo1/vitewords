@@ -1,5 +1,5 @@
 import styles from "./password.module.scss";
-import guard from "../../assets/images/guard.png";
+import styles2 from "../registration/registration.module.scss";
 import { ChangeEvent, FC, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../redux/reduxUtils";
 import { handlerDeleteHint } from "../../utils/functionutils";
@@ -7,6 +7,8 @@ import { HintModal } from "../../components/modals/hintModal/hint-modal";
 import { fetchChangePassword } from "../../redux/authReducer";
 import { useNavigate } from "react-router-dom";
 import { Loading } from "../../components/all/loading/loading";
+import mail from "../../assets/images/email.png";
+import guard from "../../assets/images/guard.png";
 
 const SentEmail = () => {
   const navigate = useNavigate();
@@ -45,7 +47,7 @@ export const ChangePassword: FC = () => {
       <section className={styles.password}>
         <section className={styles.password_section}>
           <h1>Forgot Password</h1>
-          <img src={guard} alt="guard" role="guard-picture" title="guard" />
+          <img className={styles.password_section_image} src={guard} alt="guard"/>
           {newPassword ? (
             <SentEmail />
           ) : (
@@ -54,12 +56,22 @@ export const ChangePassword: FC = () => {
                 Please enter your email address to receive a{" "}
                 <b>Verification Account</b>
               </p>
-              <input
-                value={email}
-                onChange={handlerEmail}
-                placeholder="example@gmail.com"
-                type="text"
-              />
+              <section className={styles2.registration_fill_field}>
+                <div>
+                  <label style={{ visibility: email ? "visible" : "hidden" }}>
+                    Email
+                  </label>
+                  <input
+                      value={email}
+                      onChange={handlerEmail}
+                      type={"email"}
+                      placeholder={"Email"}
+                      name='email'
+                      autoComplete='email webauthn'
+                  />
+                </div>
+                <img src={mail} alt={email} role="email-picture" title="email" />
+              </section>
               {isLoading ? (
                 <button><Loading width="95" /></button>
               ) : (

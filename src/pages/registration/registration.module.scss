@@ -67,11 +67,12 @@
     );
 
     &_field {
-      min-width: 305px;
+      width: 80%;
       @include base-flex(auto, $align-center, auto, $gap-10);
       @include back-shadow-radius($color-white, $box-shadow-black, 10px);
 
       div {
+        width: 100%;
         @include base-flex(center, $align-start, $flex-directionC, auto);
         height: 70px;
       }
@@ -82,7 +83,7 @@
         margin-left: 15px;
         background-color: $color-white;
         border: $border-none;
-        @include width-height(265px, 40px);
+        @include width-height(95%, 40px);
         @include size-weight-line(18px, $weight-900, auto);
       }
 

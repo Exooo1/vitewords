@@ -7,8 +7,9 @@
   margin: 10px 0;
 
   &_loading{
+    width: 80%;
     section{
-      @include width-height(345px, 70px);
+      @include width-height(100%, 70px);
       @include back-shadow-radius($color-white, $box-shadow-black, 20px);
     }
   }
@@ -19,7 +20,7 @@
     }
 
     @include back-shadow-radius(white, $box-shadow-black, 20px);
-    @include width-height(345px, 70px);
+    @include width-height(100%, 70px);
     @include size-weight-line(25px, $weight-900, auto);
     cursor: $cursor-pointer;
     border: $border-none;
