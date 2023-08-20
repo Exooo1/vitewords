@@ -30,7 +30,6 @@ export const Word: FC<WordType> = ({
   const handlerState =
     (state: (value: string) => void) =>
     (e: ChangeEvent<HTMLInputElement>) => {
-     console.log(e.target.value)
       state(e.target.value);
     };
 

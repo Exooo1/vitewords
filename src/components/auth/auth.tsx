@@ -15,7 +15,7 @@ export const Auth: FC = () => {
   const navigate = useNavigate();
   const auth = useAppSelector(authReselect);
   const auths = useAppSelector(state=>state.authReducer);
-console.log(auths)
+
   useEffect(() => {
     dispatch(fetchGetAuth());
   }, []);

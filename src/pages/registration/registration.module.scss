@@ -47,7 +47,7 @@
       cursor: $cursor-pointer;
       border: $border-none;
       @include size-weight-line(25px, $weight-900, auto);
-      @include width-height(345px, 70px);
+      @include width-height(80%, 70px);
       @include back-shadow-radius($color-white, $box-shadow-black, 20px);
       color: #464444;
     }
