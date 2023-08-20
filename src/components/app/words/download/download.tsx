@@ -12,13 +12,15 @@ export const Download: FC<DownloadType> = memo(
       handlerFile(e.target.value);
     };
     return (
-      <section className={styles.download}>
-        <p onClick={downloadFile}>Download File</p>
-        <select value={file} onChange={changeFile}>
-          <option value="txt">.txt</option>
-          <option value="pdf">.pdf</option>
-          <option value="doc">.doc</option>
-        </select>
+      <section className={styles.container}>
+        <section className={styles.container_download}>
+          <p onClick={downloadFile}>Download File</p>
+          <select value={file} onChange={changeFile}>
+            <option value="txt">.txt</option>
+            <option value="pdf">.pdf</option>
+            <option value="doc">.doc</option>
+          </select>
+        </section>
       </section>
     );
   }

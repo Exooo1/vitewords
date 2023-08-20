@@ -12,12 +12,12 @@
   @include width-minHeight(100%, 100vh);
 
   &_footer {
-    width: 96%;
+    width: 95%;
     @include base-flex($justify-spaceB, $align-center, auto, auto);
     color: $color-white;
 
     &_showing {
-      width: 16%;
+      width: 300px;
       font-size: 14px;
       color: $color-darkGrey;
     }
