@@ -96,8 +96,8 @@ export const NAV: Array<NavType> = [
   }
 ];
 export const SORT_ELEMENTS: Array<SortElementsType> = [
-  { id: 2, name: "Description", sort: "DESCRIPTION" },
-  { id: 3, name: "Added", sort: "ADDED" }
+  { id: 1, name: "Description of words", sort: "DESCRIPTION" },
+  { id: 2, name: "Order of addition", sort: "ADDED" }
 ];
 
 export const LEVEL_ENGLISH: TLevelsEnglish = {

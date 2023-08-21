@@ -29,6 +29,7 @@ import knowledge from "../../../assets/images/sortknowleadge.png";
 import abc from "../../../assets/images/abc.png";
 import managment from "../../../assets/images/management.png";
 import styles from "./words.module.scss";
+import { Filters } from "./filters/filters";
 
 let timeout: ReturnType<typeof setTimeout>;
 let sortValue: number = 0;
@@ -95,7 +96,7 @@ export const Words: FC = () => {
       : words.length;
     if (end > 0) end = COUNT_WORDS * current;
     else end = COUNT_WORDS * current - Math.abs(end);
-    const isFind = find.length ? words.length : `${start}-${end}`
+    const isFind = find.length ? words.length : `${start}-${end}`;
     return `Showing ${isFind} words of ${
       find.length ? words.length : totalWords
     } results`;
@@ -147,7 +148,7 @@ export const Words: FC = () => {
     [words]
   );
 
-  const handlerIsSearch = () =>setIsSearch(!isSearch)
+  const handlerIsSearch = () => setIsSearch(!isSearch);
 
   return (
     <main className={styles.words}>
@@ -238,13 +239,16 @@ export const Words: FC = () => {
           />
         </section>
       </section>
+      <Filters
+        fetchSortReset={handlerSortResetFetch}
+        fetchSort={handlerSortFetch}
+        isLoading={isLoading}
+      />
       <section className={styles.words_containerWords}>
         {isLoading ? <Loading width="650" /> : memoWords}
       </section>
       <section className={styles.words_footer}>
-        <section className={styles.words_footer_showing}>
-          {showing()}
-        </section>
+        <section className={styles.words_footer_showing}>{showing()}</section>
         <section className={styles.words_footer_pagination}>
           {find.length < 1 && memoPagination}
         </section>
