@@ -1,0 +1,112 @@
+.filters {
+  width: 96%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  button {
+    font-size: 20px;
+    cursor: pointer;
+
+    &:disabled {
+      opacity: 0.5;
+    }
+
+    &:hover {
+      background-color: #2f2e2e;
+    }
+
+    color: white;
+    background-color: #201e1e;
+    border: none;
+    box-shadow: 0 0 2px 0 darkgrey;
+    border-radius: 10px;
+    width: 40px;
+    height: 40px;
+  }
+
+  &_splitFilters {
+    min-width: 40%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+
+    input {
+      outline: none;
+      padding-left: 3px;
+      font-size: 16px;
+      color: white;
+      width: 200px;
+      height: 40px;
+      border-radius: 10px;
+      border: none;
+      box-shadow: 0 0 2px 0 darkgrey;
+      background-color: #201e1e;
+
+      &:hover {
+        background-color: #2f2e2e;
+      }
+    }
+
+    &_options {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      &_open {
+        border-radius: 10px;
+        position: absolute;
+        margin-top: 160px;
+        width: 250px;
+        background-color: #2f2e2e;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        p {
+          &:hover {
+            color: white;
+          }
+
+          cursor: pointer;
+          margin: 10px 0;
+          color: darkgrey;
+        }
+      }
+
+      &_filters {
+        box-shadow: 0 0 2px 0 darkgrey;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #2f2e2e;
+        }
+
+        color: white;
+        border-radius: 5px;
+        background-color: #201e1e;
+        width: 250px;
+        height: 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        p {
+          font-family: "Calibri Light";
+          font-size: 17px;
+        }
+      }
+    }
+
+  }
+
+  img {
+    transition: 0.5s;
+    margin: 0 5px;
+    width: 20px;
+    height: 20px;
+  }
+}
