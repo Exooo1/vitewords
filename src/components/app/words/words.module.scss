@@ -50,36 +50,7 @@
 
     &_filters {
       @include back-shadow-radius(#525461, 0 0 15px #525461, 20px);
-      @include width-minHeight(30%, 150px);
-      @include base-flex($justify-center, $align-center, auto, $gap-10);
-      margin: 10px 0;
-      flex-wrap: wrap;
-
-      img {
-        width: 25%;
-      }
-
-      &_description {
-        @include width-height(300px, 150px);
-        margin: 0 16px;
-        color: $color-white;
-
-        h2 {
-          margin: 0;
-          text-shadow: 0 0 2px black;
-          font-weight: $weight-900;
-        }
-
-        p {
-          font-family: $font-lightCalibri;
-          font-size: 16px;
-        }
-      }
-    }
-
-    &_search {
-      @include back-shadow-radius(#be69da, 0 0 15px #be69da, 20px);
-      @include width-minHeight(30%, 150px);
+      @include width-minHeight(30%, 180px);
       @include base-flex($justify-center, $align-center, auto, $gap-10);
       flex-wrap: wrap;
 
@@ -89,15 +60,44 @@
 
       &_description {
         @include width-minHeight(300px, 150px);
-        margin: 0 16px;
         color: $color-white;
 
         h2 {
+          width: 100%;
           margin: 0;
           @include text-weight($text-shadow-black, $weight-900);
         }
 
         p {
+          width: 100%;
+          font-family: $font-lightCalibri;
+          font-size: 16px;
+        }
+      }
+    }
+
+    &_search {
+      @include back-shadow-radius(#be69da, 0 0 15px #be69da, 20px);
+      @include width-minHeight(30%, 180px);
+      @include base-flex($justify-center, $align-center, auto, $gap-10);
+      flex-wrap: wrap;
+
+      img {
+        width: 25%;
+      }
+
+      &_description {
+        @include width-minHeight(300px, 150px);
+        color: $color-white;
+
+        h2 {
+          width: 100%;
+          margin: 0;
+          @include text-weight($text-shadow-black, $weight-900);
+        }
+
+        p {
+          width: 100%;
           font-family: $font-lightCalibri;
           font-size: 16px;
         }
@@ -106,30 +106,25 @@
 
     &_description {
       @include back-shadow-radius(#6e68eb, 0 0 15px #6e68eb, 20px);
-      @include width-minHeight(30%, 150px);
+      @include width-minHeight(30%, 180px);
       @include base-flex($justify-center, $align-center, auto, $gap-10);
       flex-wrap: wrap;
 
-      section {
+      &_words {
+        @include width-minHeight(300px, 150px);
         color: $color-white;
 
         h2 {
+          width: 100%;
           margin: 0;
-          @include text-weight(0 0 2px black, $weight-900);
+          @include text-weight($text-shadow-black, $weight-900);
         }
 
         p {
+          width: 100%;
           font-family: $font-lightCalibri;
           font-size: 16px;
         }
-        @include width-height(300px, 150px);
-        @include base-flex(
-                        $justify-start,
-                        $align-start,
-                        $flex-directionC,
-                        auto
-        );
-        margin-left: 16px;
       }
 
       img {

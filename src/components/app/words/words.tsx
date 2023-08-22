@@ -143,7 +143,7 @@ export const Words: FC = () => {
       {isModal && <WordModal handlerIsModal={() => handlerIsModal(false)} />}
       <section className={styles.words_header}>
         <section className={styles.words_header_description}>
-          <section>
+          <section className={styles.words_header_description_words}>
             <h2>Words Management</h2>
             <p>
               Word management allows you to delete, modify, add new words and
