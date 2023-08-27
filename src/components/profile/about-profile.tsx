@@ -8,6 +8,9 @@ import inotes from "../../assets/images/notes.png";
 import idays from "../../assets/images/days.png";
 import { fetchSetAvatar } from "../../redux/profileReducer";
 import { BASE_URL } from "../../constants/path";
+import { imgAttribute } from "../../utils/functionutils";
+import avatar from "../../assets/images/avatar.jpg";
+import { memo } from "react";
 
 const checkLevel = (words: number) => {
   let level = LEVEL_ENGLISH.a0;
@@ -33,7 +36,7 @@ const countWords = (value: TLevel) => {
   return lvl;
 };
 
-export const AboutProfile = () => {
+export const AboutProfile = memo(() => {
   const {
     profile: { lastName, firstName, days, totalWords, avatar, notes }
   } = useAppSelector(state => state.profileReducer);
@@ -73,11 +76,14 @@ export const AboutProfile = () => {
       <section className={styles.aboutProfile_avatar}>
         <figure>
           <img
-            width={80}
-            height={80}
+            {...imgAttribute({
+              src: `${BASE_URL}profile/get-avatar/${avatar}`,
+              alt: "avatar",
+              role: "avatar",
+              width: "80px",
+              title: "avatar"
+            })}
             onClick={addFile}
-            src={`${BASE_URL}profile/get-avatar/${avatar}`}
-            alt="avatar"
           />
         </figure>
         <section>
@@ -100,15 +106,39 @@ export const AboutProfile = () => {
             </section>
             <section>
               <section>
-                <img src={idays} alt="days" />
+                <img
+                  {...imgAttribute({
+                    src: idays,
+                    alt: "days",
+                    role: "days",
+                    width: "41px",
+                    title: "days"
+                  })}
+                />
                 <p style={{ color: "#ffc403" }}>{days}d</p>
               </section>
               <section>
-                <img src={inotes} alt="notes" />
+                <img
+                  {...imgAttribute({
+                    src: inotes,
+                    alt: "inotes",
+                    role: "inotes",
+                    width: "41px",
+                    title: "inotes"
+                  })}
+                />
                 <p style={{ color: "#ffffff" }}>{notes}</p>
               </section>
               <section>
-                <img src={iwords} alt="words" />
+                <img
+                  {...imgAttribute({
+                    src: iwords,
+                    alt: "iwords",
+                    role: "iwords",
+                    width: "41px",
+                    title: "iwords"
+                  })}
+                />
                 <p style={{ color: "#03ff03" }}>{totalWords}</p>
               </section>
             </section>
@@ -146,4 +176,4 @@ export const AboutProfile = () => {
       </section>
     </section>
   );
-};
+});

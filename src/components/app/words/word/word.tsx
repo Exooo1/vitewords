@@ -3,7 +3,12 @@ import "./word.module.scss";
 import { useAppDispatch } from "../../../../redux/reduxUtils";
 import { fetchChangeWord } from "../../../../redux/wordsReducer";
 import styles from "./word.module.scss";
-import { handlerDeleteHint } from "../../../../utils/functionutils";
+import {
+  handlerDeleteHint,
+  imgAttribute
+} from "../../../../utils/functionutils";
+import save from "../../../../assets/images/save.png";
+import edit from "../../../../assets/images/edit.png";
 
 type WordType = {
   word: string;
@@ -28,8 +33,7 @@ export const Word: FC<WordType> = ({
   const [descrip, setDescrip] = useState<string>(description);
 
   const handlerState =
-    (state: (value: string) => void) =>
-    (e: ChangeEvent<HTMLInputElement>) => {
+    (state: (value: string) => void) => (e: ChangeEvent<HTMLInputElement>) => {
       state(e.target.value);
     };
 
@@ -61,11 +65,7 @@ export const Word: FC<WordType> = ({
             value={wor}
             onChange={handlerState(setWor)}
           />
-          <input
-            type="text"
-            value={tran}
-            onChange={handlerState(setTran)}
-          />
+          <input type="text" value={tran} onChange={handlerState(setTran)} />
           <input
             type="text"
             value={descrip || "your description"}
@@ -84,15 +84,14 @@ export const Word: FC<WordType> = ({
       <section className={styles.word_management}>
         <p>{added}</p>
         <img
-          title="edit"
-          role="edit-img"
+          {...imgAttribute({
+            src: isEdit ? save : edit,
+            alt: "edit",
+            role: "edit",
+            width: "35px",
+            title: "edit"
+          })}
           onClick={acceptChange}
-          src={
-            isEdit
-              ? "https://cdn-icons-png.flaticon.com/512/2258/2258597.png"
-              : "https://cdn-icons-png.flaticon.com/512/2356/2356811.png"
-          }
-          alt="picture"
         />
         <button onClick={deleteWord}>X</button>
       </section>

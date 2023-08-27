@@ -1,11 +1,12 @@
 import React, { FC, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { changeTitle } from "../../utils/functionutils";
+import {changeTitle, imgAttribute} from "../../utils/functionutils";
 import { fetchConfirmPassword } from "../../redux/authReducer";
 import { useAppDispatch } from "../../redux/reduxUtils";
 import styles from "./confirmed.module.scss";
 import verify from "../../assets/images/verify.png";
 import { HintModal } from "../../components/modals/hintModal/hint-modal";
+import mail from "../../assets/images/mail.png";
 
 export const ConfirmAccount: FC = () => {
   const redirect = useNavigate();
@@ -29,7 +30,13 @@ export const ConfirmAccount: FC = () => {
           <h2>
             Congratulations<span>!</span>
           </h2>
-          <img src={verify} alt="confirmEmail" role="confirm-email-picture" />
+          <img           {...imgAttribute({
+            src: verify,
+            alt: "confirmEmail",
+            role: "confirm-email",
+            width: "150px",
+            title: "confirmEmail"
+          })}  />
           <p>
             Your account is registered, you can already log in to your account.
           </p>

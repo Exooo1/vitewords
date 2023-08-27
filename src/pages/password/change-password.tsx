@@ -2,7 +2,7 @@ import styles from "./password.module.scss";
 import styles2 from "../registration/registration.module.scss";
 import { ChangeEvent, FC, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../redux/reduxUtils";
-import { handlerDeleteHint } from "../../utils/functionutils";
+import { handlerDeleteHint, imgAttribute } from "../../utils/functionutils";
 import { HintModal } from "../../components/modals/hintModal/hint-modal";
 import { fetchChangePassword } from "../../redux/authReducer";
 import { useNavigate } from "react-router-dom";
@@ -47,7 +47,16 @@ export const ChangePassword: FC = () => {
       <section className={styles.password}>
         <section className={styles.password_section}>
           <h1>Forgot Password</h1>
-          <img className={styles.password_section_image} src={guard} alt="guard"/>
+          <img
+            {...imgAttribute({
+              src: guard,
+              alt: "guard",
+              role: "guard",
+              width: "20%",
+              title: "guard"
+            })}
+            className={styles.password_section_image}
+          />
           {newPassword ? (
             <SentEmail />
           ) : (
@@ -62,18 +71,28 @@ export const ChangePassword: FC = () => {
                     Email
                   </label>
                   <input
-                      value={email}
-                      onChange={handlerEmail}
-                      type={"email"}
-                      placeholder={"Email"}
-                      name='email'
-                      autoComplete='email webauthn'
+                    value={email}
+                    onChange={handlerEmail}
+                    type={"email"}
+                    placeholder={"Email"}
+                    name="email"
+                    autoComplete="email webauthn"
                   />
                 </div>
-                <img src={mail} alt={email} role="email-picture" title="email" />
+                <img
+                  {...imgAttribute({
+                    src: mail,
+                    alt: "email",
+                    role: "email",
+                    width: "40px",
+                    title: "email"
+                  })}
+                />
               </section>
               {isLoading ? (
-                <button><Loading width="95" /></button>
+                <button>
+                  <Loading width="95" />
+                </button>
               ) : (
                 <button onClick={handlerEmailSend}>Send</button>
               )}

@@ -3,6 +3,8 @@ import { imgAttribute } from "../../../../utils/functionutils";
 import { SortChoice } from "../../../../api/wordAPI";
 import { SORT_ELEMENTS } from "../../../../constants/constants";
 import { SortElementsType } from "../../../../utils/types/commonTypes";
+import arrowDown from '../../../../assets/images/arrow-down.png'
+import filters from '../../../../assets/images/filters.png'
 import styles from "./filters.module.scss";
 
 type SortTypeItems = {
@@ -54,7 +56,7 @@ export const Filters = memo(
             <section className={styles.filters_splitFilters_options_filters}>
               <img
                 {...imgAttribute({
-                  src: "https://cdn-icons-png.flaticon.com/512/9055/9055031.png",
+                  src: filters,
                   alt: "filters",
                   role: "filters",
                   width: "20px",
@@ -64,7 +66,7 @@ export const Filters = memo(
               <p>{select}</p>
               <img
                 {...imgAttribute({
-                  src: "https://cdn-icons-png.flaticon.com/512/7030/7030510.png",
+                  src: arrowDown,
                   alt: "arrow",
                   role: "arrow",
                   width: "20px",

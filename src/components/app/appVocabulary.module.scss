@@ -26,7 +26,6 @@
     @include base-flex($justify-center, $align-center, auto, auto);
 
     img {
-      @include width-height(40px, 40px);
       transition: $transition1s;
     }
   }
@@ -57,7 +56,6 @@
       }
 
       img {
-        width: 350px;
         @include base-positionA(-30px, -50px);
       }
     }

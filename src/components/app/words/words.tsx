@@ -155,8 +155,9 @@ export const Words: FC = () => {
             {...imgAttribute({
               src: managment,
               alt: "managment",
-              role: "picture",
-              width: "160px"
+              role: "managment",
+              width: "160px",
+              title:'managment'
             })}
           />
         </section>
@@ -172,8 +173,9 @@ export const Words: FC = () => {
             {...imgAttribute({
               src: knowledge,
               alt: "knowledge",
-              role: "picture",
-              width: "160px"
+              role: "knowledge",
+              width: "160px",
+              title:'knowledge'
             })}
           />
         </section>
@@ -189,7 +191,8 @@ export const Words: FC = () => {
               src: abc,
               alt: "abc",
               role: "picture",
-              width: "160px"
+              width: "160px",
+              title:'abc'
             })}
           />
         </section>

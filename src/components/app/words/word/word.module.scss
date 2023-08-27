@@ -16,7 +16,6 @@
     }
 
     img {
-      @include width-height(35px, 33px);
       cursor: $cursor-pointer;
     }
 

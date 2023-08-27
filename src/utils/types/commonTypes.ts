@@ -40,7 +40,7 @@ export type AttributesImageType = {
   alt: string;
   role: string;
   width: string;
-  title?: string;
+  title: string;
 };
 
 export type TLevel = {

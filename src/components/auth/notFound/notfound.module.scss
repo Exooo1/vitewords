@@ -11,9 +11,6 @@
   &_image {
     @include base-flex($justify-center, $align-center, auto, $gap-10);
     line-height: 25px;
-    img {
-      width: 50%;
-    }
     h2 {
       color: $color-white;
       max-width: 400px;

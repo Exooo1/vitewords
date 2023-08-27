@@ -9,6 +9,7 @@ import { fetchGetAuth, fetchLogOut } from "../../redux/authReducer";
 import logo from "../../assets/images/logo.png";
 import logout from "../../assets/images/logout.png";
 import styles from "./appVocabulary.module.scss";
+import { imgAttribute } from "../../utils/functionutils";
 
 export const AppVocabulary: FC = () => {
   const auth = useAppSelector(authReselect);
@@ -40,7 +41,15 @@ export const AppVocabulary: FC = () => {
         key={item.id + item.name}
         className={item.style ? styles.container_aside_navActive : ""}
       >
-        <img src={item.img} alt={item.name} role="link-picture" title="link" />
+        <img
+          {...imgAttribute({
+            src: item.img,
+            alt: item.name,
+            role: item.name,
+            width: "40px",
+            title: item.name
+          })}
+        />
         <Link key={item.id} to={item.path} onClick={() => changeNav(item.id)}>
           {item.name}
         </Link>
@@ -53,7 +62,16 @@ export const AppVocabulary: FC = () => {
       <HintModal />
       <aside className={styles.container_aside}>
         <figure>
-          <img src={logo} alt="logo" role="logo-picture" title="logo" />
+          <img
+            {...imgAttribute({
+              src: logo,
+              alt: "logo",
+              role: "logo",
+              width: "350px",
+              title: "logo"
+            })}
+            src={logo}
+          />
           <section>
             <h1>
               Vocabulary <sup>App</sup>
@@ -62,7 +80,15 @@ export const AppVocabulary: FC = () => {
         </figure>
         <nav>{arrayLinks}</nav>
         <section className={styles.container_logout} onClick={handlerLogOut}>
-          <img src={logout} alt="LogOut" role="logout-picture" title="logout" />
+          <img
+            {...imgAttribute({
+              src: logout,
+              alt: "logout",
+              role: "logout",
+              width: "40px",
+              title: "logout"
+            })}
+          />
           <p>Log Out</p>
         </section>
       </aside>

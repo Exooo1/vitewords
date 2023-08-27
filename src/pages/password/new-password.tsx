@@ -1,15 +1,15 @@
 import { ChangeEvent, useState } from "react";
 import password from "../../assets/images/passwrod-new.png";
+import newPassword from "../../assets/images/passwrod-new.png";
 import styles from "./password.module.scss";
 import styles2 from "../registration/registration.module.scss";
 import { useAppDispatch } from "../../redux/reduxUtils";
-import { handlerDeleteHint } from "../../utils/functionutils";
+import { handlerDeleteHint, imgAttribute } from "../../utils/functionutils";
 import { HintModal } from "../../components/modals/hintModal/hint-modal";
 import { fetchNewPassword } from "../../redux/authReducer";
 import { useParams } from "react-router-dom";
 import eye from "../../assets/images/eye.png";
 import eye2 from "../../assets/images/eyep.png";
-import newPassword from "../../assets/images/passwrod-new.png";
 
 export const NewPassword = () => {
   const dispatch = useAppDispatch();
@@ -47,7 +47,16 @@ export const NewPassword = () => {
       <section className={styles.newPassword}>
         <section className={styles.newPassword_section}>
           <h1>Come up with a new password</h1>
-          <img className={styles.newPassword_section_image} src={newPassword} alt="newPassword" />
+          <img
+            {...imgAttribute({
+              src: newPassword,
+              alt: "newPassword",
+              role: "newPassword",
+              width: "20%",
+              title: "newPassword"
+            })}
+            className={styles.newPassword_section_image}
+          />
           <section className={styles.newPassword_section_forms}>
             <section className={styles2.registration_fill_field}>
               <div>
@@ -66,11 +75,14 @@ export const NewPassword = () => {
                 />
               </div>
               <img
+                {...imgAttribute({
+                  src: isVisible ? eye2 : eye,
+                  alt: "password",
+                  role: "password",
+                  width: "40px",
+                  title: "password"
+                })}
                 onClick={changeVisible}
-                src={isVisible ? eye2 : eye}
-                alt={password}
-                role="password-picture"
-                title="password"
               />
             </section>
             <section className={styles2.registration_fill_field}>
@@ -90,11 +102,14 @@ export const NewPassword = () => {
                 />
               </div>
               <img
+                {...imgAttribute({
+                  src: isVisible ? eye2 : eye,
+                  alt: "password",
+                  role: "password",
+                  width: "40px",
+                  title: "password"
+                })}
                 onClick={changeVisible}
-                src={isVisible ? eye2 : eye}
-                alt={password}
-                role="password-picture"
-                title="password"
               />
             </section>
           </section>

@@ -1,35 +1,60 @@
 import styles from "./progress-bar.module.scss";
-import { FC } from "react";
+import { FC, memo, useEffect, useState } from "react";
 
 type TProgressBar = {
   start: number;
   end: number;
   rest: number;
   count: number;
-  color:string
+  color: string;
 };
+let timeResize: any = 0;
+export const ProgressBar: FC<TProgressBar> = memo(
+  ({ start, end, rest, count, color }) => {
+    const percent = (count / end) * 100;
+    const [currentWidth, setCurrentWidth] = useState<number>(0);
 
-export const ProgressBar: FC<TProgressBar> = ({ start, end, rest, count, color }) => {
-  const percent = (count / end) * 100;
+    const handlerResize = () => {
+      if (timeResize) clearTimeout(timeResize);
+      timeResize = setTimeout(() => {
+        const div = document.getElementById("width-bar");
+        div && setCurrentWidth((30 / div.offsetWidth) * 100);
+      }, 500);
+    };
 
-  return (
-    <section className={styles.bar}>
-      <section className={styles.bar_under}>
-        <div style={{marginLeft:`${percent-5}%`, color:color}}>
-          <h1>{rest}</h1>
-        </div>
+    useEffect(() => {
+      handlerResize();
+    }, []);
+
+    useEffect(() => {
+      window.addEventListener("resize", handlerResize);
+      return () => window.removeEventListener("resize", handlerResize);
+    }, []);
+
+    return (
+      <section className={styles.bar}>
+        <section id="width-bar" className={styles.bar_under}>
+          <div
+            style={{
+              marginLeft: `${percent - currentWidth / 2}%`,
+              color: color
+            }}
+          >
+            <h1>{rest}</h1>
+          </div>
+        </section>
+        <section className={styles.bar_information}>
+          <p>{start}</p>
+          {end >= 5000 ? (
+            <p style={{ fontSize: "20px" }}>&#8734;</p>
+          ) : (
+            <p>{end}</p>
+          )}
+        </section>
+        <section className={styles.bar_line}>
+          <div style={{ width: `${percent}%` }}></div>
+        </section>
       </section>
-      <section className={styles.bar_information}>
-        <p>{start}</p>
-        {end >= 5000 ? (
-          <p style={{ fontSize: "20px" }}>&#8734;</p>
-        ) : (
-          <p>{end}</p>
-        )}
-      </section>
-      <section className={styles.bar_line}>
-        <div style={{ width: `${percent}%` }}></div>
-      </section>
-    </section>
-  );
-};
+    );
+  }
+);
