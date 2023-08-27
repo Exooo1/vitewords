@@ -90,10 +90,6 @@ export const AboutProfile = () => {
         </section>
       </section>
       <section className={styles.aboutProfile_progress}>
-        <h2>Your Progress</h2>
-        <p style={{ paddingLeft: "10px" }}>
-          All data on English language levels are taken from the Internet.
-        </p>
         <section className={styles.aboutProfile_progress_information}>
           <section className={styles.aboutProfile_progress_information_level}>
             <section>
@@ -117,7 +113,26 @@ export const AboutProfile = () => {
               </section>
             </section>
           </section>
-          <section></section>
+          <section
+            className={styles.aboutProfile_progress_information_additional}
+          >
+            <section>
+              <img src={idays} alt="days" />
+              <p style={{ color: "#ffc403" }}>{days}d</p>
+            </section>
+            <section>
+              <img src={idays} alt="days" />
+              <p style={{ color: "#ffc403" }}>{days}d</p>
+            </section>
+            <section>
+              <img src={inotes} alt="notes" />
+              <p style={{ color: "#ffffff" }}>{notes}</p>
+            </section>
+            <section>
+              <img src={iwords} alt="words" />
+              <p style={{ color: "#03ff03" }}>{totalWords}</p>
+            </section>
+          </section>
         </section>
         <section className={styles.aboutProfile_progress_information_bar}>
           <ProgressBar
