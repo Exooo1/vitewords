@@ -9,8 +9,7 @@ import idays from "../../assets/images/days.png";
 import { fetchSetAvatar } from "../../redux/profileReducer";
 import { BASE_URL } from "../../constants/path";
 import { imgAttribute } from "../../utils/functionutils";
-import avatar from "../../assets/images/avatar.jpg";
-import { memo } from "react";
+import React, { memo } from "react";
 
 const checkLevel = (words: number) => {
   let level = LEVEL_ENGLISH.a0;

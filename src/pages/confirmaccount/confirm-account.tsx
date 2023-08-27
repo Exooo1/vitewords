@@ -6,7 +6,6 @@ import { useAppDispatch } from "../../redux/reduxUtils";
 import styles from "./confirmed.module.scss";
 import verify from "../../assets/images/verify.png";
 import { HintModal } from "../../components/modals/hintModal/hint-modal";
-import mail from "../../assets/images/mail.png";
 
 export const ConfirmAccount: FC = () => {
   const redirect = useNavigate();

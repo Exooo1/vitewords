@@ -1,5 +1,4 @@
-import { ChangeEvent, useState } from "react";
-import password from "../../assets/images/passwrod-new.png";
+import React, { ChangeEvent, useState } from "react";
 import newPassword from "../../assets/images/passwrod-new.png";
 import styles from "./password.module.scss";
 import styles2 from "../registration/registration.module.scss";

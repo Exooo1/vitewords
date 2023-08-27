@@ -30,7 +30,7 @@ export const profileAPI = {
   getProfileInfo(): AxiosPromise<ProjectTypeReturn<TProfileInfo>> {
     return instance.get<ProjectTypeReturn<TProfileInfo>>("get-profile");
   },
-  upload(value: any): AxiosPromise<ProjectTypeReturn<string>> {
+  upload(value: FormData): AxiosPromise<ProjectTypeReturn<string>> {
     return instance.post<ProjectTypeReturn<string>>("upload", value);
   },
 };

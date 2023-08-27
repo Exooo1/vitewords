@@ -1,4 +1,4 @@
-import { FC, useEffect, useState, memo } from "react";
+import React, { FC, useEffect, useState, memo } from "react";
 
 import styles from "./slider.module.scss";
 import { SLIDER_BANNERS } from "../../constants/constants";

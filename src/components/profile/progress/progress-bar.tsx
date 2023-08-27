@@ -1,5 +1,5 @@
 import styles from "./progress-bar.module.scss";
-import { FC, memo, useEffect, useState } from "react";
+import React, { FC, memo, useEffect, useState } from "react";
 
 type TProgressBar = {
   start: number;

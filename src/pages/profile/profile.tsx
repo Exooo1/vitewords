@@ -1,8 +1,8 @@
-import styles from "./profile.module.scss";
 import { AboutProfile } from "../../components/profile/about-profile";
 import { useAppDispatch } from "../../redux/reduxUtils";
-import { useEffect } from "react";
+import React,{ useEffect } from "react";
 import { fetchGetProfileInfo } from "../../redux/profileReducer";
+import styles from "./profile.module.scss";
 
 export const Profile = () => {
   const dispatch = useAppDispatch();

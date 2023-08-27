@@ -1,6 +1,6 @@
 import styles from "./password.module.scss";
 import styles2 from "../registration/registration.module.scss";
-import { ChangeEvent, FC, useState } from "react";
+import React, { ChangeEvent, FC, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../redux/reduxUtils";
 import { handlerDeleteHint, imgAttribute } from "../../utils/functionutils";
 import { HintModal } from "../../components/modals/hintModal/hint-modal";

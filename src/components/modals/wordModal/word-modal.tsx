@@ -1,4 +1,4 @@
-import { ChangeEvent, FC, useState } from "react";
+import React, { ChangeEvent, FC, useState } from "react";
 import { useAppDispatch } from "../../../redux/reduxUtils";
 import { fetchAddWord } from "../../../redux/wordsReducer";
 import styles from "./wordModal.module.scss";

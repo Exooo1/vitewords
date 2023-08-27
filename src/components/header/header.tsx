@@ -1,4 +1,4 @@
-import { FC } from "react";
+import React, { FC } from "react";
 
 import styles from "./header.module.scss";
 import logo from "../../assets/images/logo.png";

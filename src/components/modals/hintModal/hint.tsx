@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import React, { FC, useState } from "react";
 import done from "../../../assets/images/done.png";
 import error from "../../../assets/images/error.png";
 import styles from "./hintmodal.module.scss";

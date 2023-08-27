@@ -1,4 +1,4 @@
-import { FC, useEffect, useState, memo } from "react";
+import React, { FC, useEffect, useState, memo } from "react";
 import { useActions, useAppSelector } from "../../../redux/reduxUtils";
 import { HintsType, slice } from "../../../redux/errorsReducer";
 import styles from "./hintmodal.module.scss";

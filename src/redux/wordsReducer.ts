@@ -168,7 +168,7 @@ export const fetchSortWords = createAsyncThunk<Array<WordType>, SortChoice>(
   }
 );
 
-export const fetchDownloadFile = createAsyncThunk<any, string>(
+export const fetchDownloadFile = createAsyncThunk<undefined, string>(
   "words/fetchDownloadFile",
   async (arg, { dispatch, rejectWithValue }) => {
     (pdfMake as any).vfs = pdfFonts.pdfMake.vfs;
