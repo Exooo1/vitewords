@@ -1,7 +1,7 @@
 import { FC } from "react";
-import avatar from '../../../assets/images/avatar.jpg'
+import avatar from "../../../assets/images/avatar.jpg";
 import styles from "./message.module.scss";
-import {imgAttribute} from "../../../utils/functionutils";
+import { imgAttribute } from "../../../utils/functionutils";
 import notfound from "../../../assets/images/notfound.png";
 
 type ChatMessageType = {
@@ -24,13 +24,13 @@ export const ChatMessage: FC<ChatMessageType> = ({
       >
         <section>
           <img
-              {...imgAttribute({
-                src: avatar,
-                alt: "avatar",
-                role: "avatar",
-                width: "40px",
-                title: "avatar"
-              })}
+            {...imgAttribute({
+              src: avatar,
+              alt: "avatar",
+              role: "avatar",
+              width: "40px",
+              title: "avatar"
+            })}
           />
         </section>
         <section className={styles.message_container_content}>

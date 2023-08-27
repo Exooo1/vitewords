@@ -32,5 +32,5 @@ export const profileAPI = {
   },
   upload(value: FormData): AxiosPromise<ProjectTypeReturn<string>> {
     return instance.post<ProjectTypeReturn<string>>("upload", value);
-  },
+  }
 };

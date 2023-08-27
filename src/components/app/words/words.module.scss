@@ -3,11 +3,11 @@
 
 .words {
   @include base-flex-back(
-                  $justify-start,
-                  $align-center,
-                  $flex-directionC,
-                  $gap-10,
-                  #201e1e
+    $justify-start,
+    $align-center,
+    $flex-directionC,
+    $gap-10,
+    #201e1e
   );
   @include width-minHeight(100%, 100vh);
 

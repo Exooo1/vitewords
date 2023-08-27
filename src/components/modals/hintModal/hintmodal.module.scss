@@ -9,33 +9,33 @@
   justify-content: flex-end;
   align-items: center;
   flex-direction: column;
- &_item{
-   transition: 0.7s;
-   @include base-flex($justify-center, $align-center, $flex-directionR, auto);
-   @include width-height(280px, 100px);
-   @include back-shadow-radius(#1c1b20, 0 0 5px #b55fda, 30px);
-   margin: 10px 10px;
-   cursor: $cursor-pointer;
-   z-index: 10;
+  &_item {
+    transition: 0.7s;
+    @include base-flex($justify-center, $align-center, $flex-directionR, auto);
+    @include width-height(280px, 100px);
+    @include back-shadow-radius(#1c1b20, 0 0 5px #b55fda, 30px);
+    margin: 10px 10px;
+    cursor: $cursor-pointer;
+    z-index: 10;
 
-   div {
-     @include base-flex($justify-center, $align-center, auto, auto);
-     width: 190px;
+    div {
+      @include base-flex($justify-center, $align-center, auto, auto);
+      width: 190px;
 
-     p {
-       font-weight: 700;
-     }
+      p {
+        font-weight: 700;
+      }
 
-     span {
-       @include size-weight-line(20px, $weight-900, auto);
-       text-decoration: underline;
-       text-underline-offset: 3px;
-     }
-   }
+      span {
+        @include size-weight-line(20px, $weight-900, auto);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+    }
 
-   img {
-     @include width-height(52px, 52px);
-     margin: 0 10px;
-   }
- }
+    img {
+      @include width-height(52px, 52px);
+      margin: 0 10px;
+    }
+  }
 }

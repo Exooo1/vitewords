@@ -17,7 +17,10 @@
   section {
     @include base-flex($justify-spaceA, $align-center, $flex-directionC, auto);
     @include width-height(400px, 500px);
-    @include back-radius(linear-gradient(to right, #0f1013, #08090c, #0f1013), 20px);
+    @include back-radius(
+      linear-gradient(to right, #0f1013, #08090c, #0f1013),
+      20px
+    );
     color: $color-white;
 
     .container_modalWord_buttons {
@@ -31,7 +34,7 @@
       width: 100%;
 
       button {
-        &:hover{
+        &:hover {
           box-shadow: 0 0 10px lawngreen;
         }
         @include width-height(150px, 80px);
@@ -48,17 +51,20 @@
       }
 
       button:last-child {
-        &:hover{
+        &:hover {
           box-shadow: 0 0 10px darkred;
         }
-        background: linear-gradient(90deg, rgb(120 1 64) 40%, rgb(220 39 39 / 50%) 72%);
+        background: linear-gradient(
+          90deg,
+          rgb(120 1 64) 40%,
+          rgb(220 39 39 / 50%) 72%
+        );
       }
 
       button:active {
         box-shadow: inset 0 0 10px black;
       }
     }
-
 
     section {
       @include width-height(300px, 85px);

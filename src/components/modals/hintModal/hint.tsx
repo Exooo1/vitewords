@@ -7,38 +7,33 @@ type THint = {
   removeHint: () => void;
   message: string;
   article: string;
-  status:string
+  status: string;
 };
 
-export const Hint: FC<THint> = ({
-  removeHint,
-  article,
-  message,
-  status,
-}) => {
+export const Hint: FC<THint> = ({ removeHint, article, message, status }) => {
   const [isRemoved, setIsRemoved] = useState(false);
   const handlerDelete = () => {
     setIsRemoved(true);
     removeHint();
   };
 
-  let color:string;
+  let color: string;
   let imgStatus = done;
 
-  switch (status){
-    case 'error':
-      color = '#ed4004'
-      imgStatus = error
+  switch (status) {
+    case "error":
+      color = "#ed4004";
+      imgStatus = error;
       break;
-    case 'done':
-      color = '#00f61a'
-      imgStatus = done
+    case "done":
+      color = "#00f61a";
+      imgStatus = done;
       break;
-    case 'warn':
-      color = 'yellow'
+    case "warn":
+      color = "yellow";
       break;
     default:
-      color = 'white'
+      color = "white";
   }
 
   return (

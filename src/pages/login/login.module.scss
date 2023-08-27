@@ -6,9 +6,9 @@
   @include width-height(500px, 530px);
   margin: 10px 0;
 
-  &_loading{
+  &_loading {
     width: 80%;
-    section{
+    section {
       @include width-height(100%, 70px);
       @include back-shadow-radius($color-white, $box-shadow-black, 20px);
     }

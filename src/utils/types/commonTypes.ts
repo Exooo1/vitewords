@@ -44,19 +44,19 @@ export type AttributesImageType = {
 };
 
 export type TLevel = {
-  letter:string
-  sup:string
-  color:string
-  goal:number
-}
+  letter: string;
+  sup: string;
+  color: string;
+  goal: number;
+};
 
 export type TLevelsEnglish = {
-  [key:string]:TLevel
-  a0:TLevel,
-  a1:TLevel,
-  a2:TLevel,
-  b1:TLevel,
-  b2:TLevel,
-  c1:TLevel,
-  c2:TLevel,
-}
+  [key: string]: TLevel;
+  a0: TLevel;
+  a1: TLevel;
+  a2: TLevel;
+  b1: TLevel;
+  b2: TLevel;
+  c1: TLevel;
+  c2: TLevel;
+};

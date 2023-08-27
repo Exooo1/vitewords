@@ -1,4 +1,4 @@
-import React, {FC, useEffect, useState} from "react";
+import React, { FC, useEffect, useState } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import { HintModal } from "../modals/hintModal/hint-modal";
 import { changeTitle } from "../../utils/functionutils";
@@ -14,7 +14,7 @@ export const Auth: FC = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const auth = useAppSelector(authReselect);
-  const auths = useAppSelector(state=>state.authReducer);
+  const auths = useAppSelector(state => state.authReducer);
 
   useEffect(() => {
     dispatch(fetchGetAuth());
@@ -35,8 +35,8 @@ export const Auth: FC = () => {
           : { ...item, isActive: false }
       )
     );
-    if(value === 1) setChoose(true);
-    else setChoose(false)
+    if (value === 1) setChoose(true);
+    else setChoose(false);
   };
   const buttons = choice.map(item => (
     <button

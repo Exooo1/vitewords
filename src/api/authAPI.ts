@@ -30,9 +30,9 @@ export type EmailType = {
 };
 
 export type TNewPassword = {
-  id:string
-  password:string
-}
+  id: string;
+  password: string;
+};
 
 export const apiAuth = {
   registration(values: InputType): AxiosPromise<ProjectTypeReturn<string>> {
@@ -70,9 +70,7 @@ export const apiAuth = {
       `change-password?email=${email}`
     );
   },
-  newPassword(data:TNewPassword): AxiosPromise<ProjectTypeReturn<null>> {
-    return instance.post<ProjectTypeReturn<null>>(
-        `new-password`,data
-    );
+  newPassword(data: TNewPassword): AxiosPromise<ProjectTypeReturn<null>> {
+    return instance.post<ProjectTypeReturn<null>>(`new-password`, data);
   }
 };

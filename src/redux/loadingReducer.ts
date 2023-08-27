@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import {fetchLogin, fetchRegistration} from "./authReducer";
+import { fetchLogin, fetchRegistration } from "./authReducer";
 
 type ILoadingState = {
   isAuth: boolean;

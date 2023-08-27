@@ -3,8 +3,8 @@ import { imgAttribute } from "../../../../utils/functionutils";
 import { SortChoice } from "../../../../api/wordAPI";
 import { SORT_ELEMENTS } from "../../../../constants/constants";
 import { SortElementsType } from "../../../../utils/types/commonTypes";
-import arrowDown from '../../../../assets/images/arrow-down.png'
-import filters from '../../../../assets/images/filters.png'
+import arrowDown from "../../../../assets/images/arrow-down.png";
+import filters from "../../../../assets/images/filters.png";
 import styles from "./filters.module.scss";
 
 type SortTypeItems = {

@@ -26,5 +26,9 @@ export const uuid = (value: string) =>
 export const imgAttribute = (
   attributes: AttributesImageType
 ): AttributesImageType => {
-  return { ...attributes, title: attributes.alt + "-img", role: attributes.role + '-picture' };
+  return {
+    ...attributes,
+    title: attributes.alt + "-img",
+    role: attributes.role + "-picture"
+  };
 };

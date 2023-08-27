@@ -52,7 +52,7 @@
       color: #464444;
     }
 
-    section{
+    section {
       @include width-height(345px, 70px);
       @include back-shadow-radius($color-white, $box-shadow-black, 20px);
     }

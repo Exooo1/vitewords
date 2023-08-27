@@ -42,9 +42,7 @@ instance.interceptors.request.use((config: AxiosRequestConfig) => {
 
 export const wordApi = {
   getWords(count: number): AxiosPromise<ProjectTypeReturn<ProfileType>> {
-    return instance.get<ProjectTypeReturn<ProfileType>>(
-        `/?count=${count}`
-    );
+    return instance.get<ProjectTypeReturn<ProfileType>>(`/?count=${count}`);
   },
   addWord(values: WordType): AxiosPromise<ProjectTypeReturn<WordType>> {
     return instance.post<ProjectTypeReturn<WordType>>("add-word", values);

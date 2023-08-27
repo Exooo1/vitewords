@@ -157,7 +157,7 @@ export const Words: FC = () => {
               alt: "managment",
               role: "managment",
               width: "160px",
-              title:'managment'
+              title: "managment"
             })}
           />
         </section>
@@ -175,7 +175,7 @@ export const Words: FC = () => {
               alt: "knowledge",
               role: "knowledge",
               width: "160px",
-              title:'knowledge'
+              title: "knowledge"
             })}
           />
         </section>
@@ -192,7 +192,7 @@ export const Words: FC = () => {
               alt: "abc",
               role: "picture",
               width: "160px",
-              title:'abc'
+              title: "abc"
             })}
           />
         </section>

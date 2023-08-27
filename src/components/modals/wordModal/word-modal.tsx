@@ -32,7 +32,7 @@ export const WordModal: FC<WordModalType> = ({ handlerIsModal }) => {
       return;
     }
     const wordTrim = word[0].toUpperCase() + word.slice(1).trim();
-    const transUpdated = translate[0].toUpperCase() + translate.slice(1).trim()
+    const transUpdated = translate[0].toUpperCase() + translate.slice(1).trim();
     const descriptionTrim = description.trim();
     const date = new Date();
     const added = `${date.toDateString()} ${date.toTimeString().split(" ")[0]}`;
@@ -55,7 +55,9 @@ export const WordModal: FC<WordModalType> = ({ handlerIsModal }) => {
     <section className={styles.container_modalWord} onClick={handlerIsModal}>
       <section onClick={e => e.stopPropagation()}>
         <h2>New word</h2>
-        <section className={hint === "word" ? styles.container_modalWord_required : ""}>
+        <section
+          className={hint === "word" ? styles.container_modalWord_required : ""}
+        >
           {word && <label>Word</label>}
           <input
             autoFocus={true}
@@ -67,7 +69,9 @@ export const WordModal: FC<WordModalType> = ({ handlerIsModal }) => {
           />
         </section>
         <section
-          className={hint === "translate" ? styles.container_modalWord_required : ""}
+          className={
+            hint === "translate" ? styles.container_modalWord_required : ""
+          }
         >
           {translate && <label>Translate</label>}
           <input

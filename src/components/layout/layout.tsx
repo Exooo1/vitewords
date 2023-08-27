@@ -12,9 +12,9 @@ import { Words } from "../app/words/words";
 import styles from "./layout.module.scss";
 import { Building } from "../building/building";
 // import { Chat } from "../../pages/chat/chat";
-import {Profile} from "../../pages/profile/profile";
-import {ChangePassword} from "../../pages/password/change-password";
-import {NewPassword} from "../../pages/password/new-password";
+import { Profile } from "../../pages/profile/profile";
+import { ChangePassword } from "../../pages/password/change-password";
+import { NewPassword } from "../../pages/password/new-password";
 
 export const Layout: FC = () => {
   return (
@@ -32,7 +32,11 @@ export const Layout: FC = () => {
             path="auth/change-password"
             element={<ChangePassword />}
           />
-          <Route key="auth/new-password" path="auth/new-password/:id" element={<NewPassword />} />
+          <Route
+            key="auth/new-password"
+            path="auth/new-password/:id"
+            element={<NewPassword />}
+          />
           <Route
             key="auth/email"
             path="auth/email"

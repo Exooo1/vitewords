@@ -1,9 +1,9 @@
 body {
-    scroll-behavior: smooth;
-    text-rendering: optimizeSpeed;
-    font-family: "Segoe UI", sans-serif;
-    background: black;
-    overflow: auto;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  font-family: "Segoe UI", sans-serif;
+  background: black;
+  overflow: auto;
 }
 
 input:-webkit-autofill,
@@ -15,8 +15,8 @@ textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
-    background-color: white;
-    transition: background-color 5000s ease-in-out 0s;
+  background-color: white;
+  transition: background-color 5000s ease-in-out 0s;
 }
 
 body,
@@ -28,5 +28,5 @@ figcaption,
 blockquote,
 dl,
 dd {
-    margin: 0;
+  margin: 0;
 }
