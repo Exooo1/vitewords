@@ -15,8 +15,6 @@ export const Profile = () => {
       <section className={styles.profile_oneblock}>
         <section className={styles.profile_oneblock_ASN}>
           <AboutProfile />
-          <AboutProfile />
-          <AboutProfile />
         </section>
       </section>
       <section className={styles.profile_twoblock}>

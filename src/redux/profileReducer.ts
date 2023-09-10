@@ -14,6 +14,10 @@ export type ProfileInitialState = {
   profile: TProfileInfo;
   chat: Array<MessageType>;
 };
+export type TSetStatus = {
+  status: string;
+  emoji: string;
+};
 const initialState: ProfileInitialState = {
   profile: {
     firstName: "",
@@ -21,7 +25,9 @@ const initialState: ProfileInitialState = {
     avatar: "",
     days: 0,
     notes: 0,
-    totalWords: 0
+    totalWords: 0,
+    status: "",
+    emoji: "🌊"
   },
   chat: []
 };
@@ -76,6 +82,22 @@ export const fetchSetAvatar = createAsyncThunk<string, FormData, ThunkError>(
   }
 );
 
+export const fetchSetStatus = createAsyncThunk<TSetStatus, TSetStatus, ThunkError>(
+  "fetchSetAvatar",
+  async (status, { dispatch, rejectWithValue }) => {
+    try {
+      await profileAPI.setStatus(status)
+      return status;
+    } catch (err) {
+      const { response, message } = err as AxiosError<ProjectTypeReturn<null>>;
+      response?.data === undefined
+        ? handlerDeleteHint(message, dispatch, "error")
+        : handlerDeleteHint(response.data.error, dispatch, "error");
+      return rejectWithValue({ errors: response?.data.error || message });
+    }
+  }
+);
+
 export const slice = createSlice({
   name: "profile",
   initialState,
@@ -91,7 +113,10 @@ export const slice = createSlice({
     //   state.chat = action.payload.chat;
     // });
     builder.addCase(fetchGetProfileInfo.fulfilled, (state, action) => {
-      state.profile = { ...action.payload };
+      state.profile = { ...state.profile, ...action.payload };
+    });
+    builder.addCase(fetchSetStatus.fulfilled, (state, action) => {
+      state.profile = { ...state.profile, ...action.payload };
     });
   }
 });

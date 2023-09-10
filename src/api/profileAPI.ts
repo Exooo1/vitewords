@@ -1,6 +1,6 @@
 import axios, { AxiosPromise, AxiosRequestConfig } from "axios";
 import { ProjectTypeReturn } from "../utils/types/commonTypes";
-import { ProfileInitialState } from "../redux/profileReducer";
+import { ProfileInitialState, TSetStatus } from "../redux/profileReducer";
 
 const instance = axios.create({
   baseURL: "http://localhost:8080/profile"
@@ -13,6 +13,8 @@ export type TProfileInfo = {
   firstName: string;
   lastName: string;
   avatar: string;
+  emoji: string;
+  status: string;
 };
 
 instance.interceptors.request.use((config: AxiosRequestConfig) => {
@@ -32,5 +34,9 @@ export const profileAPI = {
   },
   upload(value: FormData): AxiosPromise<ProjectTypeReturn<string>> {
     return instance.post<ProjectTypeReturn<string>>("upload", value);
+  },
+  setStatus(value: TSetStatus): AxiosPromise<ProjectTypeReturn<null>> {
+    console.log(value)
+    return instance.post<ProjectTypeReturn<null>>("set-status", value);
   }
 };

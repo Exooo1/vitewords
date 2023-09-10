@@ -10,6 +10,7 @@ import { fetchSetAvatar } from "../../redux/profileReducer";
 import { BASE_URL } from "../../constants/path";
 import { imgAttribute } from "../../utils/functionutils";
 import React, { memo } from "react";
+import { Post } from "./post/post";
 
 const checkLevel = (words: number) => {
   let level = LEVEL_ENGLISH.a0;
@@ -37,7 +38,7 @@ const countWords = (value: TLevel) => {
 
 export const AboutProfile = memo(() => {
   const {
-    profile: { lastName, firstName, days, totalWords, avatar, notes }
+    profile: { lastName, firstName, days, totalWords, avatar, notes, status, emoji }
   } = useAppSelector(state => state.profileReducer);
 
   const dispatch = useAppDispatch();
@@ -85,12 +86,12 @@ export const AboutProfile = memo(() => {
             onClick={addFile}
           />
         </figure>
-        <section>
-          <section>
+        <section className={styles.aboutProfile_avatar_content}>
+          <section className={styles.aboutProfile_avatar_content_description}>
             <p>
               {lastName} {firstName}
             </p>
-            <p>RU</p>
+            <Post  emoji={emoji} status={status} />
           </section>
         </section>
       </section>

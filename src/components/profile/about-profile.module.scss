@@ -28,12 +28,12 @@
       }
     }
 
-    section {
+    &_content {
       width: 100%;
       background-color: #222430;
-      height: 100px;
 
-      section {
+      &_description {
+        height: 100px;
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -47,10 +47,6 @@
           padding-left: 10px;
           color: white;
           line-height: 0px;
-
-          &:nth-child(2) {
-            color: #41ea6e;
-          }
         }
       }
     }

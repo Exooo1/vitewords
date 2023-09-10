@@ -60,3 +60,8 @@ export type TLevelsEnglish = {
   c1: TLevel;
   c2: TLevel;
 };
+
+export type TStatusChoices = {
+  name:string
+  code:string
+}
