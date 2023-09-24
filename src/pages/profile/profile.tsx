@@ -16,6 +16,7 @@ export const Profile = () => {
         <section className={styles.profile_oneblock_ASN}>
           <AboutProfile />
         </section>
+          <section style={{backgroundColor:'green'}}>2</section>
       </section>
       <section className={styles.profile_twoblock}>
         <h1>Hello</h1>

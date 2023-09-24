@@ -4,7 +4,8 @@ import {
   NavType,
   SliderTypeBanners,
   SortElementsType,
-  TLevelsEnglish, TStatusChoices
+  TLevelsEnglish,
+  TStatusChoices
 } from "../utils/types/commonTypes";
 import profile from "../assets/images/profile.png";
 import dashboard from "../assets/images/dashboard.png";
@@ -110,11 +111,42 @@ export const LEVEL_ENGLISH: TLevelsEnglish = {
   c2: { letter: "C", sup: "2", color: "purple", goal: 5000 }
 };
 
-export const STATUS_CHOICES:Array<TStatusChoices> = [
-  {name:'On vacation', code:'🌴'},
-  {name:'Working from home', code:'🏠'},
-  {name:'Just chill', code:'&#127774;'},
-  {name:'Out sick', code:'🤒'},
-  {name:'I am  a penguin', code:'🐧'},
-  {name:'Focusing', code:'🎯'},
-]
+export const STATUS_CHOICES: Array<TStatusChoices> = [
+  { name: "On vacation", code: "🌴" },
+  { name: "Working from home", code: "🏠" },
+  { name: "Just chill", code: "&#127774;" },
+  { name: "Out sick", code: "🤒" },
+  { name: "I am  a penguin", code: "🐧" },
+  { name: "Focusing", code: "🎯" }
+];
+
+export const COMMON_EMOJI: Array<{ code: string }> = [
+  { code: "🤖" },
+  { code: "😈" },
+  { code: "🥶" },
+  { code: "🫁" },
+  { code: "🧣" },
+  { code: "☂️" },
+  { code: "🎓" },
+  { code: "💪🏻" },
+  { code: "🌝" },
+  { code: "⛄️" },
+  { code: "🔮" },
+  { code: "🐁" },
+  { code: "💖" },
+  { code: "🔕" },
+  { code: "🧔🏻‍♂️" },
+  { code: "🩲" },
+  { code: "🥽" },
+  { code: "🩱" },
+  { code: "👑" },
+  { code: "🦉" },
+  { code: "🐥" },
+  { code: "🐽" },
+  { code: "🐸" },
+  { code: "🐓" },
+  { code: "🌘" },
+  { code: "❄️" },
+  { code: "⚡️" },
+  { code: "🌟" }
+];

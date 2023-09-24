@@ -14,12 +14,15 @@ export const ProgressBar: FC<TProgressBar> = memo(
     const percent = (count / end) * 100;
     const [currentWidth, setCurrentWidth] = useState<number>(0);
 
-    const handlerResize = () => {
+    const handlerResize = (time?: number) => {
       if (timeResize) clearTimeout(timeResize);
-      timeResize = setTimeout(() => {
-        const div = document.getElementById("width-bar");
-        div && setCurrentWidth((30 / div.offsetWidth) * 100);
-      }, 500);
+      timeResize = setTimeout(
+        () => {
+          const div = document.getElementById("width-bar");
+          div && setCurrentWidth((30 / div.offsetWidth) * 100);
+        },
+        time ? time : 0
+      );
     };
 
     useEffect(() => {
@@ -27,8 +30,9 @@ export const ProgressBar: FC<TProgressBar> = memo(
     }, []);
 
     useEffect(() => {
-      window.addEventListener("resize", handlerResize);
-      return () => window.removeEventListener("resize", handlerResize);
+      window.addEventListener("resize", () => handlerResize(500));
+      return () =>
+        window.removeEventListener("resize", () => handlerResize(500));
     }, []);
 
     return (

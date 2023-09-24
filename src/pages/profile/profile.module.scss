@@ -4,7 +4,6 @@
   align-items: center;
   width: 100%;
   height: 100vh;
-  //background-color: #231135;
 
   &_oneblock {
     display: flex;
@@ -16,11 +15,10 @@
 
     &_ASN {
       display: flex;
-      justify-content: space-around;
+      justify-content: flex-start;
       align-items: center;
       height: 50vh;
       width: 100%;
-      //background-color: #ea6841;
     }
     &_any {
       display: flex;

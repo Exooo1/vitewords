@@ -52,8 +52,9 @@
         width: 100%;
         display: flex;
         justify-content: center;
-        align-items: center;
+        align-items: flex-start;
         flex-wrap: wrap;
+        gap: 5px;
         height: 100px;
 
         span {
@@ -61,7 +62,8 @@
         }
 
         section {
-          width: 150px;
+          max-width: 200px;
+          height: auto;
           display: flex;
           justify-content: center;
           align-items: center;
@@ -95,6 +97,7 @@
       border-width: 0.3px 0 0 0;
       border-color: #30363d;
       width: 100%;
+      z-index: 1000;
 
       section {
         width: 70%;
