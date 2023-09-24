@@ -70,7 +70,7 @@
       );
 
       section {
-        transition: $transition1s;
+        transition: 0.7s;
         opacity: 0.5;
         @include width-height(210px, 50px);
         @include base-flex(auto, $align-center, auto, $gap-10);

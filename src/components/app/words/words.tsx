@@ -1,4 +1,4 @@
-import { FC, useCallback, useEffect, useMemo, useState } from "react";
+import React, { FC, useCallback, useEffect, useMemo, useState } from "react";
 import { Word } from "./word/word";
 import { useAppDispatch, useAppSelector } from "../../../redux/reduxUtils";
 import {
@@ -144,6 +144,7 @@ export const Words: FC = () => {
       <section className={styles.words_header}>
         <section className={styles.words_header_description}>
           <section className={styles.words_header_description_words}>
+            <button onClick={()=>window.print()}>print</button>
             <h2>Words Management</h2>
             <p>
               Word management allows you to delete, modify, add new words and

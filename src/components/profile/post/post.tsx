@@ -25,7 +25,7 @@ export const Post: FC<TPost> = ({ emoji, status }) => {
           setStatus={handlerSetStatus}
           closeNewPost={handlerIsNewPost}
           status={status}
-          emoji={emoji}
+          emoji={emoji || '🌊'}
         />
       ) : null}
       <section className={styles.post_description}>

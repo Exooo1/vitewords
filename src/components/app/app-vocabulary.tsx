@@ -23,9 +23,13 @@ export const AppVocabulary: FC = () => {
   }, []);
 
   useEffect(() => {
-    setNav(nav.map(el => (pathname === el.path ? { ...el, style: true } : el)));
+    setNav(
+      nav.map(el =>
+        pathname === el.path ? { ...el, style: true } : { ...el, style: false }
+      )
+    );
     if (auth === 0) navigate("/auth");
-  }, [auth]);
+  }, [auth, pathname]);
 
   const changeNav = (id: number) => {
     setNav(
