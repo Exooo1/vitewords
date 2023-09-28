@@ -12,6 +12,7 @@ import dashboard from "../assets/images/dashboard.png";
 import vocab from "../assets/images/vocab.png";
 import rewards from "../assets/images/rewards.png";
 import chat from "../assets/images/chat.png";
+import repeat from "../assets/images/repeat.png";
 
 export const SLIDER_BANNERS: Array<SliderTypeBanners> = [
   {
@@ -79,6 +80,13 @@ export const NAV: Array<NavType> = [
     name: "Words",
     path: "/app",
     img: vocab,
+    style: false
+  },
+  {
+    id: 6,
+    name: "Repeat",
+    path: "/app/repeat",
+    img: repeat,
     style: false
   },
   {

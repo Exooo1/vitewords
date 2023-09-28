@@ -6,12 +6,13 @@ import { useAppDispatch } from "../../redux/reduxUtils";
 import { handlerDeleteHint, imgAttribute } from "../../utils/functionutils";
 import { HintModal } from "../../components/modals/hintModal/hint-modal";
 import { fetchNewPassword } from "../../redux/authReducer";
-import { useParams } from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import eye from "../../assets/images/eye.png";
 import eye2 from "../../assets/images/eyep.png";
 
 export const NewPassword = () => {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate()
   const { id = "" } = useParams();
   const [passwordOne, setPasswordOne] = useState("");
   const [passwordTwo, setPasswordTwo] = useState("");
@@ -38,6 +39,7 @@ export const NewPassword = () => {
       return;
     }
     dispatch(fetchNewPassword({ id, password: passwordOne }));
+    navigate('/auth')
   };
 
   return (

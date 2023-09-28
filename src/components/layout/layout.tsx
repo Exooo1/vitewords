@@ -69,6 +69,15 @@ export const Layout: FC = () => {
                 </div>
               }
             />
+            <Route
+                key="repeat"
+                path="repeat"
+                element={
+                  <div style={{ width: "100%" }}>
+                    <Building />
+                  </div>
+                }
+            />
           </Route>
         </Routes>
       </div>
