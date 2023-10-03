@@ -15,6 +15,7 @@ import { Building } from "../building/building";
 import { Profile } from "../../pages/profile/profile";
 import { ChangePassword } from "../../pages/password/change-password";
 import { NewPassword } from "../../pages/password/new-password";
+import { Repeat } from "../../pages/repeat/repeat";
 
 export const Layout: FC = () => {
   return (
@@ -69,15 +70,7 @@ export const Layout: FC = () => {
                 </div>
               }
             />
-            <Route
-                key="repeat"
-                path="repeat"
-                element={
-                  <div style={{ width: "100%" }}>
-                    <Building />
-                  </div>
-                }
-            />
+            <Route key="repeat" path="repeat" element={<Repeat />} />
           </Route>
         </Routes>
       </div>

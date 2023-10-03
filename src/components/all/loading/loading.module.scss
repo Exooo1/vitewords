@@ -1,7 +1,7 @@
 @import "src/styles/mixins.scss";
 
 @keyframes loadingAnimation {
-  from {
+  to {
     transform: rotate(360deg);
   }
 }
@@ -11,7 +11,6 @@
   height: auto;
 
   img {
-    width: 500px;
-    animation: loadingAnimation 1s infinite alternate;
+    animation: loadingAnimation 1s infinite linear;
   }
 }

@@ -15,14 +15,9 @@ export const Loading: FC<LoadingType> = ({ width }) => {
           src: logo,
           alt: "loading",
           role: "loading",
-          width: "0px",
+          width: `${width}px`,
           title: "loading"
         })}
-        style={{ width: `${width}px` }}
-        src={logo}
-        alt="loading"
-        role="loading-picture"
-        title="loading"
       />
     </section>
   );
