@@ -1,0 +1,133 @@
+@import "src/styles/variables";
+@import "src/styles/mixins";
+
+.repeatSetting {
+  @include width-height(100%, 100vh);
+  @include base-flex($justify-center, $align-center, auto, auto);
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.43);
+  z-index: 10;
+  color: white;
+
+  &_setting {
+    @include base-flex($justify-start, $align-center, $flex-directionC, auto);
+    @include width-height(360px, 400px);
+    @include back-radius(#111419, 20px);
+
+    &_options {
+      @include width-height(100%, auto);
+      @include base-flex($justify-start, $align-center, $flex-directionC, 15px);
+
+      &_filters {
+        @include width-height(90%, 150px);
+        @include back-shadow-radius(#30363d, $box-shadow-black, 10px);
+        @include base-flex(
+          $justify-center,
+          $align-center,
+          $flex-directionR,
+          10px
+        );
+        padding: 2px 5px;
+        flex-wrap: wrap;
+
+        section {
+          @include width-height(90px, 60px);
+          @include base-flex($justify-center, $align-center, auto, auto);
+          @include back-radius(rgba(0, 0, 0, 0.43), 10px);
+          cursor: pointer;
+
+          p {
+            text-align: center;
+            color: white;
+            font-weight: 600;
+            font-size: 13px;
+          }
+
+          &:active {
+            box-shadow: $box-shadow-black;
+          }
+        }
+
+        &_letter {
+          @include base-flex(
+            $justify-center,
+            $align-center,
+            $flex-directionC,
+            5px
+          );
+
+          input {
+            width: 70px;
+            height: 25px;
+            border-radius: 5px;
+            font-size: 20px;
+            border: none;
+            text-align: center;
+            font-weight: 600;
+            color: #0a84de;
+          }
+        }
+      }
+
+      button {
+        @include width-height(90%, 60px);
+        @include back-radius(#5985ff, 10px);
+        font-size: 15px;
+        font-weight: 800;
+        color: white;
+        border: none;
+        cursor: pointer;
+
+        &:active {
+          box-shadow: $box-shadow-blackInset;
+        }
+      }
+
+      p {
+        font-family: "Calibri Light";
+        margin: 0;
+      }
+
+      &_time {
+        @include width-height(90%, 70px);
+        @include back-shadow-radius(#30363d, $box-shadow-black, 10px);
+        @include base-flex(
+          $justify-start,
+          $align-center,
+          $flex-directionR,
+          auto
+        );
+        padding: 2px 5px;
+
+        p {
+          text-align: center;
+          flex-grow: 2;
+          font-weight: 900;
+        }
+
+        section {
+          @include width-height(80%, 60px);
+          @include base-flex(
+            $justify-center,
+            $align-center,
+            $flex-directionC,
+            auto
+          );
+
+          p {
+            @include base-flex($justify-start, $align-start, auto, auto);
+            color: darkgrey;
+            cursor: pointer;
+          }
+
+          input[type="range"] {
+            accent-color: #6e68eb;
+            @include width-height(105px, 25px);
+          }
+        }
+      }
+    }
+  }
+}

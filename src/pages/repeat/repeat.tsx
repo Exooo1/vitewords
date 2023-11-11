@@ -8,23 +8,34 @@ import start from "../../assets/images/start.png";
 import styles from "./repeat.module.scss";
 import { imgAttribute } from "../../utils/functionutils";
 import { RepeatHint } from "../../components/repeat/repeat-hint";
+import { RepeatSetting } from "../../components/modals/repeat-setting/repeat-setting";
 
+let timeout: ReturnType<typeof setInterval>;
 export const Repeat = () => {
   const dispatch = useAppDispatch();
   const { words } = useAppSelector(state => state.repeatReducer);
   const [isStart, setIsStart] = useState<boolean>(true);
+  const [isSetting, setIsSetting] = useState<boolean>(true);
   const [count, setCount] = useState<number>(0);
   const [isQuestion, setIsQuestion] = useState<boolean>(false);
+  const [isTime, setIsTime] = useState<number>(0);
 
   const handlerNext = () => {
-    if (!words[count + 1]) return;
+    if (!words[count + 1]) {
+      if (isTime && !isStart) clearInterval(timeout);
+      return;
+    }
     setCount(count + 1);
   };
 
   const handlerIsQuestion = () => setIsQuestion(!isQuestion);
+  const handlerIsSetting = () => setIsSetting(true);
 
   const handlerAgo = () => {
-    if (count === 0) return;
+    if (count === 0) {
+      if (isTime && !isStart) clearInterval(timeout);
+      return;
+    }
     setCount(count - 1);
   };
 
@@ -32,8 +43,17 @@ export const Repeat = () => {
     setIsStart(false);
     dispatch(fetchGetWords());
   };
+  useEffect(() => {
+    if (isTime && !isStart) {
+      timeout = setInterval(() => handlerNext(), isTime * 1000);
+    }
+    return () => clearInterval(timeout);
+  }, [isStart, count, words]);
   return (
     <section className={styles.repeat}>
+      {isSetting && (
+        <RepeatSetting setIsSetting={setIsSetting} setIsTime={setIsTime} />
+      )}
       <section className={styles.repeat_content}>
         <section className={styles.repeat_content_subject}>
           <section className={styles.repeat_content_subject_settings}>
@@ -45,6 +65,7 @@ export const Repeat = () => {
               alt=""
             />
             <img
+              onClick={handlerIsSetting}
               width={40}
               src="https://cdn-icons-png.flaticon.com/512/9068/9068643.png?ga=GA1.1.1191295292.1695892668"
               alt=""
