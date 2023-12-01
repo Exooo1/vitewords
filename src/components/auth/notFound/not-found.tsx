@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { changeTitle } from "../../../utils/functionutils";
+import { changeTitle, imgAttribute } from "../../../utils/functionutils";
 
 import notfound from "../../../assets/images/notfound.png";
 
@@ -23,10 +23,13 @@ export const NotFound: FC = () => {
     <section className={styles.notFound}>
       <figure className={styles.notFound_image}>
         <img
-          src={notfound}
-          alt="notfound"
-          role="presentation"
-          title="notfound"
+          {...imgAttribute({
+            src: notfound,
+            alt: "notfound",
+            role: "notfound",
+            width: "50%",
+            title: "notfound"
+          })}
         />
         <h2>
           Oops! We are sorry, but the page you are looking for cannot be found{" "}

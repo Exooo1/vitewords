@@ -1,17 +1,26 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { AxiosError } from "axios";
 import { InputType } from "../hooks/form";
-import { apiAuth, AuthLoginType, LoginType } from "../api/authAPI";
+import {
+  apiAuth,
+  AuthLoginType,
+  LoginType,
+  TNewPassword
+} from "../api/authAPI";
 import { ProjectTypeReturn, ThunkError } from "../utils/types/commonTypes";
 import { handlerDeleteHint } from "../utils/functionutils";
 
 export type InitialStateAuth = {
-  auth: number;
+  auth: number | null;
   resultCode: number;
+  newPassword: number;
+  isLoading: boolean;
 };
 const initialState: InitialStateAuth = {
-  auth: 0,
-  resultCode: 0
+  auth: null,
+  resultCode: 0,
+  newPassword: 0,
+  isLoading: false
 };
 export const fetchRegistration = createAsyncThunk<
   number,
@@ -105,6 +114,46 @@ export const fetchConfirmPassword = createAsyncThunk<
     return rejectWithValue({ errors: response?.data.error || message });
   }
 });
+
+export const fetchChangePassword = createAsyncThunk<number, string, ThunkError>(
+  "auth/fetchConfirmPassword",
+  async (email, { dispatch, rejectWithValue }) => {
+    try {
+      const { data } = await apiAuth.changePassword(email);
+      return data.resultCode;
+    } catch (err) {
+      const { response, message } = err as AxiosError<
+        ProjectTypeReturn<string>
+      >;
+      if (response?.data === undefined)
+        handlerDeleteHint(message, dispatch, "error");
+      else handlerDeleteHint(response.data.error, dispatch, "error");
+      return rejectWithValue({ errors: response?.data.error || message });
+    }
+  }
+);
+
+export const fetchNewPassword = createAsyncThunk<
+  null,
+  TNewPassword,
+  ThunkError
+>(
+  "auth/fetchConfirmPassword",
+  async (account, { dispatch, rejectWithValue }) => {
+    try {
+      const { data } = await apiAuth.newPassword(account);
+      handlerDeleteHint(data.message || "", dispatch, "done");
+      return null;
+    } catch (err) {
+      const { response, message } = err as AxiosError<ProjectTypeReturn<null>>;
+      if (response?.data === undefined)
+        handlerDeleteHint(message, dispatch, "error");
+      else handlerDeleteHint(response.data.error, dispatch, "error");
+      return rejectWithValue({ errors: response?.data.error || message });
+    }
+  }
+);
+
 export const slice = createSlice({
   name: "auth",
   initialState,
@@ -119,8 +168,22 @@ export const slice = createSlice({
     builder.addCase(fetchGetAuth.fulfilled, (state, action) => {
       state.auth = action.payload;
     });
+    builder.addCase(fetchGetAuth.rejected, state => {
+      state.resultCode = 0;
+      state.auth = 0;
+    });
     builder.addCase(fetchLogOut.fulfilled, (state, action) => {
       state.auth = action.payload;
+    });
+    builder.addCase(fetchChangePassword.fulfilled, (state, action) => {
+      state.newPassword = action.payload;
+      state.isLoading = false;
+    });
+    builder.addCase(fetchChangePassword.pending, state => {
+      state.isLoading = true;
+    });
+    builder.addCase(fetchChangePassword.rejected, state => {
+      state.isLoading = false;
     });
   }
 });

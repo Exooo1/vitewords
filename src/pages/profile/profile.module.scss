@@ -1,0 +1,38 @@
+.profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+
+  &_oneblock {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    height: 100vh;
+    width: 80%;
+
+    &_ASN {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      height: 50vh;
+      width: 100%;
+    }
+    &_any {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      height: 50vh;
+      width: 100%;
+      background-color: #4a1c0e;
+    }
+  }
+
+  &_twoblock {
+    width: 20%;
+    height: 100vh;
+    background-color: #0a84de;
+  }
+}

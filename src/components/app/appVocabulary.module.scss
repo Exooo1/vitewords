@@ -18,7 +18,6 @@
     &:hover > img {
       animation: bye_bye 1s infinite alternate;
     }
-    height: 25vh;
     width: 210px;
     cursor: $cursor-pointer;
     margin-top: 250px;
@@ -27,7 +26,6 @@
     @include base-flex($justify-center, $align-center, auto, auto);
 
     img {
-      @include width-height(40px, 40px);
       transition: $transition1s;
     }
   }
@@ -58,7 +56,6 @@
       }
 
       img {
-        width: 350px;
         @include base-positionA(-30px, -50px);
       }
     }
@@ -73,7 +70,7 @@
       );
 
       section {
-        transition: $transition1s;
+        transition: 0.7s;
         opacity: 0.5;
         @include width-height(210px, 50px);
         @include base-flex(auto, $align-center, auto, $gap-10);
@@ -105,9 +102,17 @@
 
 @media (min-height: 1080px) {
   .container {
+    &_aside {
+      figure {
+        height: 350px;
+      }
+      nav {
+        justify-content: flex-start;
+        height: 600px;
+      }
+    }
     &_logout {
       display: flex;
-      align-items: flex-end;
     }
   }
 }

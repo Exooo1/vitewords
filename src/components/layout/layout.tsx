@@ -11,7 +11,11 @@ import { Words } from "../app/words/words";
 
 import styles from "./layout.module.scss";
 import { Building } from "../building/building";
-import { Chat } from "../../pages/chat/chat";
+// import { Chat } from "../../pages/chat/chat";
+import { Profile } from "../../pages/profile/profile";
+import { ChangePassword } from "../../pages/password/change-password";
+import { NewPassword } from "../../pages/password/new-password";
+import { Repeat } from "../../pages/repeat/repeat";
 
 export const Layout: FC = () => {
   return (
@@ -25,6 +29,16 @@ export const Layout: FC = () => {
             <Route key="login" path="login" element={<Login />} />
           </Route>
           <Route
+            key="auth/change-password"
+            path="auth/change-password"
+            element={<ChangePassword />}
+          />
+          <Route
+            key="auth/new-password"
+            path="auth/new-password/:id"
+            element={<NewPassword />}
+          />
+          <Route
             key="auth/email"
             path="auth/email"
             element={<AuthenticationEmail />}
@@ -35,17 +49,9 @@ export const Layout: FC = () => {
             element={<ConfirmAccount />}
           />
           <Route key="app" path="/app" element={<AppVocabulary />}>
-            <Route key="words" path="words" element={<Words />} />
-            <Route
-              key="profile"
-              path="profile"
-              element={
-                <div style={{ width: "100%" }}>
-                  <Building />
-                </div>
-              }
-            />
-            <Route key="chat" path="chat" element={<Chat />} />
+            <Route key="words" index element={<Words />} />
+            <Route key="profile" path="profile" element={<Profile />} />
+            {/*<Route key="chat" path="chat" element={<Chat />} />*/}
             <Route
               key="dashboard"
               path="dashboard"
@@ -64,6 +70,7 @@ export const Layout: FC = () => {
                 </div>
               }
             />
+            <Route key="repeat" path="repeat" element={<Repeat />} />
           </Route>
         </Routes>
       </div>

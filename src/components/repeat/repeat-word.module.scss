@@ -1,0 +1,57 @@
+@import "./src/styles/mixins.scss";
+@import "./src/styles/variables.scss";
+
+.repeatWord {
+  @include base-flex($justify-spaceA, $align-center, auto, auto);
+  @include width-height(500px, 350px);
+  color: $color-white;
+
+  &_option {
+    @include width-height(100px, 50px);
+    @include base-flex($justify-center, $align-center, auto, auto);
+
+    button {
+      @include width-height(50px, 50px);
+      @include size-weight-line(20px, 900, auto);
+      @include back-radius(#b55fda, 50%);
+      cursor: pointer;
+      color: white;
+      border: none;
+
+      &:hover {
+        box-shadow: $box-shadow-blackInset;
+      }
+    }
+  }
+
+  &_description {
+    @include base-flex($justify-center, $align-center, $flex-directionC, auto);
+    @include width-height(300px, auto);
+
+
+    h3 {
+      height: 90px;
+      font-family: "Calibri Light";
+      color: darkgrey;
+      margin: 0;
+    }
+
+    p {
+      @include base-flex($justify-center, $align-center, auto, auto);
+      @include width-height(250px,50px);
+      @include size-weight-line(25px, 800, auto);
+      text-align: center;
+      cursor: help;
+    }
+
+    span {
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      @include width-height(100%,90px);
+      transition: 1s;
+      font-weight: 800;
+    }
+  }
+}

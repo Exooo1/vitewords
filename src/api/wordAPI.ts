@@ -42,9 +42,7 @@ instance.interceptors.request.use((config: AxiosRequestConfig) => {
 
 export const wordApi = {
   getWords(count: number): AxiosPromise<ProjectTypeReturn<ProfileType>> {
-    return instance.get<ProjectTypeReturn<ProfileType>>(
-        `/?count=${count}`
-    );
+    return instance.get<ProjectTypeReturn<ProfileType>>(`/?count=${count}`);
   },
   addWord(values: WordType): AxiosPromise<ProjectTypeReturn<WordType>> {
     return instance.post<ProjectTypeReturn<WordType>>("add-word", values);
@@ -55,11 +53,11 @@ export const wordApi = {
     );
   },
   changeWord(values: WordChangeType): AxiosPromise<ProjectTypeReturn<null>> {
-    return instance.post<ProjectTypeReturn<null>>("word-change", values);
+    return instance.put<ProjectTypeReturn<null>>("change-word", values);
   },
   findWords(word: string): AxiosPromise<ProjectTypeReturn<Array<WordType>>> {
     return instance.get<ProjectTypeReturn<Array<WordType>>>(
-      `word-find?word=${word}`
+      `find-words?word=${word}`
     );
   },
   addedWords(
@@ -71,6 +69,6 @@ export const wordApi = {
     );
   },
   downloadFile() {
-    return instance.get("words-download");
+    return instance.get("download-words");
   }
 };

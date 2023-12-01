@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchRegistration } from "./authReducer";
+import { fetchLogin, fetchRegistration } from "./authReducer";
 
 type ILoadingState = {
   isAuth: boolean;
@@ -19,6 +19,15 @@ const slice = createSlice({
   initialState,
   extraReducers: builder => {
     builder.addCase(fetchRegistration.fulfilled, state => {
+      state.isAuth = false;
+    });
+    builder.addCase(fetchLogin.fulfilled, state => {
+      state.isAuth = false;
+    });
+    builder.addCase(fetchRegistration.rejected, state => {
+      state.isAuth = false;
+    });
+    builder.addCase(fetchLogin.rejected, state => {
       state.isAuth = false;
     });
   }

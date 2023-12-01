@@ -17,7 +17,7 @@ export const handlerDeleteHint = (
   dispatch(addHint({ v4id, article: value, status }));
   setTimeout(() => {
     dispatch(deleteHint(v4id));
-  }, 50000);
+  }, 5000);
 };
 
 export const uuid = (value: string) =>
@@ -26,5 +26,9 @@ export const uuid = (value: string) =>
 export const imgAttribute = (
   attributes: AttributesImageType
 ): AttributesImageType => {
-  return { ...attributes, title: attributes.alt + "-img" };
+  return {
+    ...attributes,
+    title: attributes.alt + "-img",
+    role: attributes.role + "-picture"
+  };
 };

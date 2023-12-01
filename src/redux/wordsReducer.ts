@@ -57,9 +57,8 @@ export const fetchAddWord = createAsyncThunk<WordType, WordType, ThunkError>(
     { dispatch, rejectWithValue }
   ) => {
     try {
-      const upperWord = word[0].toUpperCase() + word.slice(1);
       const { data } = await wordApi.addWord({
-        word: upperWord,
+        word,
         translate,
         description,
         added
@@ -169,7 +168,7 @@ export const fetchSortWords = createAsyncThunk<Array<WordType>, SortChoice>(
   }
 );
 
-export const fetchDownloadFile = createAsyncThunk<any, string>(
+export const fetchDownloadFile = createAsyncThunk<undefined, string>(
   "words/fetchDownloadFile",
   async (arg, { dispatch, rejectWithValue }) => {
     (pdfMake as any).vfs = pdfFonts.pdfMake.vfs;
@@ -184,13 +183,13 @@ export const fetchDownloadFile = createAsyncThunk<any, string>(
               alignment: "center",
               bold: true
             },
-            { text: data, fontSize: 10 }
+            { text: data.item, fontSize: 10 }
           ]
         };
         const pdfDocGenerator = pdfMake.createPdf(docDefinition);
         pdfDocGenerator.download("my-pdf.pdf");
       } else {
-        const blob = new Blob([data]);
+        const blob = new Blob([data.item]);
         const url = URL.createObjectURL(blob);
         const a = document.createElement("a");
         a.href = url;

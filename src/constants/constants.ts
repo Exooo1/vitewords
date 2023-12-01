@@ -3,13 +3,16 @@ import {
   ChoiceAuthType,
   NavType,
   SliderTypeBanners,
-  SortElementsType
+  SortElementsType,
+  TLevelsEnglish,
+  TStatusChoices
 } from "../utils/types/commonTypes";
 import profile from "../assets/images/profile.png";
 import dashboard from "../assets/images/dashboard.png";
 import vocab from "../assets/images/vocab.png";
 import rewards from "../assets/images/rewards.png";
 import chat from "../assets/images/chat.png";
+import repeat from "../assets/images/repeat.png";
 
 export const SLIDER_BANNERS: Array<SliderTypeBanners> = [
   {
@@ -61,40 +64,97 @@ export const NAV: Array<NavType> = [
   {
     id: 1,
     name: "Profile",
-    path: "profile",
+    path: "/app/profile",
     img: profile,
     style: false
   },
   {
     id: 2,
     name: "Dashboard",
-    path: "dashboard",
+    path: "/app/dashboard",
     img: dashboard,
     style: false
   },
   {
     id: 3,
     name: "Words",
-    path: "words",
+    path: "/app",
     img: vocab,
-    style: true
+    style: false
+  },
+  {
+    id: 6,
+    name: "Repeat",
+    path: "/app/repeat",
+    img: repeat,
+    style: false
   },
   {
     id: 4,
     name: "Achievements",
-    path: "achievements",
+    path: "/app/achievements",
     img: rewards,
     style: false
   },
   {
     id: 5,
     name: "Chat",
-    path: "chat",
+    path: "/app/chat",
     img: chat,
     style: false
   }
 ];
 export const SORT_ELEMENTS: Array<SortElementsType> = [
-  { id: 2, name: "Description", sort: "DESCRIPTION" },
-  { id: 3, name: "Added", sort: "ADDED" }
+  { id: 1, name: "Description of words", sort: "DESCRIPTION" },
+  { id: 2, name: "Order of addition", sort: "ADDED" }
+];
+
+export const LEVEL_ENGLISH: TLevelsEnglish = {
+  a0: { letter: "A", sup: "0", color: "red", goal: 0 },
+  a1: { letter: "A", sup: "1", color: "orange", goal: 500 },
+  a2: { letter: "A", sup: "2", color: "#d5d51a", goal: 1000 },
+  b1: { letter: "B", sup: "1", color: "green", goal: 2000 },
+  b2: { letter: "B", sup: "2", color: "#6868ff", goal: 3000 },
+  c1: { letter: "C", sup: "1", color: "blue", goal: 4000 },
+  c2: { letter: "C", sup: "2", color: "purple", goal: 5000 }
+};
+
+export const STATUS_CHOICES: Array<TStatusChoices> = [
+  { name: "On vacation", code: "🌴" },
+  { name: "Working from home", code: "🏠" },
+  { name: "Just chill", code: "&#127774;" },
+  { name: "Out sick", code: "🤒" },
+  { name: "I am  a penguin", code: "🐧" },
+  { name: "Focusing", code: "🎯" }
+];
+
+export const COMMON_EMOJI: Array<{ code: string }> = [
+  { code: "🤖" },
+  { code: "😈" },
+  { code: "🥶" },
+  { code: "🫁" },
+  { code: "🧣" },
+  { code: "☂️" },
+  { code: "🎓" },
+  { code: "💪🏻" },
+  { code: "🌝" },
+  { code: "⛄️" },
+  { code: "🔮" },
+  { code: "🐁" },
+  { code: "💖" },
+  { code: "🔕" },
+  { code: "🧔🏻‍♂️" },
+  { code: "🩲" },
+  { code: "🥽" },
+  { code: "🩱" },
+  { code: "👑" },
+  { code: "🦉" },
+  { code: "🐥" },
+  { code: "🐽" },
+  { code: "🐸" },
+  { code: "🐓" },
+  { code: "🌘" },
+  { code: "❄️" },
+  { code: "⚡️" },
+  { code: "🌟" }
 ];

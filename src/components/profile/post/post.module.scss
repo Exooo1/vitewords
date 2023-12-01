@@ -1,0 +1,22 @@
+.post {
+  width: 100%;
+
+  &_description {
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    p{
+      text-align: center;
+      font-weight: 500;
+      color: darkgrey;
+      &:hover{
+        color: white;
+      }
+    }
+    p:nth-child(2){
+      padding: 0;
+      margin-left: 3px;
+    }
+  }
+}

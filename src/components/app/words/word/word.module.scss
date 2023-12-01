@@ -16,7 +16,6 @@
     }
 
     img {
-      @include width-height(35px, 33px);
       cursor: $cursor-pointer;
     }
 
@@ -42,11 +41,11 @@
         font-style: italic;
       }
 
-      width: 33.3%;
+      width: 33%;
     }
 
     input {
-      @include width-height(33.3%, 35px);
+      @include width-height(33%, 35px);
       background: $border-none;
       border: $border-none;
       color: $color-white;

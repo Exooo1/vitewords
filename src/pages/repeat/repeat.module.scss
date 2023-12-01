@@ -1,0 +1,93 @@
+@import "./src/styles/mixins.scss";
+@import "./src/styles/variables.scss";
+
+.repeat {
+  @include base-flex($justify-center, $align-center, auto, auto);
+  @include width-height(100%, 100vh);
+
+  &_content {
+    @include width-height(500px, 500px);
+    @include back-radius(#171717f5, 20px);
+    @include base-flex($justify-start, $align-center, $flex-directionC, auto);
+
+    &_subject {
+      @include base-flex(
+        $justify-center,
+        $align-center,
+        $flex-directionC,
+        auto
+      );
+      @include width-height(100%, 100px);
+
+      h1 {
+        @include size-weight-line(25px, 900, auto);
+        color: white;
+        margin: 0;
+      }
+
+      &_settings {
+        width: 95%;
+        @include base-flex($justify-spaceB, $align-start, auto, 5px);
+
+        img {
+          &:hover {
+            transform: scale(1.1);
+          }
+
+          cursor: pointer;
+        }
+      }
+    }
+
+    &_start {
+      @include base-flex($justify-center, $align-center, auto, auto);
+      @include width-height(100%, 350px);
+
+      &_anim {
+        &:hover {
+          transform: scale(1.2);
+        }
+      }
+
+      img {
+        cursor: $cursor-pointer;
+        transition: $transition1s;
+      }
+
+      &_description {
+        @include width-height(80%, auto);
+        @include base-flex(
+          $justify-center,
+          $align-center,
+          $flex-directionC,
+          auto
+        );
+
+        p {
+          color: #cacacab5;
+          text-align: center;
+        }
+      }
+    }
+
+    &_inf {
+      @include width-height(100%, 50px);
+      @include base-flex($justify-end, $align-end, auto, auto);
+
+      p {
+        @include size-weight-line(20px, 800, auto);
+        color: white;
+        margin: 10px 10px;
+
+        span {
+          color: #41ea6e;
+          margin: 0 3px;
+        }
+
+        span:nth-child(2) {
+          color: #0a84de;
+        }
+      }
+    }
+  }
+}

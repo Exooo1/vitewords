@@ -47,9 +47,14 @@
       cursor: $cursor-pointer;
       border: $border-none;
       @include size-weight-line(25px, $weight-900, auto);
-      @include width-height(345px, 70px);
+      @include width-height(80%, 70px);
       @include back-shadow-radius($color-white, $box-shadow-black, 20px);
       color: #464444;
+    }
+
+    section {
+      @include width-height(345px, 70px);
+      @include back-shadow-radius($color-white, $box-shadow-black, 20px);
     }
   }
 
@@ -62,12 +67,13 @@
     );
 
     &_field {
-      min-width: 305px;
+      width: 80%;
       @include base-flex(auto, $align-center, auto, $gap-10);
       @include back-shadow-radius($color-white, $box-shadow-black, 10px);
 
       div {
-        @include base-flex(auto, $align-start, $flex-directionC, auto);
+        width: 100%;
+        @include base-flex(center, $align-start, $flex-directionC, auto);
         height: 70px;
       }
 
@@ -75,21 +81,26 @@
         outline: none;
         color: #464444;
         margin-left: 15px;
-        background: $color-white;
+        background-color: $color-white;
         border: $border-none;
-        @include width-height(265px, 40px);
+        @include width-height(95%, 40px);
         @include size-weight-line(18px, $weight-900, auto);
       }
 
+      input:-webkit-autofill {
+        background-color: $color-white;
+      }
+
       label {
+        position: absolute;
         color: #848383;
-        padding-top: 5px;
-        padding-left: 15px;
-        @include size-weight-spacing(12px, $weight-800, 1.2px);
+        margin-bottom: 40px;
+        padding-left: 16px;
+        @include size-weight-spacing(13px, $weight-800, 1.2px);
       }
 
       img {
-        @include width-height(45px, 45px);
+        width: 40px;
         margin-right: 10px;
       }
     }

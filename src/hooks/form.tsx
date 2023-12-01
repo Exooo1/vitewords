@@ -3,7 +3,7 @@ import { useAppDispatch } from "../redux/reduxUtils";
 import { fetchLogin, fetchRegistration } from "../redux/authReducer";
 import { handlerDeleteHint } from "../utils/functionutils";
 import info from "../assets/images/inform.png";
-import {handlerIsAuth} from "../redux/loadingReducer";
+import { handlerIsAuth } from "../redux/loadingReducer";
 
 export type InputType = {
   name: string;
@@ -61,14 +61,14 @@ export const useForm = (): FormType => {
     !reg.test(email)
       ? handlerDeleteHint("Email invalid", dispatch, "error")
       : dispatch(
-            fetchRegistration({
-              name: name[0].toUpperCase() + name.slice(1),
-              surname: surname[0].toUpperCase() + surname.slice(1),
-              password,
-              email
-            })
+          fetchRegistration({
+            name: name[0].toUpperCase() + name.slice(1),
+            surname: surname[0].toUpperCase() + surname.slice(1),
+            password,
+            email
+          })
         );
-    dispatch(handlerIsAuth())
+    dispatch(handlerIsAuth());
   };
 
   const login = (e: KeyboardEvent, type: string) => {
@@ -90,7 +90,7 @@ export const useForm = (): FormType => {
                   email
                 })
           );
-      dispatch(handlerIsAuth())
+      dispatch(handlerIsAuth());
     }
   };
 
@@ -105,7 +105,7 @@ export const useForm = (): FormType => {
             password
           })
         );
-    dispatch(handlerIsAuth())
+    dispatch(handlerIsAuth());
   };
 
   const itemsProfile: Array<ItemProfileType> = [

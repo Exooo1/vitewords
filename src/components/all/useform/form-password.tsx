@@ -3,6 +3,7 @@ import eye from "../../../assets/images/eye.png";
 import eye2 from "../../../assets/images/eyep.png";
 import mail from "../../../assets/images/email.png";
 import styles from "../../../pages/registration/registration.module.scss";
+import { imgAttribute } from "../../../utils/functionutils";
 
 type FormPasswordType = {
   email: string;
@@ -29,9 +30,19 @@ export const FormPassword: FC<FormPasswordType> = memo(
               onKeyDown={e => login(e, typePress)}
               type={"email"}
               placeholder={"Email"}
+              name="email"
+              autoComplete="email webauthn"
             />
           </div>
-          <img src={mail} alt={email} role="email-picture" title="email" />
+          <img
+            {...imgAttribute({
+              src: mail,
+              alt: "mail",
+              role: "mail",
+              width: "40px",
+              title: "mail"
+            })}
+          />
         </section>
         <section className={styles.registration_fill_field}>
           <div>
@@ -39,6 +50,8 @@ export const FormPassword: FC<FormPasswordType> = memo(
               Password
             </label>
             <input
+              name="password"
+              autoComplete="current-password webauthn"
               type={isVisible ? "text" : "password"}
               value={password}
               onChange={changePassword}
@@ -47,11 +60,14 @@ export const FormPassword: FC<FormPasswordType> = memo(
             />
           </div>
           <img
+            {...imgAttribute({
+              src: isVisible ? eye2 : eye,
+              alt: "password",
+              role: "password",
+              width: "40px",
+              title: "password"
+            })}
             onClick={changeVisible}
-            src={isVisible ? eye2 : eye}
-            alt={password}
-            role="password-picture"
-            title="password"
           />
         </section>
       </>

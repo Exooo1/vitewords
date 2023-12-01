@@ -1,11 +1,4 @@
-import {
-  ChangeEvent,
-  FC,
-  useCallback,
-  useEffect,
-  useMemo,
-  useState
-} from "react";
+import React, { FC, useCallback, useEffect, useMemo, useState } from "react";
 import { Word } from "./word/word";
 import { useAppDispatch, useAppSelector } from "../../../redux/reduxUtils";
 import {
@@ -20,21 +13,19 @@ import { profileReselect } from "../../../redux/reselect";
 import { SortChoice, WordType } from "../../../api/wordAPI";
 import { changeTitle, imgAttribute } from "../../../utils/functionutils";
 import { Loading } from "../../all/loading/loading";
-import { SortElements } from "./sortElements/sort-elements";
 import { Pagination } from "./pagination/pagination";
 import { Download } from "./download/download";
 
-import search from "../../../assets/images/search.png";
 import knowledge from "../../../assets/images/sortknowleadge.png";
 import abc from "../../../assets/images/abc.png";
 import managment from "../../../assets/images/management.png";
 import styles from "./words.module.scss";
+import { Filters } from "./filters/filters";
 
 let timeout: ReturnType<typeof setTimeout>;
 let sortValue: number = 0;
 
 export const Words: FC = () => {
-  const [isSearch, setIsSearch] = useState<boolean>(false);
   const [file, setFile] = useState<string>("txt");
   const [find, setFind] = useState<string>("");
   const [current, setCurrent] = useState<number>(1);
@@ -50,17 +41,17 @@ export const Words: FC = () => {
 
   const COUNT_WORDS = 15;
   const resultPagination = Math.ceil(totalWords / COUNT_WORDS);
-  const handlerFindWord = (e: ChangeEvent<HTMLInputElement>) => {
-    setFind(e.target.value);
+  const handlerFindWord = useCallback((value: string) => {
+    setFind(value);
     clearTimeout(timeout);
-    if (!e.target.value) {
+    if (!value) {
       dispatch(fetchGetWords(current));
       return;
     }
     timeout = setTimeout(() => {
-      dispatch(fetchWordFind(e.target.value));
+      dispatch(fetchWordFind(value));
     }, 500);
-  };
+  }, []);
   const returnArrayPagination = () => {
     const right = () => {
       const result = resultPagination - (current + 2);
@@ -95,7 +86,7 @@ export const Words: FC = () => {
       : words.length;
     if (end > 0) end = COUNT_WORDS * current;
     else end = COUNT_WORDS * current - Math.abs(end);
-    const isFind = find.length ? words.length : `${start}-${end}`
+    const isFind = find.length ? words.length : `${start}-${end}`;
     return `Showing ${isFind} words of ${
       find.length ? words.length : totalWords
     } results`;
@@ -129,13 +120,14 @@ export const Words: FC = () => {
       />
     );
   }, [current, totalWords]);
+
   const memoWords = useMemo(
     () =>
       words.map((item: WordType) => {
         return (
           <Word
-            id={item._id || ""}
             key={item._id}
+            id={item._id || ""}
             {...item}
             deleteWord={() =>
               dispatch(fetchDeleteWord({ id: item._id || "", word: item.word }))
@@ -145,13 +137,13 @@ export const Words: FC = () => {
       }),
     [words]
   );
-  const tt = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+
   return (
     <main className={styles.words}>
       {isModal && <WordModal handlerIsModal={() => handlerIsModal(false)} />}
       <section className={styles.words_header}>
         <section className={styles.words_header_description}>
-          <section>
+          <section className={styles.words_header_description_words}>
             <h2>Words Management</h2>
             <p>
               Word management allows you to delete, modify, add new words and
@@ -163,8 +155,9 @@ export const Words: FC = () => {
             {...imgAttribute({
               src: managment,
               alt: "managment",
-              role: "picture",
-              width: "160px"
+              role: "managment",
+              width: "160px",
+              title: "managment"
             })}
           />
         </section>
@@ -175,18 +168,14 @@ export const Words: FC = () => {
               You can filter the words as you like, of course there is not much
               choice now, but there will be more in the future.
             </p>
-            <SortElements
-              fetchSortReset={handlerSortResetFetch}
-              fetchSort={handlerSortFetch}
-              isLoading={isLoading}
-            />
           </section>
           <img
             {...imgAttribute({
               src: knowledge,
               alt: "knowledge",
-              role: "picture",
-              width: "160px"
+              role: "knowledge",
+              width: "160px",
+              title: "knowledge"
             })}
           />
         </section>
@@ -196,50 +185,31 @@ export const Words: FC = () => {
             <p>
               Search and add? hmm... You can add a new word and a search word.
             </p>
-            <section className={styles.words_header_search_description_newWord}>
-              <section
-                className={
-                  isSearch
-                    ? styles.words_header_search_description_newWord_isActive
-                    : ""
-                }
-              >
-                <img
-                  title="search"
-                  role="search-img"
-                  src={search}
-                  alt="search"
-                  onClick={() => setIsSearch(!isSearch)}
-                />
-                {isSearch ? (
-                  <input
-                    value={find}
-                    onChange={handlerFindWord}
-                    type="text"
-                    placeholder="Search a word"
-                  />
-                ) : null}
-              </section>
-              <button onClick={() => handlerIsModal(true)}>+</button>
-            </section>
           </section>
           <img
             {...imgAttribute({
               src: abc,
               alt: "abc",
               role: "picture",
-              width: "160px"
+              width: "160px",
+              title: "abc"
             })}
           />
         </section>
       </section>
+      <Filters
+        setIsModal={setIsModal}
+        find={find}
+        handlerFindWord={handlerFindWord}
+        fetchSortReset={handlerSortResetFetch}
+        fetchSort={handlerSortFetch}
+        isLoading={isLoading}
+      />
       <section className={styles.words_containerWords}>
         {isLoading ? <Loading width="650" /> : memoWords}
       </section>
       <section className={styles.words_footer}>
-        <section className={styles.words_footer_showing}>
-          {showing()}
-        </section>
+        <section className={styles.words_footer_showing}>{showing()}</section>
         <section className={styles.words_footer_pagination}>
           {find.length < 1 && memoPagination}
         </section>

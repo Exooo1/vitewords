@@ -8,11 +8,19 @@
   top: 0;
   right: 0;
   background: rgba(0, 0, 0, 0.56);
+  z-index: 10;
+
+  &_required {
+    border: solid 1px red;
+  }
 
   section {
     @include base-flex($justify-spaceA, $align-center, $flex-directionC, auto);
     @include width-height(400px, 500px);
-    @include back-radius(linear-gradient(to right, #121421, #252734), 20px);
+    @include back-radius(
+      linear-gradient(to right, #0f1013, #08090c, #0f1013),
+      20px
+    );
     color: $color-white;
 
     .container_modalWord_buttons {
@@ -26,9 +34,12 @@
       width: 100%;
 
       button {
+        &:hover {
+          box-shadow: 0 0 10px lawngreen;
+        }
         @include width-height(150px, 80px);
         @include back-shadow-radius(
-          linear-gradient(90deg, rgb(23, 243, 60) 10%, rgb(13, 236, 177) 72%),
+          linear-gradient(90deg, rgb(2 201 35) 10%, rgb(0 194 143) 72%),
           0 0 10px rgba(0, 0, 0, 0.5),
           20px
         );
@@ -36,14 +47,17 @@
         color: $color-white;
         cursor: $cursor-pointer;
         min-width: 100px;
-        border: solid 1px black;
+        border: none;
       }
 
       button:last-child {
+        &:hover {
+          box-shadow: 0 0 10px darkred;
+        }
         background: linear-gradient(
           90deg,
-          rgb(243, 23, 140) 10%,
-          rgba(238, 18, 18, 0.5) 72%
+          rgb(120 1 64) 40%,
+          rgb(220 39 39 / 50%) 72%
         );
       }
 

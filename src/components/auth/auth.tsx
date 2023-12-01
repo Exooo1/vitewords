@@ -2,7 +2,6 @@ import React, { FC, useEffect, useState } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import { HintModal } from "../modals/hintModal/hint-modal";
 import { changeTitle } from "../../utils/functionutils";
-
 import { Slider } from "../slider/slider";
 import { Header } from "../header/header";
 import { CHOICE_AUTH } from "../../constants/constants";
@@ -15,6 +14,7 @@ export const Auth: FC = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const auth = useAppSelector(authReselect);
+  const auths = useAppSelector(state => state.authReducer);
 
   useEffect(() => {
     dispatch(fetchGetAuth());
@@ -35,7 +35,8 @@ export const Auth: FC = () => {
           : { ...item, isActive: false }
       )
     );
-    setChoose(!choose);
+    if (value === 1) setChoose(true);
+    else setChoose(false);
   };
   const buttons = choice.map(item => (
     <button
@@ -46,11 +47,11 @@ export const Auth: FC = () => {
   ));
   return (
     <section>
+      <HintModal />
       <Header />
       <section className={styles.auth_choose}>{buttons}</section>
       <section className={styles.auth}>
         {choose ? <Outlet /> : <Slider />}
-        <HintModal />
       </section>
     </section>
   );

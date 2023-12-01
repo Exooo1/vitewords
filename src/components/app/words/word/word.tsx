@@ -3,6 +3,12 @@ import "./word.module.scss";
 import { useAppDispatch } from "../../../../redux/reduxUtils";
 import { fetchChangeWord } from "../../../../redux/wordsReducer";
 import styles from "./word.module.scss";
+import {
+  handlerDeleteHint,
+  imgAttribute
+} from "../../../../utils/functionutils";
+import save from "../../../../assets/images/save.png";
+import edit from "../../../../assets/images/edit.png";
 
 type WordType = {
   word: string;
@@ -25,23 +31,28 @@ export const Word: FC<WordType> = ({
   const [wor, setWor] = useState<string>(word);
   const [tran, setTran] = useState<string>(translate);
   const [descrip, setDescrip] = useState<string>(description);
-  const handlerWord = (e: ChangeEvent<HTMLInputElement>) => {
-    if (wor.length > 1) setWor(e.target.value);
-  };
+
+  const handlerState =
+    (state: (value: string) => void) => (e: ChangeEvent<HTMLInputElement>) => {
+      state(e.target.value);
+    };
 
   const acceptChange = () => {
     if (isEdit) {
       setIsEdit(false);
       if (descrip === description && tran === translate && wor === word) return;
-      dispatch(
-        fetchChangeWord({
-          word: wor,
-          id,
-          translate: tran,
-          description: descrip,
-          added
-        })
-      );
+      if (wor && tran) {
+        dispatch(
+          fetchChangeWord({
+            word: wor,
+            id,
+            translate: tran,
+            description: descrip,
+            added
+          })
+        );
+      } else
+        handlerDeleteHint("The word should not be empty ", dispatch, "error");
     } else setIsEdit(true);
   };
   return (
@@ -52,17 +63,13 @@ export const Word: FC<WordType> = ({
             autoFocus={true}
             type="text"
             value={wor}
-            onChange={handlerWord}
+            onChange={handlerState(setWor)}
           />
-          <input
-            type="text"
-            value={tran}
-            onChange={e => setTran(e.target.value)}
-          />
+          <input type="text" value={tran} onChange={handlerState(setTran)} />
           <input
             type="text"
             value={descrip || "your description"}
-            onChange={e => setDescrip(e.target.value)}
+            onChange={handlerState(setDescrip)}
           />
         </section>
       ) : (
@@ -77,15 +84,14 @@ export const Word: FC<WordType> = ({
       <section className={styles.word_management}>
         <p>{added}</p>
         <img
-          title="edit"
-          role="edit-img"
+          {...imgAttribute({
+            src: isEdit ? save : edit,
+            alt: "edit",
+            role: "edit",
+            width: "35px",
+            title: "edit"
+          })}
           onClick={acceptChange}
-          src={
-            isEdit
-              ? "https://cdn-icons-png.flaticon.com/512/2258/2258597.png"
-              : "https://cdn-icons-png.flaticon.com/512/2356/2356811.png"
-          }
-          alt="picture"
         />
         <button onClick={deleteWord}>X</button>
       </section>

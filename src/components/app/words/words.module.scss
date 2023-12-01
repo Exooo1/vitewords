@@ -12,12 +12,12 @@
   @include width-minHeight(100%, 100vh);
 
   &_footer {
-    width: 96%;
+    width: 95%;
     @include base-flex($justify-spaceB, $align-center, auto, auto);
     color: $color-white;
 
     &_showing {
-      width: 16%;
+      width: 300px;
       font-size: 14px;
       color: $color-darkGrey;
     }
@@ -46,30 +46,30 @@
 
   &_header {
     @include base-flex($justify-spaceA, $align-center, auto, auto);
-    @include width-minHeight(100%, 25vh);
+    @include width-minHeight(100%, 20vh);
 
     &_filters {
       @include back-shadow-radius(#525461, 0 0 15px #525461, 20px);
-      @include width-minHeight(32%, 200px);
+      @include width-minHeight(30%, 180px);
       @include base-flex($justify-center, $align-center, auto, $gap-10);
-      margin: 10px 0;
       flex-wrap: wrap;
 
       img {
-        width: 30%;
+        width: 25%;
       }
 
       &_description {
-        @include width-height(300px, 200px);
-        margin: 0 16px;
+        @include width-minHeight(300px, 150px);
         color: $color-white;
 
         h2 {
-          text-shadow: 0 0 2px black;
-          font-weight: $weight-900;
+          width: 100%;
+          margin: 0;
+          @include text-weight($text-shadow-black, $weight-900);
         }
 
         p {
+          width: 100%;
           font-family: $font-lightCalibri;
           font-size: 16px;
         }
@@ -78,112 +78,57 @@
 
     &_search {
       @include back-shadow-radius(#be69da, 0 0 15px #be69da, 20px);
-      @include width-minHeight(30%, 200px);
+      @include width-minHeight(30%, 180px);
       @include base-flex($justify-center, $align-center, auto, $gap-10);
       flex-wrap: wrap;
 
       img {
-        width: 32.8%;
+        width: 25%;
       }
 
       &_description {
-        @include width-minHeight(240px, 200px);
-        margin: 0 16px;
+        @include width-minHeight(300px, 150px);
         color: $color-white;
 
         h2 {
+          width: 100%;
+          margin: 0;
           @include text-weight($text-shadow-black, $weight-900);
         }
 
         p {
+          width: 100%;
           font-family: $font-lightCalibri;
           font-size: 16px;
-        }
-
-        &_newWord {
-          font-family: $font-lightCalibri;
-          @include base-flex(auto, auto, $flex-directionR, $gap-5);
-
-          button {
-            transition: $transition1s;
-
-            &:hover {
-              transform: rotateZ(360deg);
-            }
-
-            cursor: $cursor-pointer;
-            @include back-shadow-radius(
-              rgba(32, 30, 30, 0.85),
-              $box-shadow-black,
-              50%
-            );
-            @include width-height(40px, 40px);
-            border: $border-none;
-            font-size: 25px;
-            color: #be69da;
-          }
-
-          section {
-            @include back-shadow-radius($color-white, none, 40px);
-            @include width-height(40px, 40px);
-            transition: $transition1s;
-            overflow: hidden;
-            display: flex;
-
-            input {
-              &::placeholder {
-                color: $color-darkGrey;
-              }
-
-              @include width-height(170px, 40px);
-              border: $border-none;
-              font-size: 15px;
-              outline: none;
-            }
-
-            img {
-              cursor: $cursor-pointer;
-              @include width-height(40px, 40px);
-            }
-          }
-
-          .words_header_search_description_newWord_isActive {
-            width: 220px;
-          }
         }
       }
     }
 
     &_description {
       @include back-shadow-radius(#6e68eb, 0 0 15px #6e68eb, 20px);
-      @include width-minHeight(32%, 200px);
+      @include width-minHeight(30%, 180px);
       @include base-flex($justify-center, $align-center, auto, $gap-10);
       flex-wrap: wrap;
 
-      section {
+      &_words {
+        @include width-minHeight(300px, 150px);
         color: $color-white;
 
         h2 {
-          @include text-weight(0 0 2px black, $weight-900);
+          width: 100%;
+          margin: 0;
+          @include text-weight($text-shadow-black, $weight-900);
         }
 
         p {
+          width: 100%;
           font-family: $font-lightCalibri;
           font-size: 16px;
         }
-
-        @include width-height(300px, 190px);
-        @include base-flex(
-          $justify-start,
-          $align-start,
-          $flex-directionC,
-          auto
-        );
-        margin-left: 16px;
       }
 
       img {
-        width: 30%;
+        width: 25%;
       }
     }
   }
